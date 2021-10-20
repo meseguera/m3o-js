@@ -7,55 +7,43 @@ export class FileService {
     this.client = new m3o.Client({ token: token });
   }
   // Delete a file by project name/path
-  delete(request: FileDeleteRequest): Promise<FileDeleteResponse> {
+  delete(request: DeleteRequest): Promise<DeleteResponse> {
     return this.client.call(
       'file',
       'Delete',
       request
-    ) as Promise<FileDeleteResponse>;
+    ) as Promise<DeleteResponse>;
   }
   // List files by their project and optionally a path.
-  list(request: FileListRequest): Promise<FileListResponse> {
-    return this.client.call(
-      'file',
-      'List',
-      request
-    ) as Promise<FileListResponse>;
+  list(request: ListRequest): Promise<ListResponse> {
+    return this.client.call('file', 'List', request) as Promise<ListResponse>;
   }
   // Read a file by path
-  read(request: FileReadRequest): Promise<FileReadResponse> {
-    return this.client.call(
-      'file',
-      'Read',
-      request
-    ) as Promise<FileReadResponse>;
+  read(request: ReadRequest): Promise<ReadResponse> {
+    return this.client.call('file', 'Read', request) as Promise<ReadResponse>;
   }
   // Save a file
-  save(request: FileSaveRequest): Promise<FileSaveResponse> {
-    return this.client.call(
-      'file',
-      'Save',
-      request
-    ) as Promise<FileSaveResponse>;
+  save(request: SaveRequest): Promise<SaveResponse> {
+    return this.client.call('file', 'Save', request) as Promise<SaveResponse>;
   }
 }
 
-export interface FileBatchSaveRequest {
-  files?: Record<string, unknown>[];
+export interface BatchSaveRequest {
+  files?: Record[];
 }
 
-export interface FileBatchSaveResponse {}
+export interface BatchSaveResponse {}
 
-export interface FileDeleteRequest {
+export interface DeleteRequest {
   // Path to the file
   path?: string;
   // The project name
   project?: string;
 }
 
-export interface FileDeleteResponse {}
+export interface DeleteResponse {}
 
-export interface FileListRequest {
+export interface ListRequest {
   // Defaults to '/', ie. lists all files in a project.
   // Supply path to a folder if you want to list
   // files inside that folder
@@ -65,23 +53,23 @@ export interface FileListRequest {
   project?: string;
 }
 
-export interface FileListResponse {
-  files?: Record<string, unknown>[];
+export interface ListResponse {
+  files?: Record[];
 }
 
-export interface FileReadRequest {
+export interface ReadRequest {
   // Path to the file
   path?: string;
   // Project name
   project?: string;
 }
 
-export interface FileReadResponse {
+export interface ReadResponse {
   // Returns the file
-  file?: Record<string, unknown>;
+  file?: Record;
 }
 
-export interface FileRecord {
+export interface Record {
   // File contents
   content?: string;
   // Time the file was created e.g 2021-05-20T13:37:21Z
@@ -97,8 +85,8 @@ export interface FileRecord {
   updated?: string;
 }
 
-export interface FileSaveRequest {
-  file?: Record<string, unknown>;
+export interface SaveRequest {
+  file?: Record;
 }
 
-export interface FileSaveResponse {}
+export interface SaveResponse {}

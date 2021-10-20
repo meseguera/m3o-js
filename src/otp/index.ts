@@ -7,24 +7,24 @@ export class OtpService {
     this.client = new m3o.Client({ token: token });
   }
   // Generate an OTP (one time pass) code
-  generate(request: OtpGenerateRequest): Promise<OtpGenerateResponse> {
+  generate(request: GenerateRequest): Promise<GenerateResponse> {
     return this.client.call(
       'otp',
       'Generate',
       request
-    ) as Promise<OtpGenerateResponse>;
+    ) as Promise<GenerateResponse>;
   }
   // Validate the OTP code
-  validate(request: OtpValidateRequest): Promise<OtpValidateResponse> {
+  validate(request: ValidateRequest): Promise<ValidateResponse> {
     return this.client.call(
       'otp',
       'Validate',
       request
-    ) as Promise<OtpValidateResponse>;
+    ) as Promise<ValidateResponse>;
   }
 }
 
-export interface OtpGenerateRequest {
+export interface GenerateRequest {
   // expiration in seconds (default: 60)
   expiry?: number;
   // unique id, email or user to generate an OTP for
@@ -33,19 +33,19 @@ export interface OtpGenerateRequest {
   size?: number;
 }
 
-export interface OtpGenerateResponse {
+export interface GenerateResponse {
   // one time pass code
   code?: string;
 }
 
-export interface OtpValidateRequest {
+export interface ValidateRequest {
   // one time pass code to validate
   code?: string;
   // unique id, email or user for which the code was generated
   id?: string;
 }
 
-export interface OtpValidateResponse {
+export interface ValidateResponse {
   // returns true if the code is valid for the ID
   success?: boolean;
 }

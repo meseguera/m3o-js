@@ -7,37 +7,37 @@ export class ForexService {
     this.client = new m3o.Client({ token: token });
   }
   // Returns the data for the previous close
-  history(request: ForexHistoryRequest): Promise<ForexHistoryResponse> {
+  history(request: HistoryRequest): Promise<HistoryResponse> {
     return this.client.call(
       'forex',
       'History',
       request
-    ) as Promise<ForexHistoryResponse>;
+    ) as Promise<HistoryResponse>;
   }
   // Get the latest price for a given forex ticker
-  price(request: ForexPriceRequest): Promise<ForexPriceResponse> {
+  price(request: PriceRequest): Promise<PriceResponse> {
     return this.client.call(
       'forex',
       'Price',
       request
-    ) as Promise<ForexPriceResponse>;
+    ) as Promise<PriceResponse>;
   }
   // Get the latest quote for the forex
-  quote(request: ForexQuoteRequest): Promise<ForexQuoteResponse> {
+  quote(request: QuoteRequest): Promise<QuoteResponse> {
     return this.client.call(
       'forex',
       'Quote',
       request
-    ) as Promise<ForexQuoteResponse>;
+    ) as Promise<QuoteResponse>;
   }
 }
 
-export interface ForexHistoryRequest {
+export interface HistoryRequest {
   // the forex symbol e.g GBPUSD
   symbol?: string;
 }
 
-export interface ForexHistoryResponse {
+export interface HistoryResponse {
   // the close price
   close?: number;
   // the date
@@ -54,24 +54,24 @@ export interface ForexHistoryResponse {
   volume?: number;
 }
 
-export interface ForexPriceRequest {
+export interface PriceRequest {
   // forex symbol e.g GBPUSD
   symbol?: string;
 }
 
-export interface ForexPriceResponse {
+export interface PriceResponse {
   // the last price
   price?: number;
   // the forex symbol e.g GBPUSD
   symbol?: string;
 }
 
-export interface ForexQuoteRequest {
+export interface QuoteRequest {
   // the forex symbol e.g GBPUSD
   symbol?: string;
 }
 
-export interface ForexQuoteResponse {
+export interface QuoteResponse {
   // the asking price
   askPrice?: number;
   // the bidding price

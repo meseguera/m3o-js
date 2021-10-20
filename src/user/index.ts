@@ -7,55 +7,45 @@ export class UserService {
     this.client = new m3o.Client({ token: token });
   }
   // Create a new user account. The email address and username for the account must be unique.
-  create(request: UserCreateRequest): Promise<UserCreateResponse> {
+  create(request: CreateRequest): Promise<CreateResponse> {
     return this.client.call(
       'user',
       'Create',
       request
-    ) as Promise<UserCreateResponse>;
+    ) as Promise<CreateResponse>;
   }
   // Delete an account by id
-  delete(request: UserDeleteRequest): Promise<UserDeleteResponse> {
+  delete(request: DeleteRequest): Promise<DeleteResponse> {
     return this.client.call(
       'user',
       'Delete',
       request
-    ) as Promise<UserDeleteResponse>;
+    ) as Promise<DeleteResponse>;
   }
   // Login using username or email. The response will return a new session for successful login,
   // 401 in the case of login failure and 500 for any other error
-  login(request: UserLoginRequest): Promise<UserLoginResponse> {
-    return this.client.call(
-      'user',
-      'Login',
-      request
-    ) as Promise<UserLoginResponse>;
+  login(request: LoginRequest): Promise<LoginResponse> {
+    return this.client.call('user', 'Login', request) as Promise<LoginResponse>;
   }
   // Logout a user account
-  logout(request: UserLogoutRequest): Promise<UserLogoutResponse> {
+  logout(request: LogoutRequest): Promise<LogoutResponse> {
     return this.client.call(
       'user',
       'Logout',
       request
-    ) as Promise<UserLogoutResponse>;
+    ) as Promise<LogoutResponse>;
   }
   // Read an account by id, username or email. Only one need to be specified.
-  read(request: UserReadRequest): Promise<UserReadResponse> {
-    return this.client.call(
-      'user',
-      'Read',
-      request
-    ) as Promise<UserReadResponse>;
+  read(request: ReadRequest): Promise<ReadResponse> {
+    return this.client.call('user', 'Read', request) as Promise<ReadResponse>;
   }
   // Read a session by the session id. In the event it has expired or is not found and error is returned.
-  readSession(
-    request: UserReadSessionRequest
-  ): Promise<UserReadSessionResponse> {
+  readSession(request: ReadSessionRequest): Promise<ReadSessionResponse> {
     return this.client.call(
       'user',
       'ReadSession',
       request
-    ) as Promise<UserReadSessionResponse>;
+    ) as Promise<ReadSessionResponse>;
   }
   // Send a verification email
   // to the user being signed up. Email from will be from 'support@m3o.com',
@@ -65,45 +55,43 @@ export class UserService {
   // The variable will be replaced with an actual url that will look similar to this:
   // 'https://user.m3o.com/user/verify?token=a-verification-token&rediretUrl=your-redir-url'
   sendVerificationEmail(
-    request: UserSendVerificationEmailRequest
-  ): Promise<UserSendVerificationEmailResponse> {
+    request: SendVerificationEmailRequest
+  ): Promise<SendVerificationEmailResponse> {
     return this.client.call(
       'user',
       'SendVerificationEmail',
       request
-    ) as Promise<UserSendVerificationEmailResponse>;
+    ) as Promise<SendVerificationEmailResponse>;
   }
   // Update the account password
   updatePassword(
-    request: UserUpdatePasswordRequest
-  ): Promise<UserUpdatePasswordResponse> {
+    request: UpdatePasswordRequest
+  ): Promise<UpdatePasswordResponse> {
     return this.client.call(
       'user',
       'UpdatePassword',
       request
-    ) as Promise<UserUpdatePasswordResponse>;
+    ) as Promise<UpdatePasswordResponse>;
   }
   // Update the account username or email
-  update(request: UserUpdateRequest): Promise<UserUpdateResponse> {
+  update(request: UpdateRequest): Promise<UpdateResponse> {
     return this.client.call(
       'user',
       'Update',
       request
-    ) as Promise<UserUpdateResponse>;
+    ) as Promise<UpdateResponse>;
   }
   // Verify the email address of an account from a token sent in an email to the user.
-  verifyEmail(
-    request: UserVerifyEmailRequest
-  ): Promise<UserVerifyEmailResponse> {
+  verifyEmail(request: VerifyEmailRequest): Promise<VerifyEmailResponse> {
     return this.client.call(
       'user',
       'VerifyEmail',
       request
-    ) as Promise<UserVerifyEmailResponse>;
+    ) as Promise<VerifyEmailResponse>;
   }
 }
 
-export interface UserAccount {
+export interface Account {
   // unix timestamp
   created?: number;
   // an email address
@@ -120,7 +108,7 @@ export interface UserAccount {
   verified?: boolean;
 }
 
-export interface UserCreateRequest {
+export interface CreateRequest {
   // the email address
   email?: string;
   // optional account id
@@ -133,18 +121,18 @@ export interface UserCreateRequest {
   username?: string;
 }
 
-export interface UserCreateResponse {
+export interface CreateResponse {
   account?: { [key: string]: any };
 }
 
-export interface UserDeleteRequest {
+export interface DeleteRequest {
   // the account id
   id?: string;
 }
 
-export interface UserDeleteResponse {}
+export interface DeleteResponse {}
 
-export interface UserLoginRequest {
+export interface LoginRequest {
   // The email address of the user
   email?: string;
   // The password of the user
@@ -153,18 +141,18 @@ export interface UserLoginRequest {
   username?: string;
 }
 
-export interface UserLoginResponse {
+export interface LoginResponse {
   // The session of the logged in  user
   session?: { [key: string]: any };
 }
 
-export interface UserLogoutRequest {
+export interface LogoutRequest {
   sessionId?: string;
 }
 
-export interface UserLogoutResponse {}
+export interface LogoutResponse {}
 
-export interface UserReadRequest {
+export interface ReadRequest {
   // the account email
   email?: string;
   // the account id
@@ -173,20 +161,20 @@ export interface UserReadRequest {
   username?: string;
 }
 
-export interface UserReadResponse {
+export interface ReadResponse {
   account?: { [key: string]: any };
 }
 
-export interface UserReadSessionRequest {
+export interface ReadSessionRequest {
   // The unique session id
   sessionId?: string;
 }
 
-export interface UserReadSessionResponse {
+export interface ReadSessionResponse {
   session?: { [key: string]: any };
 }
 
-export interface UserSendVerificationEmailRequest {
+export interface SendVerificationEmailRequest {
   email?: string;
   failureRedirectUrl?: string;
   // Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
@@ -198,9 +186,9 @@ export interface UserSendVerificationEmailRequest {
   textContent?: string;
 }
 
-export interface UserSendVerificationEmailResponse {}
+export interface SendVerificationEmailResponse {}
 
-export interface UserSession {
+export interface Session {
   // unix timestamp
   created?: number;
   // unix timestamp
@@ -211,7 +199,7 @@ export interface UserSession {
   userId?: string;
 }
 
-export interface UserUpdatePasswordRequest {
+export interface UpdatePasswordRequest {
   // confirm new password
   confirmPassword?: string;
   // the new password
@@ -222,9 +210,9 @@ export interface UserUpdatePasswordRequest {
   userId?: string;
 }
 
-export interface UserUpdatePasswordResponse {}
+export interface UpdatePasswordResponse {}
 
-export interface UserUpdateRequest {
+export interface UpdateRequest {
   // the new email address
   email?: string;
   // the account id
@@ -235,11 +223,11 @@ export interface UserUpdateRequest {
   username?: string;
 }
 
-export interface UserUpdateResponse {}
+export interface UpdateResponse {}
 
-export interface UserVerifyEmailRequest {
+export interface VerifyEmailRequest {
   // The token from the verification email
   token?: string;
 }
 
-export interface UserVerifyEmailResponse {}
+export interface VerifyEmailResponse {}

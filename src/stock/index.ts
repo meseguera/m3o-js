@@ -7,47 +7,47 @@ export class StockService {
     this.client = new m3o.Client({ token: token });
   }
   // Get the historic open-close for a given day
-  history(request: StockHistoryRequest): Promise<StockHistoryResponse> {
+  history(request: HistoryRequest): Promise<HistoryResponse> {
     return this.client.call(
       'stock',
       'History',
       request
-    ) as Promise<StockHistoryResponse>;
+    ) as Promise<HistoryResponse>;
   }
   // Get the historic order book and each trade by timestamp
-  orderBook(request: StockOrderBookRequest): Promise<StockOrderBookResponse> {
+  orderBook(request: OrderBookRequest): Promise<OrderBookResponse> {
     return this.client.call(
       'stock',
       'OrderBook',
       request
-    ) as Promise<StockOrderBookResponse>;
+    ) as Promise<OrderBookResponse>;
   }
   // Get the last price for a given stock ticker
-  price(request: StockPriceRequest): Promise<StockPriceResponse> {
+  price(request: PriceRequest): Promise<PriceResponse> {
     return this.client.call(
       'stock',
       'Price',
       request
-    ) as Promise<StockPriceResponse>;
+    ) as Promise<PriceResponse>;
   }
   // Get the last quote for the stock
-  quote(request: StockQuoteRequest): Promise<StockQuoteResponse> {
+  quote(request: QuoteRequest): Promise<QuoteResponse> {
     return this.client.call(
       'stock',
       'Quote',
       request
-    ) as Promise<StockQuoteResponse>;
+    ) as Promise<QuoteResponse>;
   }
 }
 
-export interface StockHistoryRequest {
+export interface HistoryRequest {
   // date to retrieve as YYYY-MM-DD
   date?: string;
   // the stock symbol e.g AAPL
   stock?: string;
 }
 
-export interface StockHistoryResponse {
+export interface HistoryResponse {
   // the close price
   close?: number;
   // the date
@@ -64,7 +64,7 @@ export interface StockHistoryResponse {
   volume?: number;
 }
 
-export interface StockOrder {
+export interface Order {
   // the asking price
   askPrice?: number;
   // the ask size
@@ -77,7 +77,7 @@ export interface StockOrder {
   timestamp?: string;
 }
 
-export interface StockOrderBookRequest {
+export interface OrderBookRequest {
   // the date in format YYYY-MM-dd
   date?: string;
   // optional RFC3339Nano end time e.g 2006-01-02T15:04:05.999999999Z07:00
@@ -90,33 +90,33 @@ export interface StockOrderBookRequest {
   stock?: string;
 }
 
-export interface StockOrderBookResponse {
+export interface OrderBookResponse {
   // date of the request
   date?: string;
   // list of orders
-  orders?: StockOrder[];
+  orders?: Order[];
   // the stock symbol
   symbol?: string;
 }
 
-export interface StockPriceRequest {
+export interface PriceRequest {
   // stock symbol e.g AAPL
   symbol?: string;
 }
 
-export interface StockPriceResponse {
+export interface PriceResponse {
   // the last price
   price?: number;
   // the stock symbol e.g AAPL
   symbol?: string;
 }
 
-export interface StockQuoteRequest {
+export interface QuoteRequest {
   // the stock symbol e.g AAPL
   symbol?: string;
 }
 
-export interface StockQuoteResponse {
+export interface QuoteResponse {
   // the asking price
   askPrice?: number;
   // the ask size

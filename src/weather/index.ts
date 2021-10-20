@@ -7,24 +7,20 @@ export class WeatherService {
     this.client = new m3o.Client({ token: token });
   }
   // Get the weather forecast for the next 1-10 days
-  forecast(request: WeatherForecastRequest): Promise<WeatherForecastResponse> {
+  forecast(request: ForecastRequest): Promise<ForecastResponse> {
     return this.client.call(
       'weather',
       'Forecast',
       request
-    ) as Promise<WeatherForecastResponse>;
+    ) as Promise<ForecastResponse>;
   }
   // Get the current weather report for a location by postcode, city, zip code, ip address
-  now(request: WeatherNowRequest): Promise<WeatherNowResponse> {
-    return this.client.call(
-      'weather',
-      'Now',
-      request
-    ) as Promise<WeatherNowResponse>;
+  now(request: NowRequest): Promise<NowResponse> {
+    return this.client.call('weather', 'Now', request) as Promise<NowResponse>;
   }
 }
 
-export interface WeatherForecast {
+export interface Forecast {
   // the average temp in celsius
   avgTempC?: number;
   // the average temp in fahrenheit
@@ -53,14 +49,14 @@ export interface WeatherForecast {
   willItRain?: boolean;
 }
 
-export interface WeatherForecastRequest {
+export interface ForecastRequest {
   // number of days. default 1, max 10
   days?: number;
   // location of the forecase
   location?: string;
 }
 
-export interface WeatherForecastResponse {
+export interface ForecastResponse {
   // country of the request
   country?: string;
   // forecast for the next number of days
@@ -106,12 +102,12 @@ export interface WeatherForecastResponse {
   timezone?: string;
 }
 
-export interface WeatherNowRequest {
+export interface NowRequest {
   // location to get weather e.g postcode, city
   location?: string;
 }
 
-export interface WeatherNowResponse {
+export interface NowResponse {
   // cloud cover percentage
   cloud?: number;
   // the weather condition

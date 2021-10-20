@@ -8,35 +8,35 @@ export class ImageService {
   }
   // Convert an image from one format (jpeg, png etc.) to an other either on the fly (from base64 to base64),
   // or by uploading the conversion result.
-  convert(request: ImageConvertRequest): Promise<ImageConvertResponse> {
+  convert(request: ConvertRequest): Promise<ConvertResponse> {
     return this.client.call(
       'image',
       'Convert',
       request
-    ) as Promise<ImageConvertResponse>;
+    ) as Promise<ConvertResponse>;
   }
   // Resize an image on the fly without storing it (by sending and receiving a base64 encoded image), or resize and upload depending on parameters.
   // If one of width or height is 0, the image aspect ratio is preserved.
   // Optional cropping.
-  resize(request: ImageResizeRequest): Promise<ImageResizeResponse> {
+  resize(request: ResizeRequest): Promise<ResizeResponse> {
     return this.client.call(
       'image',
       'Resize',
       request
-    ) as Promise<ImageResizeResponse>;
+    ) as Promise<ResizeResponse>;
   }
   // Upload an image by either sending a base64 encoded image to this endpoint or a URL.
   // To resize an image before uploading, see the Resize endpoint.
-  upload(request: ImageUploadRequest): Promise<ImageUploadResponse> {
+  upload(request: UploadRequest): Promise<UploadResponse> {
     return this.client.call(
       'image',
       'Upload',
       request
-    ) as Promise<ImageUploadResponse>;
+    ) as Promise<UploadResponse>;
   }
 }
 
-export interface ImageConvertRequest {
+export interface ConvertRequest {
   // base64 encoded image to resize,
   // ie. "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
   base64?: string;
@@ -48,12 +48,12 @@ export interface ImageConvertRequest {
   url?: string;
 }
 
-export interface ImageConvertResponse {
+export interface ConvertResponse {
   base64?: string;
   url?: string;
 }
 
-export interface ImageCropOptions {
+export interface CropOptions {
   // Crop anchor point: "top", "top left", "top right",
   // "left", "center", "right"
   // "bottom left", "bottom", "bottom right".
@@ -65,24 +65,24 @@ export interface ImageCropOptions {
   width?: number;
 }
 
-export interface ImagePoint {
+export interface Point {
   x?: number;
   y?: number;
 }
 
-export interface ImageRectangle {
-  max?: ImagePoint;
-  min?: ImagePoint;
+export interface Rectangle {
+  max?: Point;
+  min?: Point;
 }
 
-export interface ImageResizeRequest {
+export interface ResizeRequest {
   // base64 encoded image to resize,
   // ie. "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
   base64?: string;
   // optional crop options
   // if provided, after resize, the image
   // will be cropped
-  cropOptions?: ImageCropOptions;
+  cropOptions?: CropOptions;
   height?: number;
   // output name of the image including extension, ie. "cat.png"
   name?: string;
@@ -93,12 +93,12 @@ export interface ImageResizeRequest {
   width?: number;
 }
 
-export interface ImageResizeResponse {
+export interface ResizeResponse {
   base64?: string;
   url?: string;
 }
 
-export interface ImageUploadRequest {
+export interface UploadRequest {
   // Base64 encoded image to upload,
   // ie. "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
   base64?: string;
@@ -108,6 +108,6 @@ export interface ImageUploadRequest {
   url?: string;
 }
 
-export interface ImageUploadResponse {
+export interface UploadResponse {
   url?: string;
 }
