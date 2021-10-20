@@ -3,11 +3,9 @@
   "version": "1.0.1",
   "description": "",
   "main": "lib/m3o.js",
-  "unpkg": "dist/m3o.js",
   "module": "es/m3o.js",
   "types": "types/index.d.ts",
   "files": [
-    "dist",
     "lib",
     "es",
     "src",
@@ -23,8 +21,7 @@
     "format": "prettier --write \"{src,test}/**/*.{js,ts}\" \"**/*.md\"",
     "format:check": "prettier --list-different \"{src,test}/**/*.{js,ts}\" \"**/*.md\"",
     "build": "rollup -c",
-    "prepare": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "npm run build"
   },
   "dependencies": {
     "@babel/runtime": "^7.15.4",
@@ -49,14 +46,5 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0",
     "typescript": "^3.5.1"
-  },
-  "npmName": "m3o",
-  "npmFileMap": [
-    {
-      "basePath": "/dist/",
-      "files": [
-        "*.js"
-      ]
-    }
-  ]
+  }
 }
