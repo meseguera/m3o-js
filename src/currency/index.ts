@@ -7,15 +7,15 @@ export class CurrencyService {
     this.client = new m3o.Client({ token: token });
   }
   // Codes returns the supported currency codes for the API
-  codes(request: CodesRequest): Promise<CodesResponse> {
+  codes(request: CurrencyCodesRequest): Promise<CurrencyCodesResponse> {
     return this.client.call(
       'currency',
       'Codes',
       request
-    ) as Promise<CodesResponse>;
+    ) as Promise<CurrencyCodesResponse>;
   }
   // Convert returns the currency conversion rate between two pairs e.g USD/GBP
-  convert(request: ConvertRequest): Promise<ConvertResponse> {
+  convert(request: CurrencyConvertRequest): Promise<ConvertResponse> {
     return this.client.call(
       'currency',
       'Convert',
@@ -23,37 +23,37 @@ export class CurrencyService {
     ) as Promise<ConvertResponse>;
   }
   // Returns the historic rates for a currency on a given date
-  history(request: HistoryRequest): Promise<HistoryResponse> {
+  history(request: CurrencyHistoryRequest): Promise<CurrencyHistoryResponse> {
     return this.client.call(
       'currency',
       'History',
       request
-    ) as Promise<HistoryResponse>;
+    ) as Promise<CurrencyHistoryResponse>;
   }
   // Rates returns the currency rates for a given code e.g USD
-  rates(request: RatesRequest): Promise<RatesResponse> {
+  rates(request: CurrencyRatesRequest): Promise<CurrencyRatesResponse> {
     return this.client.call(
       'currency',
       'Rates',
       request
-    ) as Promise<RatesResponse>;
+    ) as Promise<CurrencyRatesResponse>;
   }
 }
 
-export interface Code {
+export interface CurrencyCode {
   // e.g United States Dollar
   currency?: string;
   // e.g USD
   name?: string;
 }
 
-export interface CodesRequest {}
+export interface CurrencyCodesRequest {}
 
-export interface CodesResponse {
-  codes?: Code[];
+export interface CurrencyCodesResponse {
+  codes?: CurrencyCode[];
 }
 
-export interface ConvertRequest {
+export interface CurrencyConvertRequest {
   // optional amount to convert e.g 10.0
   amount?: number;
   // base code to convert from e.g USD
@@ -73,14 +73,14 @@ export interface ConvertResponse {
   to?: string;
 }
 
-export interface HistoryRequest {
+export interface CurrencyHistoryRequest {
   // currency code e.g USD
   code?: string;
   // date formatted as YYYY-MM-DD
   date?: string;
 }
 
-export interface HistoryResponse {
+export interface CurrencyHistoryResponse {
   // The code of the request
   code?: string;
   // The date requested
@@ -89,12 +89,12 @@ export interface HistoryResponse {
   rates?: { [key: string]: number };
 }
 
-export interface RatesRequest {
+export interface CurrencyRatesRequest {
   // The currency code to get rates for e.g USD
   code?: string;
 }
 
-export interface RatesResponse {
+export interface CurrencyRatesResponse {
   // The code requested e.g USD
   code?: string;
   // The rates for the given code as key-value pairs code:rate

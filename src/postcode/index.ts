@@ -7,37 +7,39 @@ export class PostcodeService {
     this.client = new m3o.Client({ token: token });
   }
   // Lookup a postcode to retrieve the related region, county, etc
-  lookup(request: LookupRequest): Promise<LookupResponse> {
+  lookup(request: PostcodeLookupRequest): Promise<PostcodeLookupResponse> {
     return this.client.call(
       'postcode',
       'Lookup',
       request
-    ) as Promise<LookupResponse>;
+    ) as Promise<PostcodeLookupResponse>;
   }
   // Return a random postcode and its related info
-  random(request: RandomRequest): Promise<RandomResponse> {
+  random(request: PostcodeRandomRequest): Promise<PostcodeRandomResponse> {
     return this.client.call(
       'postcode',
       'Random',
       request
-    ) as Promise<RandomResponse>;
+    ) as Promise<PostcodeRandomResponse>;
   }
   // Validate a postcode.
-  validate(request: ValidateRequest): Promise<ValidateResponse> {
+  validate(
+    request: PostcodeValidateRequest
+  ): Promise<PostcodeValidateResponse> {
     return this.client.call(
       'postcode',
       'Validate',
       request
-    ) as Promise<ValidateResponse>;
+    ) as Promise<PostcodeValidateResponse>;
   }
 }
 
-export interface LookupRequest {
+export interface PostcodeLookupRequest {
   // UK postcode e.g SW1A 2AA
   postcode?: string;
 }
 
-export interface LookupResponse {
+export interface PostcodeLookupResponse {
   // country e.g United Kingdom
   country?: string;
   // e.g Westminster
@@ -54,9 +56,9 @@ export interface LookupResponse {
   ward?: string;
 }
 
-export interface RandomRequest {}
+export interface PostcodeRandomRequest {}
 
-export interface RandomResponse {
+export interface PostcodeRandomResponse {
   // country e.g United Kingdom
   country?: string;
   // e.g Westminster
@@ -73,12 +75,12 @@ export interface RandomResponse {
   ward?: string;
 }
 
-export interface ValidateRequest {
+export interface PostcodeValidateRequest {
   // UK postcode e.g SW1A 2AA
   postcode?: string;
 }
 
-export interface ValidateResponse {
+export interface PostcodeValidateResponse {
   // Is the postcode valid (true) or not (false)
   valid?: boolean;
 }

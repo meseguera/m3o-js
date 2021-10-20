@@ -7,12 +7,12 @@ export class SmsService {
     this.client = new m3o.Client({ token: token });
   }
   // Send an SMS.
-  send(request: SendRequest): Promise<SendResponse> {
-    return this.client.call('sms', 'Send', request) as Promise<SendResponse>;
+  send(request: SmsSendRequest): Promise<SmsSendResponse> {
+    return this.client.call('sms', 'Send', request) as Promise<SmsSendResponse>;
   }
 }
 
-export interface SendRequest {
+export interface SmsSendRequest {
   // who is the message from? The message will be suffixed with "Sent from <from>"
   from?: string;
   // the main body of the message to send
@@ -21,7 +21,7 @@ export interface SendRequest {
   to?: string;
 }
 
-export interface SendResponse {
+export interface SmsSendResponse {
   // any additional info
   info?: string;
   // will return "ok" if successful

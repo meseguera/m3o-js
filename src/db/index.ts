@@ -7,53 +7,65 @@ export class DbService {
     this.client = new m3o.Client({ token: token });
   }
   // Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
-  create(request: CreateRequest): Promise<CreateResponse> {
-    return this.client.call('db', 'Create', request) as Promise<CreateResponse>;
+  create(request: DbCreateRequest): Promise<DbCreateResponse> {
+    return this.client.call(
+      'db',
+      'Create',
+      request
+    ) as Promise<DbCreateResponse>;
   }
   // Delete a record in the database by id.
-  delete(request: DeleteRequest): Promise<DeleteResponse> {
-    return this.client.call('db', 'Delete', request) as Promise<DeleteResponse>;
+  delete(request: DbDeleteRequest): Promise<DbDeleteResponse> {
+    return this.client.call(
+      'db',
+      'Delete',
+      request
+    ) as Promise<DbDeleteResponse>;
   }
   // Read data from a table. Lookup can be by ID or via querying any field in the record.
-  read(request: ReadRequest): Promise<ReadResponse> {
-    return this.client.call('db', 'Read', request) as Promise<ReadResponse>;
+  read(request: DbReadRequest): Promise<DbReadResponse> {
+    return this.client.call('db', 'Read', request) as Promise<DbReadResponse>;
   }
   // Truncate the records in a table
-  truncate(request: TruncateRequest): Promise<TruncateResponse> {
+  truncate(request: DbTruncateRequest): Promise<DbTruncateResponse> {
     return this.client.call(
       'db',
       'Truncate',
       request
-    ) as Promise<TruncateResponse>;
+    ) as Promise<DbTruncateResponse>;
   }
   // Update a record in the database. Include an "id" in the record to update.
-  update(request: UpdateRequest): Promise<UpdateResponse> {
-    return this.client.call('db', 'Update', request) as Promise<UpdateResponse>;
+  update(request: DbUpdateRequest): Promise<DbUpdateResponse> {
+    return this.client.call(
+      'db',
+      'Update',
+      request
+    ) as Promise<DbUpdateResponse>;
   }
 }
 
-export interface CreateRequest {
+export interface DbCreateRequest {
   // JSON encoded record or records (can be array or object)
   record?: { [key: string]: any };
   // Optional table name. Defaults to 'default'
   table?: string;
 }
 
-export interface CreateResponse {
+export interface DbCreateResponse {
   // The id of the record (either specified or automatically created)
   id?: string;
 }
 
-export interface DeleteRequest {
+export interface DbDeleteRequest {
   // id of the record
   id?: string;
   // Optional table name. Defaults to 'default'
   table?: string;
 }
 
-export interface DeleteResponse {}
+export interface DbDeleteResponse {}
 
-export interface ReadRequest {
+export interface DbReadRequest {
   // Read by id. Equivalent to 'id == "your-id"'
   id?: string;
   // Maximum number of records to return. Default limit is 25.
@@ -74,22 +86,22 @@ export interface ReadRequest {
   table?: string;
 }
 
-export interface ReadResponse {
+export interface DbReadResponse {
   // JSON encoded records
   records?: { [key: string]: any };
 }
 
-export interface TruncateRequest {
+export interface DbTruncateRequest {
   // Optional table name. Defaults to 'default'
   table?: string;
 }
 
-export interface TruncateResponse {
+export interface DbTruncateResponse {
   // The table truncated
   table?: string;
 }
 
-export interface UpdateRequest {
+export interface DbUpdateRequest {
   // The id of the record. If not specified it is inferred from the 'id' field of the record
   id?: string;
   // record, JSON object
@@ -98,4 +110,4 @@ export interface UpdateRequest {
   table?: string;
 }
 
-export interface UpdateResponse {}
+export interface DbUpdateResponse {}

@@ -7,28 +7,34 @@ export class RoutingService {
     this.client = new m3o.Client({ token: token });
   }
   // Turn by turn directions from a start point to an end point including maneuvers and bearings
-  directions(request: DirectionsRequest): Promise<DirectionsResponse> {
+  directions(
+    request: RoutingDirectionsRequest
+  ): Promise<RoutingDirectionsResponse> {
     return this.client.call(
       'routing',
       'Directions',
       request
-    ) as Promise<DirectionsResponse>;
+    ) as Promise<RoutingDirectionsResponse>;
   }
   // Get the eta for a route from origin to destination. The eta is an estimated time based on car routes
-  eta(request: EtaRequest): Promise<EtaResponse> {
-    return this.client.call('routing', 'Eta', request) as Promise<EtaResponse>;
+  eta(request: RoutingEtaRequest): Promise<RoutingEtaResponse> {
+    return this.client.call(
+      'routing',
+      'Eta',
+      request
+    ) as Promise<RoutingEtaResponse>;
   }
   // Retrieve a route as a simple list of gps points along with total distance and estimated duration
-  route(request: RouteRequest): Promise<RouteResponse> {
+  route(request: RoutingRouteRequest): Promise<RoutingRouteResponse> {
     return this.client.call(
       'routing',
       'Route',
       request
-    ) as Promise<RouteResponse>;
+    ) as Promise<RoutingRouteResponse>;
   }
 }
 
-export interface Direction {
+export interface RoutingDirection {
   // distance to travel in meters
   distance?: number;
   // duration to travel in seconds
@@ -36,7 +42,7 @@ export interface Direction {
   // human readable instruction
   instruction?: string;
   // intersections on route
-  intersections?: Intersection[];
+  intersections?: RoutingIntersection[];
   // maneuver to take
   maneuver?: { [key: string]: any };
   // street name or location
@@ -45,79 +51,79 @@ export interface Direction {
   reference?: string;
 }
 
-export interface DirectionsRequest {
+export interface RoutingDirectionsRequest {
   // The destination of the journey
-  destination?: Point;
+  destination?: RoutingPoint;
   // The staring point for the journey
-  origin?: Point;
+  origin?: RoutingPoint;
 }
 
-export interface DirectionsResponse {
+export interface RoutingDirectionsResponse {
   // Turn by turn directions
-  directions?: Direction[];
+  directions?: RoutingDirection[];
   // Estimated distance of the route in meters
   distance?: number;
   // Estimated duration of the route in seconds
   duration?: number;
   // The waypoints on the route
-  waypoints?: Waypoint[];
+  waypoints?: RoutingWaypoint[];
 }
 
-export interface EtaRequest {
+export interface RoutingEtaRequest {
   // The end point for the eta calculation
-  destination?: Point;
+  destination?: RoutingPoint;
   // The starting point for the eta calculation
-  origin?: Point;
+  origin?: RoutingPoint;
   // speed in kilometers
   speed?: number;
   // type of transport. Only "car" is supported currently.
   type?: string;
 }
 
-export interface EtaResponse {
+export interface RoutingEtaResponse {
   // eta in seconds
   duration?: number;
 }
 
-export interface Intersection {
+export interface RoutingIntersection {
   bearings?: number[];
-  location?: Point;
+  location?: RoutingPoint;
 }
 
-export interface Maneuver {
+export interface RoutingManeuver {
   action?: string;
   bearingAfter?: number;
   bearingBefore?: number;
   direction?: string;
-  location?: Point;
+  location?: RoutingPoint;
 }
 
-export interface Point {
+export interface RoutingPoint {
   // Lat e.g 52.523219
   latitude?: number;
   // Long e.g 13.428555
   longitude?: number;
 }
 
-export interface RouteRequest {
+export interface RoutingRouteRequest {
   // Point of destination for the trip
-  destination?: Point;
+  destination?: RoutingPoint;
   // Point of origin for the trip
-  origin?: Point;
+  origin?: RoutingPoint;
 }
 
-export interface RouteResponse {
+export interface RoutingRouteResponse {
   // estimated distance in meters
   distance?: number;
   // estimated duration in seconds
   duration?: number;
   // waypoints on the route
-  waypoints?: Waypoint[];
+  waypoints?: RoutingWaypoint[];
 }
 
-export interface Waypoint {
+export interface RoutingWaypoint {
   // gps point coordinates
-  location?: Point;
+  location?: RoutingPoint;
   // street name or related reference
   name?: string;
 }

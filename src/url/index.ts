@@ -7,51 +7,55 @@ export class UrlService {
     this.client = new m3o.Client({ token: token });
   }
   // List information on all the shortened URLs that you have created
-  list(request: ListRequest): Promise<ListResponse> {
-    return this.client.call('url', 'List', request) as Promise<ListResponse>;
+  list(request: UrlListRequest): Promise<UrlListResponse> {
+    return this.client.call('url', 'List', request) as Promise<UrlListResponse>;
   }
   // Proxy returns the destination URL of a short URL.
-  proxy(request: ProxyRequest): Promise<ProxyResponse> {
-    return this.client.call('url', 'Proxy', request) as Promise<ProxyResponse>;
+  proxy(request: UrlProxyRequest): Promise<UrlProxyResponse> {
+    return this.client.call(
+      'url',
+      'Proxy',
+      request
+    ) as Promise<UrlProxyResponse>;
   }
   // Shortens a destination URL and returns a full short URL.
-  shorten(request: ShortenRequest): Promise<ShortenResponse> {
+  shorten(request: UrlShortenRequest): Promise<UrlShortenResponse> {
     return this.client.call(
       'url',
       'Shorten',
       request
-    ) as Promise<ShortenResponse>;
+    ) as Promise<UrlShortenResponse>;
   }
 }
 
-export interface ListRequest {
+export interface UrlListRequest {
   // filter by short URL, optional
   shortURL?: string;
 }
 
-export interface ListResponse {
-  urlPairs?: URLPair;
+export interface UrlListResponse {
+  urlPairs?: UrlURLPair;
 }
 
-export interface ProxyRequest {
+export interface UrlProxyRequest {
   // short url ID, without the domain, eg. if your short URL is
   // `m3o.one/u/someshorturlid` then pass in `someshorturlid`
   shortURL?: string;
 }
 
-export interface ProxyResponse {
+export interface UrlProxyResponse {
   destinationURL?: string;
 }
 
-export interface ShortenRequest {
+export interface UrlShortenRequest {
   destinationURL?: string;
 }
 
-export interface ShortenResponse {
+export interface UrlShortenResponse {
   shortURL?: string;
 }
 
-export interface URLPair {
+export interface UrlURLPair {
   created?: number;
   destinationURL?: string;
   // HitCount keeps track many times the short URL has been resolved.
