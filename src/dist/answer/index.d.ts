@@ -1,13 +1,13 @@
 export declare class AnswerService {
-    private client;
-    constructor(token: string);
-    question(request: QuestionRequest): Promise<QuestionResponse>;
+  private client;
+  constructor(token: string);
+  question(request: QuestionRequest): Promise<QuestionResponse>;
 }
 export interface QuestionRequest {
-    query?: string;
+  query?: string;
 }
 export interface QuestionResponse {
-    answer?: string;
-    image?: string;
-    url?: string;
+  answer?: string;
+  image?: string;
+  url?: string;
 }
