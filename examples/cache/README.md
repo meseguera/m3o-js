@@ -4,6 +4,27 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Cache/api](htt
 
 Endpoints:
 
+## Get
+
+Get an item from the cache by key
+
+
+[https://m3o.com/cache/api#Get](https://m3o.com/cache/api#Get)
+
+```js
+const { CacheService } = require('m3o/cache');
+
+// Get an item from the cache by key
+async function getAvalue() {
+	let cacheService = new CacheService(process.env.M3O_API_TOKEN)
+	let rsp = await cacheService.get({
+  "key": "foo"
+})
+	console.log(rsp)
+}
+
+getAvalue()
+```
 ## Delete
 
 Delete a value from the cache
@@ -90,25 +111,4 @@ async function setAvalue() {
 }
 
 setAvalue()
-```
-## Get
-
-Get an item from the cache by key
-
-
-[https://m3o.com/cache/api#Get](https://m3o.com/cache/api#Get)
-
-```js
-const { CacheService } = require('m3o/cache');
-
-// Get an item from the cache by key
-async function getAvalue() {
-	let cacheService = new CacheService(process.env.M3O_API_TOKEN)
-	let rsp = await cacheService.get({
-  "key": "foo"
-})
-	console.log(rsp)
-}
-
-getAvalue()
 ```
