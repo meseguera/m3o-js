@@ -4,6 +4,49 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Stock/api](htt
 
 Endpoints:
 
+## Quote
+
+Get the last quote for the stock
+
+
+[https://m3o.com/stock/api#Quote](https://m3o.com/stock/api#Quote)
+
+```js
+const { StockService } = require('m3o/stock');
+
+// Get the last quote for the stock
+async function getAstockQuote() {
+	let stockService = new StockService(process.env.M3O_API_TOKEN)
+	let rsp = await stockService.quote({
+  "symbol": "AAPL"
+})
+	console.log(rsp)
+}
+
+getAstockQuote()
+```
+## History
+
+Get the historic open-close for a given day
+
+
+[https://m3o.com/stock/api#History](https://m3o.com/stock/api#History)
+
+```js
+const { StockService } = require('m3o/stock');
+
+// Get the historic open-close for a given day
+async function getHistoricData() {
+	let stockService = new StockService(process.env.M3O_API_TOKEN)
+	let rsp = await stockService.history({
+  "date": "2020-10-01",
+  "stock": "AAPL"
+})
+	console.log(rsp)
+}
+
+getHistoricData()
+```
 ## OrderBook
 
 Get the historic order book and each trade by timestamp
@@ -49,47 +92,4 @@ async function getAstockPrice() {
 }
 
 getAstockPrice()
-```
-## Quote
-
-Get the last quote for the stock
-
-
-[https://m3o.com/stock/api#Quote](https://m3o.com/stock/api#Quote)
-
-```js
-const { StockService } = require('m3o/stock');
-
-// Get the last quote for the stock
-async function getAstockQuote() {
-	let stockService = new StockService(process.env.M3O_API_TOKEN)
-	let rsp = await stockService.quote({
-  "symbol": "AAPL"
-})
-	console.log(rsp)
-}
-
-getAstockQuote()
-```
-## History
-
-Get the historic open-close for a given day
-
-
-[https://m3o.com/stock/api#History](https://m3o.com/stock/api#History)
-
-```js
-const { StockService } = require('m3o/stock');
-
-// Get the historic open-close for a given day
-async function getHistoricData() {
-	let stockService = new StockService(process.env.M3O_API_TOKEN)
-	let rsp = await stockService.history({
-  "date": "2020-10-01",
-  "stock": "AAPL"
-})
-	console.log(rsp)
-}
-
-getHistoricData()
 ```
