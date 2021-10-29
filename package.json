@@ -26,7 +26,7 @@
   "url": "https://github.com/m3o/m3o-js"
  },
  "scripts": {
-  "build": "npm run clean && tsc && tsc --p tsconfig.es.json && node build.js",
+  "build": "npm run clean \u0026\u0026 tsc \u0026\u0026 tsc --p tsconfig.es.json \u0026\u0026 node build.js",
   "clean": "rimraf ./tmp",
   "prepare": "npm run build"
  },
