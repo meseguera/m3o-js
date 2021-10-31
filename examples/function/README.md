@@ -4,28 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Function/api](
 
 Endpoints:
 
-## Delete
-
-Delete a function by name
-
-
-[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-// Delete a function by name
-async function deleteAfunction() {
-	let functionService = new FunctionService(process.env.M3O_API_TOKEN)
-	let rsp = await functionService.delete({
-  "name": "my-first-func",
-  "project": "tests"
-})
-	console.log(rsp)
-}
-
-deleteAfunction()
-```
 ## Describe
 
 Get the info for a deployed function
@@ -113,4 +91,26 @@ async function listFunctions() {
 }
 
 listFunctions()
+```
+## Delete
+
+Delete a function by name
+
+
+[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+// Delete a function by name
+async function deleteAfunction() {
+	let functionService = new FunctionService(process.env.M3O_API_TOKEN)
+	let rsp = await functionService.delete({
+  "name": "my-first-func",
+  "project": "tests"
+})
+	console.log(rsp)
+}
+
+deleteAfunction()
 ```
