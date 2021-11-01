@@ -105,7 +105,7 @@ export interface SubscribeRequest {
 }
 
 export interface SubscribeResponse {
-  // the event which occured; created, deleted, updated
+  // the event which occured; create, delete, update
   event?: string;
   // the note which the operation occured on
   note?: { [key: string]: any };
