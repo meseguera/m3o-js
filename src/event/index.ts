@@ -6,7 +6,7 @@ export class EventService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  // Publish a message to the event. Specify a topic to group messages for a specific topic.
+  // Publish a message to the event stream.
   publish(request: PublishRequest): Promise<PublishResponse> {
     return this.client.call(
       "event",

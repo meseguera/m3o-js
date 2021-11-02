@@ -6,7 +6,7 @@ Endpoints:
 
 ## Publish
 
-Publish a message to the event. Specify a topic to group messages for a specific topic.
+Publish a message to the event stream.
 
 
 [https://m3o.com/event/api#Publish](https://m3o.com/event/api#Publish)
@@ -14,7 +14,7 @@ Publish a message to the event. Specify a topic to group messages for a specific
 ```js
 const { EventService } = require('m3o/event');
 
-// Publish a message to the event. Specify a topic to group messages for a specific topic.
+// Publish a message to the event stream.
 async function publishAmessage() {
 	let eventService = new EventService(process.env.M3O_API_TOKEN)
 	let rsp = await eventService.publish({
