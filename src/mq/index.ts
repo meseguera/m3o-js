@@ -6,7 +6,7 @@ export class MqService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  // Publish a message to the mq. Specify a topic to group messages for a specific topic.
+  // Publish a message. Specify a topic to group messages for a specific topic.
   publish(request: PublishRequest): Promise<PublishResponse> {
     return this.client.call(
       "mq",

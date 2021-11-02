@@ -8,6 +8,4 @@ index.js
 index.d.ts
 esm
 .npmrc
-npmrcesm
-index.js
-index.d.ts
+npmrc
