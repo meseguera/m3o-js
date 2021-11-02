@@ -6,7 +6,7 @@ Endpoints:
 
 ## Publish
 
-Publish a message to the mq. Specify a topic to group messages for a specific topic.
+Publish a message. Specify a topic to group messages for a specific topic.
 
 
 [https://m3o.com/mq/api#Publish](https://m3o.com/mq/api#Publish)
@@ -14,7 +14,7 @@ Publish a message to the mq. Specify a topic to group messages for a specific to
 ```js
 const { MqService } = require('m3o/mq');
 
-// Publish a message to the mq. Specify a topic to group messages for a specific topic.
+// Publish a message. Specify a topic to group messages for a specific topic.
 async function publishAmessage() {
 	let mqService = new MqService(process.env.M3O_API_TOKEN)
 	let rsp = await mqService.publish({
