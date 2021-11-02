@@ -6,7 +6,15 @@ export class EventService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  // Publish a message to the event stream.
+  // Consume events from a given topic.
+  consume(request: ConsumeRequest): Promise<ConsumeResponse> {
+    return this.client.call(
+      "event",
+      "Consume",
+      request
+    ) as Promise<ConsumeResponse>;
+  }
+  // Publish a event to the event stream.
   publish(request: PublishRequest): Promise<PublishResponse> {
     return this.client.call(
       "event",
@@ -18,14 +26,26 @@ export class EventService {
   read(request: ReadRequest): Promise<ReadResponse> {
     return this.client.call("event", "Read", request) as Promise<ReadResponse>;
   }
-  // Subscribe to messages for a given topic.
-  subscribe(request: SubscribeRequest): Promise<SubscribeResponse> {
-    return this.client.call(
-      "event",
-      "Subscribe",
-      request
-    ) as Promise<SubscribeResponse>;
-  }
+}
+
+export interface ConsumeRequest {
+  // Optional group for the subscription
+  group?: string;
+  // Optional offset to read from e.g "2006-01-02T15:04:05.999Z07:00"
+  offset?: string;
+  // The topic to subscribe to
+  topic?: string;
+}
+
+export interface ConsumeResponse {
+  // Unique message id
+  id?: string;
+  // The next json message on the topic
+  message?: { [key: string]: any };
+  // Timestamp of publishing
+  timestamp?: string;
+  // The topic subscribed to
+  topic?: string;
 }
 
 export interface Ev {
@@ -58,24 +78,4 @@ export interface ReadRequest {
 export interface ReadResponse {
   // the events
   events?: Ev[];
-}
-
-export interface SubscribeRequest {
-  // Optional group for the subscription
-  group?: string;
-  // Optional offset to read from e.g "2006-01-02T15:04:05.999Z07:00"
-  offset?: string;
-  // The topic to subscribe to
-  topic?: string;
-}
-
-export interface SubscribeResponse {
-  // Unique message id
-  id?: string;
-  // The next json message on the topic
-  message?: { [key: string]: any };
-  // Timestamp of publishing
-  timestamp?: string;
-  // The topic subscribed to
-  topic?: string;
 }

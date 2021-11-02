@@ -6,7 +6,7 @@ Endpoints:
 
 ## Publish
 
-Publish a message to the event stream.
+Publish a event to the event stream.
 
 
 [https://m3o.com/event/api#Publish](https://m3o.com/event/api#Publish)
@@ -14,8 +14,8 @@ Publish a message to the event stream.
 ```js
 const { EventService } = require('m3o/event');
 
-// Publish a message to the event stream.
-async function publishAmessage() {
+// Publish a event to the event stream.
+async function publishAnEvent() {
 	let eventService = new EventService(process.env.M3O_API_TOKEN)
 	let rsp = await eventService.publish({
   "message": {
@@ -28,28 +28,28 @@ async function publishAmessage() {
 	console.log(rsp)
 }
 
-publishAmessage()
+publishAnEvent()
 ```
-## Subscribe
+## Consume
 
-Subscribe to messages for a given topic.
+Consume events from a given topic.
 
 
-[https://m3o.com/event/api#Subscribe](https://m3o.com/event/api#Subscribe)
+[https://m3o.com/event/api#Consume](https://m3o.com/event/api#Consume)
 
 ```js
 const { EventService } = require('m3o/event');
 
-// Subscribe to messages for a given topic.
-async function subscribeToAtopic() {
+// Consume events from a given topic.
+async function consumeFromAtopic() {
 	let eventService = new EventService(process.env.M3O_API_TOKEN)
-	let rsp = await eventService.subscribe({
+	let rsp = await eventService.consume({
   "topic": "user"
 })
 	console.log(rsp)
 }
 
-subscribeToAtopic()
+consumeFromAtopic()
 ```
 ## Read
 
