@@ -22,6 +22,14 @@ export class NotesService {
       request
     ) as Promise<DeleteResponse>;
   }
+  // Specify the note to events
+  events(request: EventsRequest): Promise<EventsResponse> {
+    return this.client.call(
+      "notes",
+      "Events",
+      request
+    ) as Promise<EventsResponse>;
+  }
   // List all the notes
   list(request: ListRequest): Promise<ListResponse> {
     return this.client.call("notes", "List", request) as Promise<ListResponse>;
@@ -29,14 +37,6 @@ export class NotesService {
   // Read a note
   read(request: ReadRequest): Promise<ReadResponse> {
     return this.client.call("notes", "Read", request) as Promise<ReadResponse>;
-  }
-  // Specify the note to events
-  subscribe(request: SubscribeRequest): Promise<SubscribeResponse> {
-    return this.client.call(
-      "notes",
-      "Subscribe",
-      request
-    ) as Promise<SubscribeResponse>;
   }
   // Update a note
   update(request: UpdateRequest): Promise<UpdateResponse> {
@@ -69,6 +69,18 @@ export interface DeleteResponse {
   note?: { [key: string]: any };
 }
 
+export interface EventsRequest {
+  // optionally specify a note id
+  id?: string;
+}
+
+export interface EventsResponse {
+  // the event which occured; create, delete, update
+  event?: string;
+  // the note which the operation occured on
+  note?: { [key: string]: any };
+}
+
 export interface ListRequest {}
 
 export interface ListResponse {
@@ -96,18 +108,6 @@ export interface ReadRequest {
 
 export interface ReadResponse {
   // The note
-  note?: { [key: string]: any };
-}
-
-export interface SubscribeRequest {
-  // optionally specify a note id
-  id?: string;
-}
-
-export interface SubscribeResponse {
-  // the event which occured; create, delete, update
-  event?: string;
-  // the note which the operation occured on
   note?: { [key: string]: any };
 }
 
