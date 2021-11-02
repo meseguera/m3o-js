@@ -4,6 +4,28 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Notes/api](htt
 
 Endpoints:
 
+## Create
+
+Create a new note
+
+
+[https://m3o.com/notes/api#Create](https://m3o.com/notes/api#Create)
+
+```js
+const { NotesService } = require('m3o/notes');
+
+// Create a new note
+async function createAnote() {
+	let notesService = new NotesService(process.env.M3O_API_TOKEN)
+	let rsp = await notesService.create({
+  "text": "This is my note",
+  "title": "New Note"
+})
+	console.log(rsp)
+}
+
+createAnote()
+```
 ## Read
 
 Read a note
@@ -92,7 +114,7 @@ deleteAnote()
 ```
 ## Events
 
-Specify the note to events
+Subscribe to notes events
 
 
 [https://m3o.com/notes/api#Events](https://m3o.com/notes/api#Events)
@@ -100,7 +122,7 @@ Specify the note to events
 ```js
 const { NotesService } = require('m3o/notes');
 
-// Specify the note to events
+// Subscribe to notes events
 async function subscribeToEvents() {
 	let notesService = new NotesService(process.env.M3O_API_TOKEN)
 	let rsp = await notesService.events({
@@ -110,26 +132,4 @@ async function subscribeToEvents() {
 }
 
 subscribeToEvents()
-```
-## Create
-
-Create a new note
-
-
-[https://m3o.com/notes/api#Create](https://m3o.com/notes/api#Create)
-
-```js
-const { NotesService } = require('m3o/notes');
-
-// Create a new note
-async function createAnote() {
-	let notesService = new NotesService(process.env.M3O_API_TOKEN)
-	let rsp = await notesService.create({
-  "text": "This is my note",
-  "title": "New Note"
-})
-	console.log(rsp)
-}
-
-createAnote()
 ```

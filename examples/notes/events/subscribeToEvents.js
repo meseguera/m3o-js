@@ -1,6 +1,6 @@
 const { NotesService } = require("m3o/notes");
 
-// Specify the note to events
+// Subscribe to notes events
 async function subscribeToEvents() {
   let notesService = new NotesService(process.env.M3O_API_TOKEN);
   let rsp = await notesService.events({

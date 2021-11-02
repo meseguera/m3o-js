@@ -22,7 +22,7 @@ export class NotesService {
       request
     ) as Promise<DeleteResponse>;
   }
-  // Specify the note to events
+  // Subscribe to notes events
   events(request: EventsRequest): Promise<EventsResponse> {
     return this.client.call(
       "notes",
