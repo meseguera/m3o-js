@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - beta
+      - ci
 
 jobs:
   generate:
@@ -18,7 +19,6 @@ jobs:
 
       - name: Test
         working-directory: clients
-        if: github.ref == 'refs/heads/beta'
         env:
           M3O_API_TOKEN: ${{ secrets.M3O_API_TOKEN }}
         run: |
