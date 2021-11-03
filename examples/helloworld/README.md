@@ -36,13 +36,13 @@ Stream returns a stream of "Hello $name" responses
 const { HelloworldService } = require('m3o/helloworld');
 
 // Stream returns a stream of "Hello $name" responses
-async function streamsAreCurrentlyTemporarilyNotSupportedInClients() {
+async function streamsResponsesFromTheServerUsingWebsockets() {
 	let helloworldService = new HelloworldService(process.env.M3O_API_TOKEN)
 	let rsp = await helloworldService.stream({
-  "name": "not supported"
+  "name": "John"
 })
 	console.log(rsp)
 }
 
-streamsAreCurrentlyTemporarilyNotSupportedInClients()
+streamsResponsesFromTheServerUsingWebsockets()
 ```
