@@ -4,6 +4,25 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Rss/api](https
 
 Endpoints:
 
+## List
+
+List the saved RSS fields
+
+
+[https://m3o.com/rss/api#List](https://m3o.com/rss/api#List)
+
+```js
+const { RssService } = require('m3o/rss');
+
+// List the saved RSS fields
+async function listRssFeeds() {
+	let rssService = new RssService(process.env.M3O_API_TOKEN)
+	let rsp = await rssService.list({})
+	console.log(rsp)
+}
+
+listRssFeeds()
+```
 ## Remove
 
 Remove an RSS feed by name
@@ -68,23 +87,4 @@ async function readAfeed() {
 }
 
 readAfeed()
-```
-## List
-
-List the saved RSS fields
-
-
-[https://m3o.com/rss/api#List](https://m3o.com/rss/api#List)
-
-```js
-const { RssService } = require('m3o/rss');
-
-// List the saved RSS fields
-async function listRssFeeds() {
-	let rssService = new RssService(process.env.M3O_API_TOKEN)
-	let rsp = await rssService.list({})
-	console.log(rsp)
-}
-
-listRssFeeds()
 ```
