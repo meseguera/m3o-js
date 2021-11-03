@@ -6,6 +6,15 @@ export class StreamService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
+  // Create a channel with a given name and description. Channels are created automatically but
+  // this allows you to specify a description that's persisted for the lifetime of the channel.
+  createChannel(request: CreateChannelRequest): Promise<CreateChannelResponse> {
+    return this.client.call(
+      "stream",
+      "CreateChannel",
+      request
+    ) as Promise<CreateChannelResponse>;
+  }
   // List all the active channels
   listChannels(request: ListChannelsRequest): Promise<ListChannelsResponse> {
     return this.client.call(
@@ -33,11 +42,22 @@ export class StreamService {
 }
 
 export interface Channel {
+  // description for the channel
+  description?: string;
   // last activity time
   lastActive?: string;
   // name of the channel
   name?: string;
 }
+
+export interface CreateChannelRequest {
+  // description for the channel
+  description?: string;
+  // name of the channel
+  name?: string;
+}
+
+export interface CreateChannelResponse {}
 
 export interface ListChannelsRequest {}
 
