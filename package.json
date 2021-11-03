@@ -50,6 +50,7 @@
   "sentiment",
   "sms",
   "stock",
+  "stream",
   "sunnah",
   "thumbnail",
   "time",
@@ -74,5 +75,5 @@
   "prepare": "npm run build"
  },
  "types": "index.d.ts",
- "version": "1.0.614-beta2"
+ "version": "1.0.616-beta1"
 }
