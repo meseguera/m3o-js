@@ -22,7 +22,7 @@ export class StreamService {
       request
     ) as Promise<ListMessagesResponse>;
   }
-  // SendMessage a message to the stream.
+  // Send a message to the stream.
   sendMessage(request: SendMessageRequest): Promise<SendMessageResponse> {
     return this.client.call(
       "stream",

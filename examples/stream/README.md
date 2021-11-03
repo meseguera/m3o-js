@@ -6,7 +6,7 @@ Endpoints:
 
 ## SendMessage
 
-SendMessage a message to the stream.
+Send a message to the stream.
 
 
 [https://m3o.com/stream/api#SendMessage](https://m3o.com/stream/api#SendMessage)
@@ -14,8 +14,8 @@ SendMessage a message to the stream.
 ```js
 const { StreamService } = require('m3o/stream');
 
-// SendMessage a message to the stream.
-async function sendAmessage() {
+// Send a message to the stream.
+async function sendMessage() {
 	let streamService = new StreamService(process.env.M3O_API_TOKEN)
 	let rsp = await streamService.sendMessage({
   "channel": "general",
@@ -24,7 +24,7 @@ async function sendAmessage() {
 	console.log(rsp)
 }
 
-sendAmessage()
+sendMessage()
 ```
 ## ListMessages
 
