@@ -4,50 +4,65 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Stream/api](ht
 
 Endpoints:
 
-## Publish
+## SendMessage
 
-Publish a message to the stream. Specify a topic to group messages for a specific topic.
+SendMessage a message to the stream.
 
 
-[https://m3o.com/stream/api#Publish](https://m3o.com/stream/api#Publish)
+[https://m3o.com/stream/api#SendMessage](https://m3o.com/stream/api#SendMessage)
 
 ```js
 const { StreamService } = require('m3o/stream');
 
-// Publish a message to the stream. Specify a topic to group messages for a specific topic.
-async function publishAmessage() {
+// SendMessage a message to the stream.
+async function sendAmessage() {
 	let streamService = new StreamService(process.env.M3O_API_TOKEN)
-	let rsp = await streamService.publish({
-  "message": {
-    "id": "1",
-    "type": "signup",
-    "user": "john"
-  },
-  "topic": "events"
+	let rsp = await streamService.sendMessage({
+  "channel": "general",
+  "text": "Hey checkout this tweet https://twitter.com/m3oservices/status/1455291054295498752"
 })
 	console.log(rsp)
 }
 
-publishAmessage()
+sendAmessage()
 ```
-## Subscribe
+## ListMessages
 
-Subscribe to messages for a given topic.
+List messages for a given channel
 
 
-[https://m3o.com/stream/api#Subscribe](https://m3o.com/stream/api#Subscribe)
+[https://m3o.com/stream/api#ListMessages](https://m3o.com/stream/api#ListMessages)
 
 ```js
 const { StreamService } = require('m3o/stream');
 
-// Subscribe to messages for a given topic.
-async function subscribeToAtopic() {
+// List messages for a given channel
+async function listMessages() {
 	let streamService = new StreamService(process.env.M3O_API_TOKEN)
-	let rsp = await streamService.subscribe({
-  "topic": "events"
+	let rsp = await streamService.listMessages({
+  "channel": "general"
 })
 	console.log(rsp)
 }
 
-subscribeToAtopic()
+listMessages()
+```
+## ListChannels
+
+List all the active channels
+
+
+[https://m3o.com/stream/api#ListChannels](https://m3o.com/stream/api#ListChannels)
+
+```js
+const { StreamService } = require('m3o/stream');
+
+// List all the active channels
+async function listChannels() {
+	let streamService = new StreamService(process.env.M3O_API_TOKEN)
+	let rsp = await streamService.listChannels({})
+	console.log(rsp)
+}
+
+listChannels()
 ```

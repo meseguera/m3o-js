@@ -6,41 +6,77 @@ export class StreamService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  // Publish a message to the stream. Specify a topic to group messages for a specific topic.
-  publish(request: PublishRequest): Promise<PublishResponse> {
+  // List all the active channels
+  listChannels(request: ListChannelsRequest): Promise<ListChannelsResponse> {
     return this.client.call(
       "stream",
-      "Publish",
+      "ListChannels",
       request
-    ) as Promise<PublishResponse>;
+    ) as Promise<ListChannelsResponse>;
   }
-  // Subscribe to messages for a given topic.
-  subscribe(request: SubscribeRequest): Promise<SubscribeResponse> {
+  // List messages for a given channel
+  listMessages(request: ListMessagesRequest): Promise<ListMessagesResponse> {
     return this.client.call(
       "stream",
-      "Subscribe",
+      "ListMessages",
       request
-    ) as Promise<SubscribeResponse>;
+    ) as Promise<ListMessagesResponse>;
+  }
+  // SendMessage a message to the stream.
+  sendMessage(request: SendMessageRequest): Promise<SendMessageResponse> {
+    return this.client.call(
+      "stream",
+      "SendMessage",
+      request
+    ) as Promise<SendMessageResponse>;
   }
 }
 
-export interface PublishRequest {
-  // The json message to publish
-  message?: { [key: string]: any };
-  // The topic to publish to
-  topic?: string;
+export interface Channel {
+  // last activity time
+  lastActive?: string;
+  // name of the channel
+  name?: string;
 }
 
-export interface PublishResponse {}
+export interface ListChannelsRequest {}
 
-export interface SubscribeRequest {
-  // The topic to subscribe to
-  topic?: string;
+export interface ListChannelsResponse {
+  channels?: Channel[];
 }
 
-export interface SubscribeResponse {
-  // The next json message on the topic
-  message?: { [key: string]: any };
-  // The topic subscribed to
-  topic?: string;
+export interface ListMessagesRequest {
+  // The channel to subscribe to
+  channel?: string;
+  // number of message to return
+  limit?: number;
 }
+
+export interface ListMessagesResponse {
+  // The channel subscribed to
+  channel?: string;
+  // Messages are chronological order
+  messages?: Message[];
+}
+
+export interface Message {
+  // the channel name
+  channel?: string;
+  // id of the message
+  id?: string;
+  // the associated metadata
+  metadata?: { [key: string]: string };
+  // text of the message
+  text?: string;
+  // time of message creation
+  timestamp?: string;
+}
+
+export interface SendMessageRequest {
+  // The channel to send to
+  channel?: string;
+  // The message text to send
+  text?: string;
+}
+
+export interface SendMessageResponse {}

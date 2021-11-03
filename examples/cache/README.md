@@ -4,28 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Cache/api](htt
 
 Endpoints:
 
-## Decrement
-
-Decrement a value (if it's a number)
-
-
-[https://m3o.com/cache/api#Decrement](https://m3o.com/cache/api#Decrement)
-
-```js
-const { CacheService } = require('m3o/cache');
-
-// Decrement a value (if it's a number)
-async function decrementAvalue() {
-	let cacheService = new CacheService(process.env.M3O_API_TOKEN)
-	let rsp = await cacheService.decrement({
-  "key": "counter",
-  "value": 2
-})
-	console.log(rsp)
-}
-
-decrementAvalue()
-```
 ## Set
 
 Set an item in the cache. Overwrites any existing value already set.
@@ -50,7 +28,7 @@ setAvalue()
 ```
 ## Get
 
-Get an item from the cache by key
+Get an item from the cache by key. If key is not found, an empty response is returned.
 
 
 [https://m3o.com/cache/api#Get](https://m3o.com/cache/api#Get)
@@ -58,7 +36,7 @@ Get an item from the cache by key
 ```js
 const { CacheService } = require('m3o/cache');
 
-// Get an item from the cache by key
+// Get an item from the cache by key. If key is not found, an empty response is returned.
 async function getAvalue() {
 	let cacheService = new CacheService(process.env.M3O_API_TOKEN)
 	let rsp = await cacheService.get({
@@ -71,7 +49,7 @@ getAvalue()
 ```
 ## Delete
 
-Delete a value from the cache
+Delete a value from the cache. If key not found a success response is returned.
 
 
 [https://m3o.com/cache/api#Delete](https://m3o.com/cache/api#Delete)
@@ -79,7 +57,7 @@ Delete a value from the cache
 ```js
 const { CacheService } = require('m3o/cache');
 
-// Delete a value from the cache
+// Delete a value from the cache. If key not found a success response is returned.
 async function deleteAvalue() {
 	let cacheService = new CacheService(process.env.M3O_API_TOKEN)
 	let rsp = await cacheService.delete({
@@ -92,7 +70,7 @@ deleteAvalue()
 ```
 ## Increment
 
-Increment a value (if it's a number)
+Increment a value (if it's a number). If key not found it is equivalent to set.
 
 
 [https://m3o.com/cache/api#Increment](https://m3o.com/cache/api#Increment)
@@ -100,7 +78,7 @@ Increment a value (if it's a number)
 ```js
 const { CacheService } = require('m3o/cache');
 
-// Increment a value (if it's a number)
+// Increment a value (if it's a number). If key not found it is equivalent to set.
 async function incrementAvalue() {
 	let cacheService = new CacheService(process.env.M3O_API_TOKEN)
 	let rsp = await cacheService.increment({
@@ -111,4 +89,26 @@ async function incrementAvalue() {
 }
 
 incrementAvalue()
+```
+## Decrement
+
+Decrement a value (if it's a number). If key not found it is equivalent to set.
+
+
+[https://m3o.com/cache/api#Decrement](https://m3o.com/cache/api#Decrement)
+
+```js
+const { CacheService } = require('m3o/cache');
+
+// Decrement a value (if it's a number). If key not found it is equivalent to set.
+async function decrementAvalue() {
+	let cacheService = new CacheService(process.env.M3O_API_TOKEN)
+	let rsp = await cacheService.decrement({
+  "key": "counter",
+  "value": 2
+})
+	console.log(rsp)
+}
+
+decrementAvalue()
 ```
