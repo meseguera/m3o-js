@@ -4,25 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Notes/api](htt
 
 Endpoints:
 
-## List
-
-List all the notes
-
-
-[https://m3o.com/notes/api#List](https://m3o.com/notes/api#List)
-
-```js
-const { NotesService } = require('m3o/notes');
-
-// List all the notes
-async function listAllNotes() {
-	let notesService = new NotesService(process.env.M3O_API_TOKEN)
-	let rsp = await notesService.list({})
-	console.log(rsp)
-}
-
-listAllNotes()
-```
 ## Update
 
 Update a note
@@ -132,4 +113,23 @@ async function readAnote() {
 }
 
 readAnote()
+```
+## List
+
+List all the notes
+
+
+[https://m3o.com/notes/api#List](https://m3o.com/notes/api#List)
+
+```js
+const { NotesService } = require('m3o/notes');
+
+// List all the notes
+async function listAllNotes() {
+	let notesService = new NotesService(process.env.M3O_API_TOKEN)
+	let rsp = await notesService.list({})
+	console.log(rsp)
+}
+
+listAllNotes()
 ```
