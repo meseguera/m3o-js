@@ -4,33 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Db/api](https:
 
 Endpoints:
 
-## Create
-
-Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
-
-
-[https://m3o.com/db/api#Create](https://m3o.com/db/api#Create)
-
-```js
-const { DbService } = require('m3o/db');
-
-// Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
-async function createArecord() {
-	let dbService = new DbService(process.env.M3O_API_TOKEN)
-	let rsp = await dbService.create({
-  "record": {
-    "age": 42,
-    "id": "1",
-    "isActive": true,
-    "name": "Jane"
-  },
-  "table": "users"
-})
-	console.log(rsp)
-}
-
-createArecord()
-```
 ## Update
 
 Update a record in the database. Include an "id" in the record to update.
@@ -141,4 +114,31 @@ async function countEntriesInAtable() {
 }
 
 countEntriesInAtable()
+```
+## Create
+
+Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
+
+
+[https://m3o.com/db/api#Create](https://m3o.com/db/api#Create)
+
+```js
+const { DbService } = require('m3o/db');
+
+// Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
+async function createArecord() {
+	let dbService = new DbService(process.env.M3O_API_TOKEN)
+	let rsp = await dbService.create({
+  "record": {
+    "age": 42,
+    "id": "1",
+    "isActive": true,
+    "name": "Jane"
+  },
+  "table": "users"
+})
+	console.log(rsp)
+}
+
+createArecord()
 ```
