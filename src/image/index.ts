@@ -15,6 +15,14 @@ export class ImageService {
       request
     ) as Promise<ConvertResponse>;
   }
+  // Delete an image previously uploaded.
+  delete(request: DeleteRequest): Promise<DeleteResponse> {
+    return this.client.call(
+      "image",
+      "Delete",
+      request
+    ) as Promise<DeleteResponse>;
+  }
   // Resize an image on the fly without storing it (by sending and receiving a base64 encoded image), or resize and upload depending on parameters.
   // If one of width or height is 0, the image aspect ratio is preserved.
   // Optional cropping.
@@ -63,6 +71,13 @@ export interface CropOptions {
   // width to crop to
   width?: number;
 }
+
+export interface DeleteRequest {
+  // url of the image to delete e.g. https://cdn.m3ocontent.com/micro/images/micro/41e23b39-48dd-42b6-9738-79a313414bb8/cat.jpeg
+  url?: string;
+}
+
+export interface DeleteResponse {}
 
 export interface Point {
   x?: number;
