@@ -7,25 +7,15 @@ export class EventService {
     this.client = new m3o.Client({ token: token });
   }
   // Consume events from a given topic.
-  consume(request: ConsumeRequest): Promise<ConsumeResponse> {
-    return this.client.call(
-      "event",
-      "Consume",
-      request
-    ) as Promise<ConsumeResponse>;
+  consume(
+    request: ConsumeRequest
+  ): Promise<Stream<ConsumeRequest, ConsumeResponse>> {
+    return this.client.stream("event", "Consume", request);
   }
   // Publish a event to the event stream.
-  publish(request: PublishRequest): Promise<PublishResponse> {
-    return this.client.call(
-      "event",
-      "Publish",
-      request
-    ) as Promise<PublishResponse>;
-  }
+  publish(request: PublishRequest): Promise<PublishResponse> {}
   // Read stored events
-  read(request: ReadRequest): Promise<ReadResponse> {
-    return this.client.call("event", "Read", request) as Promise<ReadResponse>;
-  }
+  read(request: ReadRequest): Promise<ReadResponse> {}
 }
 
 export interface ConsumeRequest {

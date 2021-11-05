@@ -7,21 +7,9 @@ export class GeocodingService {
     this.client = new m3o.Client({ token: token });
   }
   // Lookup returns a geocoded address including normalized address and gps coordinates. All fields are optional, provide more to get more accurate results
-  lookup(request: LookupRequest): Promise<LookupResponse> {
-    return this.client.call(
-      "geocoding",
-      "Lookup",
-      request
-    ) as Promise<LookupResponse>;
-  }
+  lookup(request: LookupRequest): Promise<LookupResponse> {}
   // Reverse lookup an address from gps coordinates
-  reverse(request: ReverseRequest): Promise<ReverseResponse> {
-    return this.client.call(
-      "geocoding",
-      "Reverse",
-      request
-    ) as Promise<ReverseResponse>;
-  }
+  reverse(request: ReverseRequest): Promise<ReverseResponse> {}
 }
 
 export interface Address {

@@ -7,17 +7,9 @@ export class WeatherService {
     this.client = new m3o.Client({ token: token });
   }
   // Get the weather forecast for the next 1-10 days
-  forecast(request: ForecastRequest): Promise<ForecastResponse> {
-    return this.client.call(
-      "weather",
-      "Forecast",
-      request
-    ) as Promise<ForecastResponse>;
-  }
+  forecast(request: ForecastRequest): Promise<ForecastResponse> {}
   // Get the current weather report for a location by postcode, city, zip code, ip address
-  now(request: NowRequest): Promise<NowResponse> {
-    return this.client.call("weather", "Now", request) as Promise<NowResponse>;
-  }
+  now(request: NowRequest): Promise<NowResponse> {}
 }
 
 export interface Forecast {

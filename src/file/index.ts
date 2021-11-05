@@ -7,25 +7,13 @@ export class FileService {
     this.client = new m3o.Client({ token: token });
   }
   // Delete a file by project name/path
-  delete(request: DeleteRequest): Promise<DeleteResponse> {
-    return this.client.call(
-      "file",
-      "Delete",
-      request
-    ) as Promise<DeleteResponse>;
-  }
+  delete(request: DeleteRequest): Promise<DeleteResponse> {}
   // List files by their project and optionally a path.
-  list(request: ListRequest): Promise<ListResponse> {
-    return this.client.call("file", "List", request) as Promise<ListResponse>;
-  }
+  list(request: ListRequest): Promise<ListResponse> {}
   // Read a file by path
-  read(request: ReadRequest): Promise<ReadResponse> {
-    return this.client.call("file", "Read", request) as Promise<ReadResponse>;
-  }
+  read(request: ReadRequest): Promise<ReadResponse> {}
   // Save a file
-  save(request: SaveRequest): Promise<SaveResponse> {
-    return this.client.call("file", "Save", request) as Promise<SaveResponse>;
-  }
+  save(request: SaveRequest): Promise<SaveResponse> {}
 }
 
 export interface BatchSaveRequest {

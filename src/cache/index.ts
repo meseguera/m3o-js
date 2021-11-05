@@ -7,37 +7,15 @@ export class CacheService {
     this.client = new m3o.Client({ token: token });
   }
   // Decrement a value (if it's a number). If key not found it is equivalent to set.
-  decrement(request: DecrementRequest): Promise<DecrementResponse> {
-    return this.client.call(
-      "cache",
-      "Decrement",
-      request
-    ) as Promise<DecrementResponse>;
-  }
+  decrement(request: DecrementRequest): Promise<DecrementResponse> {}
   // Delete a value from the cache. If key not found a success response is returned.
-  delete(request: DeleteRequest): Promise<DeleteResponse> {
-    return this.client.call(
-      "cache",
-      "Delete",
-      request
-    ) as Promise<DeleteResponse>;
-  }
+  delete(request: DeleteRequest): Promise<DeleteResponse> {}
   // Get an item from the cache by key. If key is not found, an empty response is returned.
-  get(request: GetRequest): Promise<GetResponse> {
-    return this.client.call("cache", "Get", request) as Promise<GetResponse>;
-  }
+  get(request: GetRequest): Promise<GetResponse> {}
   // Increment a value (if it's a number). If key not found it is equivalent to set.
-  increment(request: IncrementRequest): Promise<IncrementResponse> {
-    return this.client.call(
-      "cache",
-      "Increment",
-      request
-    ) as Promise<IncrementResponse>;
-  }
+  increment(request: IncrementRequest): Promise<IncrementResponse> {}
   // Set an item in the cache. Overwrites any existing value already set.
-  set(request: SetRequest): Promise<SetResponse> {
-    return this.client.call("cache", "Set", request) as Promise<SetResponse>;
-  }
+  set(request: SetRequest): Promise<SetResponse> {}
 }
 
 export interface DecrementRequest {

@@ -7,13 +7,7 @@ export class VehicleService {
     this.client = new m3o.Client({ token: token });
   }
   // Lookup a UK vehicle by it's registration number
-  lookup(request: LookupRequest): Promise<LookupResponse> {
-    return this.client.call(
-      "vehicle",
-      "Lookup",
-      request
-    ) as Promise<LookupResponse>;
-  }
+  lookup(request: LookupRequest): Promise<LookupResponse> {}
 }
 
 export interface LookupRequest {

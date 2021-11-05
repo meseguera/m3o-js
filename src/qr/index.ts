@@ -7,13 +7,7 @@ export class QrService {
     this.client = new m3o.Client({ token: token });
   }
   // Generate a QR code with a specific text and size
-  generate(request: GenerateRequest): Promise<GenerateResponse> {
-    return this.client.call(
-      "qr",
-      "Generate",
-      request
-    ) as Promise<GenerateResponse>;
-  }
+  generate(request: GenerateRequest): Promise<GenerateResponse> {}
 }
 
 export interface GenerateRequest {

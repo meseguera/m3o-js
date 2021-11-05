@@ -7,13 +7,7 @@ export class GifsService {
     this.client = new m3o.Client({ token: token });
   }
   // Search for a GIF
-  search(request: SearchRequest): Promise<SearchResponse> {
-    return this.client.call(
-      "gifs",
-      "Search",
-      request
-    ) as Promise<SearchResponse>;
-  }
+  search(request: SearchRequest): Promise<SearchResponse> {}
 }
 
 export interface Gif {

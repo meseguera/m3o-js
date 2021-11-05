@@ -7,37 +7,13 @@ export class TwitterService {
     this.client = new m3o.Client({ token: token });
   }
   // Search for tweets with a simple query
-  search(request: SearchRequest): Promise<SearchResponse> {
-    return this.client.call(
-      "twitter",
-      "Search",
-      request
-    ) as Promise<SearchResponse>;
-  }
+  search(request: SearchRequest): Promise<SearchResponse> {}
   // Get the timeline for a given user
-  timeline(request: TimelineRequest): Promise<TimelineResponse> {
-    return this.client.call(
-      "twitter",
-      "Timeline",
-      request
-    ) as Promise<TimelineResponse>;
-  }
+  timeline(request: TimelineRequest): Promise<TimelineResponse> {}
   // Get the current global trending topics
-  trends(request: TrendsRequest): Promise<TrendsResponse> {
-    return this.client.call(
-      "twitter",
-      "Trends",
-      request
-    ) as Promise<TrendsResponse>;
-  }
+  trends(request: TrendsRequest): Promise<TrendsResponse> {}
   // Get a user's twitter profile
-  user(request: UserRequest): Promise<UserResponse> {
-    return this.client.call(
-      "twitter",
-      "User",
-      request
-    ) as Promise<UserResponse>;
-  }
+  user(request: UserRequest): Promise<UserResponse> {}
 }
 
 export interface Profile {

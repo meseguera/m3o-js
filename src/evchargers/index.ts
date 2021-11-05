@@ -7,21 +7,11 @@ export class EvchargersService {
     this.client = new m3o.Client({ token: token });
   }
   // Retrieve reference data as used by this API and in conjunction with the Search endpoint
-  referenceData(request: ReferenceDataRequest): Promise<ReferenceDataResponse> {
-    return this.client.call(
-      "evchargers",
-      "ReferenceData",
-      request
-    ) as Promise<ReferenceDataResponse>;
-  }
+  referenceData(
+    request: ReferenceDataRequest
+  ): Promise<ReferenceDataResponse> {}
   // Search by giving a coordinate and a max distance, or bounding box and optional filters
-  search(request: SearchRequest): Promise<SearchResponse> {
-    return this.client.call(
-      "evchargers",
-      "Search",
-      request
-    ) as Promise<SearchResponse>;
-  }
+  search(request: SearchRequest): Promise<SearchResponse> {}
 }
 
 export interface Address {

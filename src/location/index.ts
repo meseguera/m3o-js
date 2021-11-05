@@ -7,29 +7,11 @@ export class LocationService {
     this.client = new m3o.Client({ token: token });
   }
   // Read an entity by its ID
-  read(request: ReadRequest): Promise<ReadResponse> {
-    return this.client.call(
-      "location",
-      "Read",
-      request
-    ) as Promise<ReadResponse>;
-  }
+  read(request: ReadRequest): Promise<ReadResponse> {}
   // Save an entity's current position
-  save(request: SaveRequest): Promise<SaveResponse> {
-    return this.client.call(
-      "location",
-      "Save",
-      request
-    ) as Promise<SaveResponse>;
-  }
+  save(request: SaveRequest): Promise<SaveResponse> {}
   // Search for entities in a given radius
-  search(request: SearchRequest): Promise<SearchResponse> {
-    return this.client.call(
-      "location",
-      "Search",
-      request
-    ) as Promise<SearchResponse>;
-  }
+  search(request: SearchRequest): Promise<SearchResponse> {}
 }
 
 export interface Entity {

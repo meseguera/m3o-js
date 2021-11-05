@@ -7,13 +7,7 @@ export class YoutubeService {
     this.client = new m3o.Client({ token: token });
   }
   // Search for videos on YouTube
-  search(request: SearchRequest): Promise<SearchResponse> {
-    return this.client.call(
-      "youtube",
-      "Search",
-      request
-    ) as Promise<SearchResponse>;
-  }
+  search(request: SearchRequest): Promise<SearchResponse> {}
 }
 
 export interface SearchRequest {

@@ -8,39 +8,15 @@ export class SunnahService {
   }
   // Get a list of books from within a collection. A book can contain many chapters
   // each with its own hadiths.
-  books(request: BooksRequest): Promise<BooksResponse> {
-    return this.client.call(
-      "sunnah",
-      "Books",
-      request
-    ) as Promise<BooksResponse>;
-  }
+  books(request: BooksRequest): Promise<BooksResponse> {}
   // Get all the chapters of a given book within a collection.
-  chapters(request: ChaptersRequest): Promise<ChaptersResponse> {
-    return this.client.call(
-      "sunnah",
-      "Chapters",
-      request
-    ) as Promise<ChaptersResponse>;
-  }
+  chapters(request: ChaptersRequest): Promise<ChaptersResponse> {}
   // Get a list of available collections. A collection is
   // a compilation of hadiths collected and written by an author.
-  collections(request: CollectionsRequest): Promise<CollectionsResponse> {
-    return this.client.call(
-      "sunnah",
-      "Collections",
-      request
-    ) as Promise<CollectionsResponse>;
-  }
+  collections(request: CollectionsRequest): Promise<CollectionsResponse> {}
   // Hadiths returns a list of hadiths and their corresponding text for a
   // given book within a collection.
-  hadiths(request: HadithsRequest): Promise<HadithsResponse> {
-    return this.client.call(
-      "sunnah",
-      "Hadiths",
-      request
-    ) as Promise<HadithsResponse>;
-  }
+  hadiths(request: HadithsRequest): Promise<HadithsResponse> {}
 }
 
 export interface Book {

@@ -7,25 +7,11 @@ export class RoutingService {
     this.client = new m3o.Client({ token: token });
   }
   // Turn by turn directions from a start point to an end point including maneuvers and bearings
-  directions(request: DirectionsRequest): Promise<DirectionsResponse> {
-    return this.client.call(
-      "routing",
-      "Directions",
-      request
-    ) as Promise<DirectionsResponse>;
-  }
+  directions(request: DirectionsRequest): Promise<DirectionsResponse> {}
   // Get the eta for a route from origin to destination. The eta is an estimated time based on car routes
-  eta(request: EtaRequest): Promise<EtaResponse> {
-    return this.client.call("routing", "Eta", request) as Promise<EtaResponse>;
-  }
+  eta(request: EtaRequest): Promise<EtaResponse> {}
   // Retrieve a route as a simple list of gps points along with total distance and estimated duration
-  route(request: RouteRequest): Promise<RouteResponse> {
-    return this.client.call(
-      "routing",
-      "Route",
-      request
-    ) as Promise<RouteResponse>;
-  }
+  route(request: RouteRequest): Promise<RouteResponse> {}
 }
 
 export interface Direction {

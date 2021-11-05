@@ -7,29 +7,11 @@ export class PostcodeService {
     this.client = new m3o.Client({ token: token });
   }
   // Lookup a postcode to retrieve the related region, county, etc
-  lookup(request: LookupRequest): Promise<LookupResponse> {
-    return this.client.call(
-      "postcode",
-      "Lookup",
-      request
-    ) as Promise<LookupResponse>;
-  }
+  lookup(request: LookupRequest): Promise<LookupResponse> {}
   // Return a random postcode and its related info
-  random(request: RandomRequest): Promise<RandomResponse> {
-    return this.client.call(
-      "postcode",
-      "Random",
-      request
-    ) as Promise<RandomResponse>;
-  }
+  random(request: RandomRequest): Promise<RandomResponse> {}
   // Validate a postcode.
-  validate(request: ValidateRequest): Promise<ValidateResponse> {
-    return this.client.call(
-      "postcode",
-      "Validate",
-      request
-    ) as Promise<ValidateResponse>;
-  }
+  validate(request: ValidateRequest): Promise<ValidateResponse> {}
 }
 
 export interface LookupRequest {

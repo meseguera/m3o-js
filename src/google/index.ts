@@ -7,13 +7,7 @@ export class GoogleService {
     this.client = new m3o.Client({ token: token });
   }
   // Search for videos on Google
-  search(request: SearchRequest): Promise<SearchResponse> {
-    return this.client.call(
-      "google",
-      "Search",
-      request
-    ) as Promise<SearchResponse>;
-  }
+  search(request: SearchRequest): Promise<SearchResponse> {}
 }
 
 export interface SearchRequest {

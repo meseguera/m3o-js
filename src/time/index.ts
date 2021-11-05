@@ -7,13 +7,9 @@ export class TimeService {
     this.client = new m3o.Client({ token: token });
   }
   // Get the current time
-  now(request: NowRequest): Promise<NowResponse> {
-    return this.client.call("time", "Now", request) as Promise<NowResponse>;
-  }
+  now(request: NowRequest): Promise<NowResponse> {}
   // Get the timezone info for a specific location
-  zone(request: ZoneRequest): Promise<ZoneResponse> {
-    return this.client.call("time", "Zone", request) as Promise<ZoneResponse>;
-  }
+  zone(request: ZoneRequest): Promise<ZoneResponse> {}
 }
 
 export interface NowRequest {

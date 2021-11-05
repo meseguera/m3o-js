@@ -7,9 +7,7 @@ export class SmsService {
     this.client = new m3o.Client({ token: token });
   }
   // Send an SMS.
-  send(request: SendRequest): Promise<SendResponse> {
-    return this.client.call("sms", "Send", request) as Promise<SendResponse>;
-  }
+  send(request: SendRequest): Promise<SendResponse> {}
 }
 
 export interface SendRequest {

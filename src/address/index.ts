@@ -9,13 +9,7 @@ export class AddressService {
   // Lookup a list of UK addresses by postcode
   lookupPostcode(
     request: LookupPostcodeRequest
-  ): Promise<LookupPostcodeResponse> {
-    return this.client.call(
-      "address",
-      "LookupPostcode",
-      request
-    ) as Promise<LookupPostcodeResponse>;
-  }
+  ): Promise<LookupPostcodeResponse> {}
 }
 
 export interface LookupPostcodeRequest {

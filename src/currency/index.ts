@@ -7,37 +7,13 @@ export class CurrencyService {
     this.client = new m3o.Client({ token: token });
   }
   // Codes returns the supported currency codes for the API
-  codes(request: CodesRequest): Promise<CodesResponse> {
-    return this.client.call(
-      "currency",
-      "Codes",
-      request
-    ) as Promise<CodesResponse>;
-  }
+  codes(request: CodesRequest): Promise<CodesResponse> {}
   // Convert returns the currency conversion rate between two pairs e.g USD/GBP
-  convert(request: ConvertRequest): Promise<ConvertResponse> {
-    return this.client.call(
-      "currency",
-      "Convert",
-      request
-    ) as Promise<ConvertResponse>;
-  }
+  convert(request: ConvertRequest): Promise<ConvertResponse> {}
   // Returns the historic rates for a currency on a given date
-  history(request: HistoryRequest): Promise<HistoryResponse> {
-    return this.client.call(
-      "currency",
-      "History",
-      request
-    ) as Promise<HistoryResponse>;
-  }
+  history(request: HistoryRequest): Promise<HistoryResponse> {}
   // Rates returns the currency rates for a given code e.g USD
-  rates(request: RatesRequest): Promise<RatesResponse> {
-    return this.client.call(
-      "currency",
-      "Rates",
-      request
-    ) as Promise<RatesResponse>;
-  }
+  rates(request: RatesRequest): Promise<RatesResponse> {}
 }
 
 export interface Code {

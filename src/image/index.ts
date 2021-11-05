@@ -8,32 +8,16 @@ export class ImageService {
   }
   // Convert an image from one format (jpeg, png etc.) to an other either on the fly (from base64 to base64),
   // or by uploading the conversion result.
-  convert(request: ConvertRequest): Promise<ConvertResponse> {
-    return this.client.call(
-      "image",
-      "Convert",
-      request
-    ) as Promise<ConvertResponse>;
-  }
+  convert(request: ConvertRequest): Promise<ConvertResponse> {}
+  // Delete an image previously uploaded.
+  delete(request: DeleteRequest): Promise<DeleteResponse> {}
   // Resize an image on the fly without storing it (by sending and receiving a base64 encoded image), or resize and upload depending on parameters.
   // If one of width or height is 0, the image aspect ratio is preserved.
   // Optional cropping.
-  resize(request: ResizeRequest): Promise<ResizeResponse> {
-    return this.client.call(
-      "image",
-      "Resize",
-      request
-    ) as Promise<ResizeResponse>;
-  }
+  resize(request: ResizeRequest): Promise<ResizeResponse> {}
   // Upload an image by either sending a base64 encoded image to this endpoint or a URL.
   // To resize an image before uploading, see the Resize endpoint.
-  upload(request: UploadRequest): Promise<UploadResponse> {
-    return this.client.call(
-      "image",
-      "Upload",
-      request
-    ) as Promise<UploadResponse>;
-  }
+  upload(request: UploadRequest): Promise<UploadResponse> {}
 }
 
 export interface ConvertRequest {
@@ -63,6 +47,13 @@ export interface CropOptions {
   // width to crop to
   width?: number;
 }
+
+export interface DeleteRequest {
+  // url of the image to delete e.g. https://cdn.m3ocontent.com/micro/images/micro/41e23b39-48dd-42b6-9738-79a313414bb8/cat.jpeg
+  url?: string;
+}
+
+export interface DeleteResponse {}
 
 export interface Point {
   x?: number;

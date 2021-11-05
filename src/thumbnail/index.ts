@@ -7,13 +7,7 @@ export class ThumbnailService {
     this.client = new m3o.Client({ token: token });
   }
   // Create a thumbnail screenshot by passing in a url, height and width
-  screenshot(request: ScreenshotRequest): Promise<ScreenshotResponse> {
-    return this.client.call(
-      "thumbnail",
-      "Screenshot",
-      request
-    ) as Promise<ScreenshotResponse>;
-  }
+  screenshot(request: ScreenshotRequest): Promise<ScreenshotResponse> {}
 }
 
 export interface ScreenshotRequest {

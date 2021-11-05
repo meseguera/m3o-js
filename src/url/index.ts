@@ -7,21 +7,11 @@ export class UrlService {
     this.client = new m3o.Client({ token: token });
   }
   // List information on all the shortened URLs that you have created
-  list(request: ListRequest): Promise<ListResponse> {
-    return this.client.call("url", "List", request) as Promise<ListResponse>;
-  }
+  list(request: ListRequest): Promise<ListResponse> {}
   // Proxy returns the destination URL of a short URL.
-  proxy(request: ProxyRequest): Promise<ProxyResponse> {
-    return this.client.call("url", "Proxy", request) as Promise<ProxyResponse>;
-  }
+  proxy(request: ProxyRequest): Promise<ProxyResponse> {}
   // Shortens a destination URL and returns a full short URL.
-  shorten(request: ShortenRequest): Promise<ShortenResponse> {
-    return this.client.call(
-      "url",
-      "Shorten",
-      request
-    ) as Promise<ShortenResponse>;
-  }
+  shorten(request: ShortenRequest): Promise<ShortenResponse> {}
 }
 
 export interface ListRequest {

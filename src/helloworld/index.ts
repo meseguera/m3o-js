@@ -7,20 +7,12 @@ export class HelloworldService {
     this.client = new m3o.Client({ token: token });
   }
   // Call returns a personalised "Hello $name" response
-  call(request: CallRequest): Promise<CallResponse> {
-    return this.client.call(
-      "helloworld",
-      "Call",
-      request
-    ) as Promise<CallResponse>;
-  }
+  call(request: CallRequest): Promise<CallResponse> {}
   // Stream returns a stream of "Hello $name" responses
-  stream(request: StreamRequest): Promise<StreamResponse> {
-    return this.client.call(
-      "helloworld",
-      "Stream",
-      request
-    ) as Promise<StreamResponse>;
+  stream(
+    request: StreamRequest
+  ): Promise<Stream<StreamRequest, StreamResponse>> {
+    return this.client.stream("helloworld", "Stream", request);
   }
 }
 
