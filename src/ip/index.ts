@@ -7,7 +7,9 @@ export class IpService {
     this.client = new m3o.Client({ token: token });
   }
   // Lookup the geolocation information for an IP address
-  lookup(request: LookupRequest): Promise<LookupResponse> {}
+  lookup(request: LookupRequest): Promise<LookupResponse> {
+    return this.client.call("ip", "Lookup", request) as Promise<ListResponse>;
+  }
 }
 
 export interface LookupRequest {

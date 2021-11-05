@@ -7,18 +7,34 @@ export class UserService {
     this.client = new m3o.Client({ token: token });
   }
   // Create a new user account. The email address and username for the account must be unique.
-  create(request: CreateRequest): Promise<CreateResponse> {}
+  create(request: CreateRequest): Promise<CreateResponse> {
+    return this.client.call("user", "Create", request) as Promise<ListResponse>;
+  }
   // Delete an account by id
-  delete(request: DeleteRequest): Promise<DeleteResponse> {}
+  delete(request: DeleteRequest): Promise<DeleteResponse> {
+    return this.client.call("user", "Delete", request) as Promise<ListResponse>;
+  }
   // Login using username or email. The response will return a new session for successful login,
   // 401 in the case of login failure and 500 for any other error
-  login(request: LoginRequest): Promise<LoginResponse> {}
+  login(request: LoginRequest): Promise<LoginResponse> {
+    return this.client.call("user", "Login", request) as Promise<ListResponse>;
+  }
   // Logout a user account
-  logout(request: LogoutRequest): Promise<LogoutResponse> {}
+  logout(request: LogoutRequest): Promise<LogoutResponse> {
+    return this.client.call("user", "Logout", request) as Promise<ListResponse>;
+  }
   // Read an account by id, username or email. Only one need to be specified.
-  read(request: ReadRequest): Promise<ReadResponse> {}
+  read(request: ReadRequest): Promise<ReadResponse> {
+    return this.client.call("user", "Read", request) as Promise<ListResponse>;
+  }
   // Read a session by the session id. In the event it has expired or is not found and error is returned.
-  readSession(request: ReadSessionRequest): Promise<ReadSessionResponse> {}
+  readSession(request: ReadSessionRequest): Promise<ReadSessionResponse> {
+    return this.client.call(
+      "user",
+      "ReadSession",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Send a verification email
   // to the user being signed up. Email from will be from 'support@m3o.com',
   // but you can provide the title and contents.
@@ -28,15 +44,35 @@ export class UserService {
   // 'https://user.m3o.com/user/verify?token=a-verification-token&redirectUrl=your-redir-url'
   sendVerificationEmail(
     request: SendVerificationEmailRequest
-  ): Promise<SendVerificationEmailResponse> {}
+  ): Promise<SendVerificationEmailResponse> {
+    return this.client.call(
+      "user",
+      "SendVerificationEmail",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Update the account password
   updatePassword(
     request: UpdatePasswordRequest
-  ): Promise<UpdatePasswordResponse> {}
+  ): Promise<UpdatePasswordResponse> {
+    return this.client.call(
+      "user",
+      "UpdatePassword",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Update the account username or email
-  update(request: UpdateRequest): Promise<UpdateResponse> {}
+  update(request: UpdateRequest): Promise<UpdateResponse> {
+    return this.client.call("user", "Update", request) as Promise<ListResponse>;
+  }
   // Verify the email address of an account from a token sent in an email to the user.
-  verifyEmail(request: VerifyEmailRequest): Promise<VerifyEmailResponse> {}
+  verifyEmail(request: VerifyEmailRequest): Promise<VerifyEmailResponse> {
+    return this.client.call(
+      "user",
+      "VerifyEmail",
+      request
+    ) as Promise<ListResponse>;
+  }
 }
 
 export interface Account {

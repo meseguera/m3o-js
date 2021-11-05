@@ -13,9 +13,17 @@ export class EventService {
     return this.client.stream("event", "Consume", request);
   }
   // Publish a event to the event stream.
-  publish(request: PublishRequest): Promise<PublishResponse> {}
+  publish(request: PublishRequest): Promise<PublishResponse> {
+    return this.client.call(
+      "event",
+      "Publish",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Read stored events
-  read(request: ReadRequest): Promise<ReadResponse> {}
+  read(request: ReadRequest): Promise<ReadResponse> {
+    return this.client.call("event", "Read", request) as Promise<ListResponse>;
+  }
 }
 
 export interface ConsumeRequest {

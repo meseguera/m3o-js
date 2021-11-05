@@ -8,16 +8,40 @@ export class ImageService {
   }
   // Convert an image from one format (jpeg, png etc.) to an other either on the fly (from base64 to base64),
   // or by uploading the conversion result.
-  convert(request: ConvertRequest): Promise<ConvertResponse> {}
+  convert(request: ConvertRequest): Promise<ConvertResponse> {
+    return this.client.call(
+      "image",
+      "Convert",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Delete an image previously uploaded.
-  delete(request: DeleteRequest): Promise<DeleteResponse> {}
+  delete(request: DeleteRequest): Promise<DeleteResponse> {
+    return this.client.call(
+      "image",
+      "Delete",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Resize an image on the fly without storing it (by sending and receiving a base64 encoded image), or resize and upload depending on parameters.
   // If one of width or height is 0, the image aspect ratio is preserved.
   // Optional cropping.
-  resize(request: ResizeRequest): Promise<ResizeResponse> {}
+  resize(request: ResizeRequest): Promise<ResizeResponse> {
+    return this.client.call(
+      "image",
+      "Resize",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Upload an image by either sending a base64 encoded image to this endpoint or a URL.
   // To resize an image before uploading, see the Resize endpoint.
-  upload(request: UploadRequest): Promise<UploadResponse> {}
+  upload(request: UploadRequest): Promise<UploadResponse> {
+    return this.client.call(
+      "image",
+      "Upload",
+      request
+    ) as Promise<ListResponse>;
+  }
 }
 
 export interface ConvertRequest {

@@ -7,7 +7,13 @@ export class SentimentService {
     this.client = new m3o.Client({ token: token });
   }
   // Analyze and score a piece of text
-  analyze(request: AnalyzeRequest): Promise<AnalyzeResponse> {}
+  analyze(request: AnalyzeRequest): Promise<AnalyzeResponse> {
+    return this.client.call(
+      "sentiment",
+      "Analyze",
+      request
+    ) as Promise<ListResponse>;
+  }
 }
 
 export interface AnalyzeRequest {

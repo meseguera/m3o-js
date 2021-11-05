@@ -7,7 +7,13 @@ export class PrayerService {
     this.client = new m3o.Client({ token: token });
   }
   // Get the prayer (salah) times for a location on a given date
-  times(request: TimesRequest): Promise<TimesResponse> {}
+  times(request: TimesRequest): Promise<TimesResponse> {
+    return this.client.call(
+      "prayer",
+      "Times",
+      request
+    ) as Promise<ListResponse>;
+  }
 }
 
 export interface PrayerTime {

@@ -7,7 +7,13 @@ export class AnswerService {
     this.client = new m3o.Client({ token: token });
   }
   // Ask a question and receive an instant answer
-  question(request: QuestionRequest): Promise<QuestionResponse> {}
+  question(request: QuestionRequest): Promise<QuestionResponse> {
+    return this.client.call(
+      "answer",
+      "Question",
+      request
+    ) as Promise<ListResponse>;
+  }
 }
 
 export interface QuestionRequest {

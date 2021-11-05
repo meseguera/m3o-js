@@ -7,9 +7,21 @@ export class NotesService {
     this.client = new m3o.Client({ token: token });
   }
   // Create a new note
-  create(request: CreateRequest): Promise<CreateResponse> {}
+  create(request: CreateRequest): Promise<CreateResponse> {
+    return this.client.call(
+      "notes",
+      "Create",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Delete a note
-  delete(request: DeleteRequest): Promise<DeleteResponse> {}
+  delete(request: DeleteRequest): Promise<DeleteResponse> {
+    return this.client.call(
+      "notes",
+      "Delete",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Subscribe to notes events
   events(
     request: EventsRequest
@@ -17,11 +29,21 @@ export class NotesService {
     return this.client.stream("notes", "Events", request);
   }
   // List all the notes
-  list(request: ListRequest): Promise<ListResponse> {}
+  list(request: ListRequest): Promise<ListResponse> {
+    return this.client.call("notes", "List", request) as Promise<ListResponse>;
+  }
   // Read a note
-  read(request: ReadRequest): Promise<ReadResponse> {}
+  read(request: ReadRequest): Promise<ReadResponse> {
+    return this.client.call("notes", "Read", request) as Promise<ListResponse>;
+  }
   // Update a note
-  update(request: UpdateRequest): Promise<UpdateResponse> {}
+  update(request: UpdateRequest): Promise<UpdateResponse> {
+    return this.client.call(
+      "notes",
+      "Update",
+      request
+    ) as Promise<ListResponse>;
+  }
 }
 
 export interface CreateRequest {

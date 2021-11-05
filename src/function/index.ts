@@ -7,15 +7,45 @@ export class FunctionService {
     this.client = new m3o.Client({ token: token });
   }
   // Call a function by name
-  call(request: CallRequest): Promise<CallResponse> {}
+  call(request: CallRequest): Promise<CallResponse> {
+    return this.client.call(
+      "function",
+      "Call",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Delete a function by name
-  delete(request: DeleteRequest): Promise<DeleteResponse> {}
+  delete(request: DeleteRequest): Promise<DeleteResponse> {
+    return this.client.call(
+      "function",
+      "Delete",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Deploy a group of functions
-  deploy(request: DeployRequest): Promise<DeployResponse> {}
+  deploy(request: DeployRequest): Promise<DeployResponse> {
+    return this.client.call(
+      "function",
+      "Deploy",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Get the info for a deployed function
-  describe(request: DescribeRequest): Promise<DescribeResponse> {}
+  describe(request: DescribeRequest): Promise<DescribeResponse> {
+    return this.client.call(
+      "function",
+      "Describe",
+      request
+    ) as Promise<ListResponse>;
+  }
   // List all the deployed functions
-  list(request: ListRequest): Promise<ListResponse> {}
+  list(request: ListRequest): Promise<ListResponse> {
+    return this.client.call(
+      "function",
+      "List",
+      request
+    ) as Promise<ListResponse>;
+  }
 }
 
 export interface CallRequest {

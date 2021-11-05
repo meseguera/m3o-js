@@ -7,7 +7,9 @@ export class EmailService {
     this.client = new m3o.Client({ token: token });
   }
   // Send an email by passing in from, to, subject, and a text or html body
-  send(request: SendRequest): Promise<SendResponse> {}
+  send(request: SendRequest): Promise<SendResponse> {
+    return this.client.call("email", "Send", request) as Promise<ListResponse>;
+  }
 }
 
 export interface SendRequest {

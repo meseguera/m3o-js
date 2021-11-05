@@ -7,11 +7,21 @@ export class ForexService {
     this.client = new m3o.Client({ token: token });
   }
   // Returns the data for the previous close
-  history(request: HistoryRequest): Promise<HistoryResponse> {}
+  history(request: HistoryRequest): Promise<HistoryResponse> {
+    return this.client.call(
+      "forex",
+      "History",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Get the latest price for a given forex ticker
-  price(request: PriceRequest): Promise<PriceResponse> {}
+  price(request: PriceRequest): Promise<PriceResponse> {
+    return this.client.call("forex", "Price", request) as Promise<ListResponse>;
+  }
   // Get the latest quote for the forex
-  quote(request: QuoteRequest): Promise<QuoteResponse> {}
+  quote(request: QuoteRequest): Promise<QuoteResponse> {
+    return this.client.call("forex", "Quote", request) as Promise<ListResponse>;
+  }
 }
 
 export interface HistoryRequest {

@@ -7,13 +7,29 @@ export class StockService {
     this.client = new m3o.Client({ token: token });
   }
   // Get the historic open-close for a given day
-  history(request: HistoryRequest): Promise<HistoryResponse> {}
+  history(request: HistoryRequest): Promise<HistoryResponse> {
+    return this.client.call(
+      "stock",
+      "History",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Get the historic order book and each trade by timestamp
-  orderBook(request: OrderBookRequest): Promise<OrderBookResponse> {}
+  orderBook(request: OrderBookRequest): Promise<OrderBookResponse> {
+    return this.client.call(
+      "stock",
+      "OrderBook",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Get the last price for a given stock ticker
-  price(request: PriceRequest): Promise<PriceResponse> {}
+  price(request: PriceRequest): Promise<PriceResponse> {
+    return this.client.call("stock", "Price", request) as Promise<ListResponse>;
+  }
   // Get the last quote for the stock
-  quote(request: QuoteRequest): Promise<QuoteResponse> {}
+  quote(request: QuoteRequest): Promise<QuoteResponse> {
+    return this.client.call("stock", "Quote", request) as Promise<ListResponse>;
+  }
 }
 
 export interface HistoryRequest {

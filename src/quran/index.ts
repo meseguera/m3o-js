@@ -7,15 +7,39 @@ export class QuranService {
     this.client = new m3o.Client({ token: token });
   }
   // List the Chapters (surahs) of the Quran
-  chapters(request: ChaptersRequest): Promise<ChaptersResponse> {}
+  chapters(request: ChaptersRequest): Promise<ChaptersResponse> {
+    return this.client.call(
+      "quran",
+      "Chapters",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Search the Quran for any form of query or questions
-  search(request: SearchRequest): Promise<SearchResponse> {}
+  search(request: SearchRequest): Promise<SearchResponse> {
+    return this.client.call(
+      "quran",
+      "Search",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Get a summary for a given chapter (surah)
-  summary(request: SummaryRequest): Promise<SummaryResponse> {}
+  summary(request: SummaryRequest): Promise<SummaryResponse> {
+    return this.client.call(
+      "quran",
+      "Summary",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Lookup the verses (ayahs) for a chapter including
   // translation, interpretation and breakdown by individual
   // words.
-  verses(request: VersesRequest): Promise<VersesResponse> {}
+  verses(request: VersesRequest): Promise<VersesResponse> {
+    return this.client.call(
+      "quran",
+      "Verses",
+      request
+    ) as Promise<ListResponse>;
+  }
 }
 
 export interface Chapter {

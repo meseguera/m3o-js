@@ -8,15 +8,37 @@ export class StreamService {
   }
   // Create a channel with a given name and description. Channels are created automatically but
   // this allows you to specify a description that's persisted for the lifetime of the channel.
-  createChannel(
-    request: CreateChannelRequest
-  ): Promise<CreateChannelResponse> {}
+  createChannel(request: CreateChannelRequest): Promise<CreateChannelResponse> {
+    return this.client.call(
+      "stream",
+      "CreateChannel",
+      request
+    ) as Promise<ListResponse>;
+  }
   // List all the active channels
-  listChannels(request: ListChannelsRequest): Promise<ListChannelsResponse> {}
+  listChannels(request: ListChannelsRequest): Promise<ListChannelsResponse> {
+    return this.client.call(
+      "stream",
+      "ListChannels",
+      request
+    ) as Promise<ListResponse>;
+  }
   // List messages for a given channel
-  listMessages(request: ListMessagesRequest): Promise<ListMessagesResponse> {}
+  listMessages(request: ListMessagesRequest): Promise<ListMessagesResponse> {
+    return this.client.call(
+      "stream",
+      "ListMessages",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Send a message to the stream.
-  sendMessage(request: SendMessageRequest): Promise<SendMessageResponse> {}
+  sendMessage(request: SendMessageRequest): Promise<SendMessageResponse> {
+    return this.client.call(
+      "stream",
+      "SendMessage",
+      request
+    ) as Promise<ListResponse>;
+  }
 }
 
 export interface Channel {

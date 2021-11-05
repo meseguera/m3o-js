@@ -7,9 +7,21 @@ export class OtpService {
     this.client = new m3o.Client({ token: token });
   }
   // Generate an OTP (one time pass) code
-  generate(request: GenerateRequest): Promise<GenerateResponse> {}
+  generate(request: GenerateRequest): Promise<GenerateResponse> {
+    return this.client.call(
+      "otp",
+      "Generate",
+      request
+    ) as Promise<ListResponse>;
+  }
   // Validate the OTP code
-  validate(request: ValidateRequest): Promise<ValidateResponse> {}
+  validate(request: ValidateRequest): Promise<ValidateResponse> {
+    return this.client.call(
+      "otp",
+      "Validate",
+      request
+    ) as Promise<ListResponse>;
+  }
 }
 
 export interface GenerateRequest {
