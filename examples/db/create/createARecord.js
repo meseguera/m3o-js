@@ -12,9 +12,7 @@ async function createArecord() {
     },
     table: "users",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 createArecord();

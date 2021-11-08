@@ -7,9 +7,7 @@ async function deleteAfunction() {
     name: "my-first-func",
     project: "tests",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 deleteAfunction();

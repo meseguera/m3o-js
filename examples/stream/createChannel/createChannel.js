@@ -8,9 +8,7 @@ async function createChannel() {
     description: "The channel for all things",
     name: "general",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 createChannel();

@@ -4,9 +4,7 @@ const { PostcodeService } = require("m3o/postcode");
 async function returnArandomPostcodeAndItsInformation() {
   let postcodeService = new PostcodeService(process.env.M3O_API_TOKEN);
   let rsp = await postcodeService.random({});
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 returnArandomPostcodeAndItsInformation();

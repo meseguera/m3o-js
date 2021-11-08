@@ -6,9 +6,7 @@ async function getAstockPrice() {
   let rsp = await stockService.price({
     symbol: "AAPL",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 getAstockPrice();

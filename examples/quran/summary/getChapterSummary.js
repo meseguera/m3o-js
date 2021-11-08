@@ -6,9 +6,7 @@ async function getChapterSummary() {
   let rsp = await quranService.summary({
     chapter: 1,
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 getChapterSummary();

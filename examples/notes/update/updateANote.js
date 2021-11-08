@@ -10,9 +10,7 @@ async function updateAnote() {
       title: "Update Note",
     },
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 updateAnote();

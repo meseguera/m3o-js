@@ -11,9 +11,7 @@ async function publishAmessage() {
     },
     topic: "events",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 publishAmessage();

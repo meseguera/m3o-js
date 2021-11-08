@@ -8,9 +8,7 @@ async function sendAtextContainingAnEmojiToAnyoneViaSms() {
     message: "let's grab a :beer:",
     to: "+44782669123",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 sendAtextContainingAnEmojiToAnyoneViaSms();

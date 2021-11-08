@@ -11,9 +11,7 @@ async function base64toBase64image() {
     height: 100,
     width: 100,
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 base64toBase64image();

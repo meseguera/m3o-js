@@ -6,9 +6,7 @@ async function searchTheQuran() {
   let rsp = await quranService.search({
     query: "messenger",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 searchTheQuran();

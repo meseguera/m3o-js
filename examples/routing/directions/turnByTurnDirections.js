@@ -13,9 +13,7 @@ async function turnByTurnDirections() {
       longitude: 13.38886,
     },
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 turnByTurnDirections();

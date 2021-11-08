@@ -7,9 +7,7 @@ async function readRecords() {
     query: "age == 43",
     table: "users",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 readRecords();

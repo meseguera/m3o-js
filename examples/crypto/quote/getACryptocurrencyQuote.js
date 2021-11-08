@@ -6,9 +6,7 @@ async function getAcryptocurrencyQuote() {
   let rsp = await cryptoService.quote({
     symbol: "BTCUSD",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 getAcryptocurrencyQuote();

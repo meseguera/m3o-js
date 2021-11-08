@@ -6,9 +6,7 @@ async function shortenAlongUrl() {
   let rsp = await urlService.shorten({
     destinationURL: "https://mysite.com/this-is-a-rather-long-web-address",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 shortenAlongUrl();

@@ -6,9 +6,7 @@ async function deleteAvalue() {
   let rsp = await cacheService.delete({
     key: "foo",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 deleteAvalue();

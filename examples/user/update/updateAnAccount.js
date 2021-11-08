@@ -7,9 +7,7 @@ async function updateAnAccount() {
     email: "joeotheremail@example.com",
     id: "usrid-1",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 updateAnAccount();

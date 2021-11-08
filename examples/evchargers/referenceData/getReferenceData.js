@@ -4,9 +4,7 @@ const { EvchargersService } = require("m3o/evchargers");
 async function getReferenceData() {
   let evchargersService = new EvchargersService(process.env.M3O_API_TOKEN);
   let rsp = await evchargersService.referenceData({});
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 getReferenceData();

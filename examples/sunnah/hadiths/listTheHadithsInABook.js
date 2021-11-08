@@ -8,9 +8,7 @@ async function listTheHadithsInAbook() {
     book: 1,
     collection: "bukhari",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 listTheHadithsInAbook();

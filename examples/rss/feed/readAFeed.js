@@ -6,9 +6,7 @@ async function readAfeed() {
   let rsp = await rssService.feed({
     name: "bbc",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 readAfeed();

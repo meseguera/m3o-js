@@ -6,9 +6,7 @@ async function getCryptocurrencyNews() {
   let rsp = await cryptoService.news({
     symbol: "BTCUSD",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 getCryptocurrencyNews();

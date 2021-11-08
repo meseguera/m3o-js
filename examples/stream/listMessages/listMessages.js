@@ -6,9 +6,7 @@ async function listMessages() {
   let rsp = await streamService.listMessages({
     channel: "general",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 listMessages();

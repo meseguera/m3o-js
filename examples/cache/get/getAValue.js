@@ -6,9 +6,7 @@ async function getAvalue() {
   let rsp = await cacheService.get({
     key: "foo",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 getAvalue();

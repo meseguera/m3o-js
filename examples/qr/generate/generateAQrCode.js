@@ -7,9 +7,7 @@ async function generateAqrCode() {
     size: 300,
     text: "https://m3o.com/qr",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 generateAqrCode();

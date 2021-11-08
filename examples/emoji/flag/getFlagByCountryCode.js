@@ -6,9 +6,7 @@ async function getFlagByCountryCode() {
   let rsp = await emojiService.flag({
     alias: "GB",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 getFlagByCountryCode();

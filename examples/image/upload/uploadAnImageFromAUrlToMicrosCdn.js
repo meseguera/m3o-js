@@ -8,9 +8,7 @@ async function uploadAnImageFromAurlToMicrosCdn() {
     name: "cat.jpeg",
     url: "somewebsite.com/cat.png",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 uploadAnImageFromAurlToMicrosCdn();

@@ -6,9 +6,7 @@ async function lookupPostcode() {
   let rsp = await addressService.lookupPostcode({
     postcode: "SW1A 2AA",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 lookupPostcode();

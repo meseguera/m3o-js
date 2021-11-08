@@ -6,9 +6,7 @@ async function getAstockQuote() {
   let rsp = await stockService.quote({
     symbol: "AAPL",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 getAstockQuote();

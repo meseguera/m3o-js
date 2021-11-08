@@ -6,9 +6,7 @@ async function getRatesForUsd() {
   let rsp = await currencyService.rates({
     code: "USD",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 getRatesForUsd();

@@ -6,9 +6,7 @@ async function getPreviousClose() {
   let rsp = await cryptoService.history({
     symbol: "BTCUSD",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 getPreviousClose();

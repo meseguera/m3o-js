@@ -9,9 +9,7 @@ async function updateTheAccountPassword() {
     newPassword: "myEvenMoreSecretPass123",
     oldPassword: "mySecretPass123",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 updateTheAccountPassword();

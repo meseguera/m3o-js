@@ -7,9 +7,7 @@ async function getAtwitterTimeline() {
     limit: 1,
     username: "m3oservices",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 getAtwitterTimeline();

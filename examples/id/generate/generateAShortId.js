@@ -6,9 +6,7 @@ async function generateAshortId() {
   let rsp = await idService.generate({
     type: "shortid",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 generateAshortId();

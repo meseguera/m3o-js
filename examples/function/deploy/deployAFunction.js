@@ -10,9 +10,7 @@ async function deployAfunction() {
     repo: "github.com/m3o/nodejs-function-example",
     runtime: "nodejs14",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 deployAfunction();

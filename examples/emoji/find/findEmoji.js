@@ -6,9 +6,7 @@ async function findEmoji() {
   let rsp = await emojiService.find({
     alias: ":beer:",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 findEmoji();

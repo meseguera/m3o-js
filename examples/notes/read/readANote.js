@@ -6,9 +6,7 @@ async function readAnote() {
   let rsp = await notesService.read({
     id: "63c0cdf8-2121-11ec-a881-0242e36f037a",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 readAnote();

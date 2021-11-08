@@ -12,9 +12,7 @@ async function searchWithFiltersFastChargersOnly() {
     },
     max_results: 2,
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 searchWithFiltersFastChargersOnly();

@@ -6,9 +6,7 @@ async function listFiles() {
   let rsp = await fileService.list({
     project: "examples",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 listFiles();

@@ -7,9 +7,7 @@ async function deleteArecord() {
     id: "1",
     table: "users",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 deleteArecord();

@@ -8,9 +8,7 @@ async function takeScreenshotOfAurl() {
     url: "https://m3o.com",
     width: 600,
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 takeScreenshotOfAurl();

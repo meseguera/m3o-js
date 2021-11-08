@@ -7,9 +7,7 @@ async function listTheChaptersInAbook() {
     book: 1,
     collection: "bukhari",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 listTheChaptersInAbook();

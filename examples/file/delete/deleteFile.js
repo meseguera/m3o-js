@@ -7,9 +7,7 @@ async function deleteFile() {
     path: "/document/text-files/file.txt",
     project: "examples",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 deleteFile();

@@ -9,9 +9,7 @@ async function createAnAccount() {
     password: "mySecretPass123",
     username: "usrname-1",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 createAnAccount();

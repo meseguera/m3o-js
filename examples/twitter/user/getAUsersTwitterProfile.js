@@ -6,9 +6,7 @@ async function getAusersTwitterProfile() {
   let rsp = await twitterService.user({
     username: "crufter",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 getAusersTwitterProfile();

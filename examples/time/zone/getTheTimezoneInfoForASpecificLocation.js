@@ -6,9 +6,7 @@ async function getTheTimezoneInfoForAspecificLocation() {
   let rsp = await timeService.zone({
     location: "London",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 getTheTimezoneInfoForAspecificLocation();

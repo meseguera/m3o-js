@@ -9,9 +9,7 @@ async function convertApngImageToAjpegTakenFromAurlAndSavedToAurlOnMicrosCdn() {
     outputURL: true,
     url: "somewebsite.com/cat.png",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 convertApngImageToAjpegTakenFromAurlAndSavedToAurlOnMicrosCdn();

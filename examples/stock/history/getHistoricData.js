@@ -7,9 +7,7 @@ async function getHistoricData() {
     date: "2020-10-01",
     stock: "AAPL",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 getHistoricData();

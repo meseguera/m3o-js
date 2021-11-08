@@ -6,9 +6,7 @@ async function analyzeApieceOfText() {
   let rsp = await sentimentService.analyze({
     text: "this is amazing",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 analyzeApieceOfText();

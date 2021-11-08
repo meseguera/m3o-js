@@ -9,9 +9,7 @@ async function geocodeAnAddress() {
     country: "uk",
     postcode: "wc2b",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 geocodeAnAddress();

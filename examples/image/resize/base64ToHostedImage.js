@@ -13,9 +13,7 @@ async function base64toHostedImage() {
     outputURL: true,
     width: 100,
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 base64toHostedImage();

@@ -10,9 +10,7 @@ async function orderBookHistory() {
     start: "2020-10-01T10:00:00Z",
     stock: "AAPL",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 orderBookHistory();
