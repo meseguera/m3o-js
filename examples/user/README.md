@@ -4,6 +4,28 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/User/api](http
 
 Endpoints:
 
+## ReadSession
+
+Read a session by the session id. In the event it has expired or is not found and error is returned.
+
+
+[https://m3o.com/user/api#ReadSession](https://m3o.com/user/api#ReadSession)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Read a session by the session id. In the event it has expired or is not found and error is returned.
+async function readAsessionByTheSessionId() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.readSession({
+  "sessionId": "sds34s34s34-s34s34-s43s43s34-s4s34s"
+})
+	console.log(rsp)
+	
+}
+
+readAsessionByTheSessionId()
+```
 ## UpdatePassword
 
 Update the account password
@@ -95,6 +117,45 @@ async function readAccountByEmail() {
 
 readAccountByEmail()
 ```
+## SendVerificationEmail
+
+Send a verification email
+to the user being signed up. Email from will be from 'support@m3o.com',
+but you can provide the title and contents.
+The verification link will be injected in to the email as a template variable, $micro_verification_link.
+Example: 'Hi there, welcome onboard! Use the link below to verify your email: $micro_verification_link'
+The variable will be replaced with an actual url that will look similar to this:
+'https://user.m3o.com/user/verify?token=a-verification-token&redirectUrl=your-redir-url'
+
+
+[https://m3o.com/user/api#SendVerificationEmail](https://m3o.com/user/api#SendVerificationEmail)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Send a verification email
+// to the user being signed up. Email from will be from 'support@m3o.com',
+// but you can provide the title and contents.
+// The verification link will be injected in to the email as a template variable, $micro_verification_link.
+// Example: 'Hi there, welcome onboard! Use the link below to verify your email: $micro_verification_link'
+// The variable will be replaced with an actual url that will look similar to this:
+// 'https://user.m3o.com/user/verify?token=a-verification-token&redirectUrl=your-redir-url'
+async function sendVerificationEmail() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.sendVerificationEmail({
+  "email": "joe@example.com",
+  "failureRedirectUrl": "https://m3o.com/verification-failed",
+  "fromName": "Awesome Dot Com",
+  "redirectUrl": "https://m3o.com",
+  "subject": "Email verification",
+  "textContent": "Hi there,\n\nPlease verify your email by clicking this link: $micro_verification_link"
+})
+	console.log(rsp)
+	
+}
+
+sendVerificationEmail()
+```
 ## Delete
 
 Delete an account by id
@@ -141,6 +202,28 @@ async function logAuserIn() {
 }
 
 logAuserIn()
+```
+## Logout
+
+Logout a user account
+
+
+[https://m3o.com/user/api#Logout](https://m3o.com/user/api#Logout)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Logout a user account
+async function logAuserOut() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.logout({
+  "sessionId": "sds34s34s34-s34s34-s43s43s34-s4s34s"
+})
+	console.log(rsp)
+	
+}
+
+logAuserOut()
 ```
 ## Create
 
@@ -189,89 +272,6 @@ async function updateAnAccount() {
 }
 
 updateAnAccount()
-```
-## Logout
-
-Logout a user account
-
-
-[https://m3o.com/user/api#Logout](https://m3o.com/user/api#Logout)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Logout a user account
-async function logAuserOut() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.logout({
-  "sessionId": "sds34s34s34-s34s34-s43s43s34-s4s34s"
-})
-	console.log(rsp)
-	
-}
-
-logAuserOut()
-```
-## ReadSession
-
-Read a session by the session id. In the event it has expired or is not found and error is returned.
-
-
-[https://m3o.com/user/api#ReadSession](https://m3o.com/user/api#ReadSession)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Read a session by the session id. In the event it has expired or is not found and error is returned.
-async function readAsessionByTheSessionId() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.readSession({
-  "sessionId": "sds34s34s34-s34s34-s43s43s34-s4s34s"
-})
-	console.log(rsp)
-	
-}
-
-readAsessionByTheSessionId()
-```
-## SendVerificationEmail
-
-Send a verification email
-to the user being signed up. Email from will be from 'support@m3o.com',
-but you can provide the title and contents.
-The verification link will be injected in to the email as a template variable, $micro_verification_link.
-Example: 'Hi there, welcome onboard! Use the link below to verify your email: $micro_verification_link'
-The variable will be replaced with an actual url that will look similar to this:
-'https://user.m3o.com/user/verify?token=a-verification-token&redirectUrl=your-redir-url'
-
-
-[https://m3o.com/user/api#SendVerificationEmail](https://m3o.com/user/api#SendVerificationEmail)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Send a verification email
-// to the user being signed up. Email from will be from 'support@m3o.com',
-// but you can provide the title and contents.
-// The verification link will be injected in to the email as a template variable, $micro_verification_link.
-// Example: 'Hi there, welcome onboard! Use the link below to verify your email: $micro_verification_link'
-// The variable will be replaced with an actual url that will look similar to this:
-// 'https://user.m3o.com/user/verify?token=a-verification-token&redirectUrl=your-redir-url'
-async function sendVerificationEmail() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.sendVerificationEmail({
-  "email": "joe@example.com",
-  "failureRedirectUrl": "https://m3o.com/verification-failed",
-  "fromName": "Awesome Dot Com",
-  "redirectUrl": "https://m3o.com",
-  "subject": "Email verification",
-  "textContent": "Hi there,\n\nPlease verify your email by clicking this link: $micro_verification_link"
-})
-	console.log(rsp)
-	
-}
-
-sendVerificationEmail()
 ```
 ## VerifyEmail
 
