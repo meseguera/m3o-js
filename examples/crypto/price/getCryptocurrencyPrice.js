@@ -6,7 +6,9 @@ async function getCryptocurrencyPrice() {
   let rsp = await cryptoService.price({
     symbol: "BTCUSD",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 getCryptocurrencyPrice();

@@ -12,7 +12,9 @@ async function searchForLocations() {
     radius: 100,
     type: "bike",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 searchForLocations();

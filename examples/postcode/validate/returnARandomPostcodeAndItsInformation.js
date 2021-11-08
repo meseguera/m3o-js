@@ -6,7 +6,9 @@ async function returnArandomPostcodeAndItsInformation() {
   let rsp = await postcodeService.validate({
     postcode: "SW1A 2AA",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 returnArandomPostcodeAndItsInformation();

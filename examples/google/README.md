@@ -20,7 +20,9 @@ async function searchForVideos() {
 	let rsp = await googleService.search({
   "query": "how to make donuts"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 searchForVideos()

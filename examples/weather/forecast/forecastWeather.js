@@ -7,7 +7,9 @@ async function forecastWeather() {
     days: 2,
     location: "London",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 forecastWeather();

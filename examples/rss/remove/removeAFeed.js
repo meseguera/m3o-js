@@ -6,7 +6,9 @@ async function removeAfeed() {
   let rsp = await rssService.remove({
     name: "bbc",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 removeAfeed();

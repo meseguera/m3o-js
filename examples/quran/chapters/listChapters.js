@@ -6,7 +6,9 @@ async function listChapters() {
   let rsp = await quranService.chapters({
     language: "en",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 listChapters();

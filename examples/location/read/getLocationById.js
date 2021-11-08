@@ -6,7 +6,9 @@ async function getLocationById() {
   let rsp = await locationService.read({
     id: "1",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 getLocationById();

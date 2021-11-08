@@ -14,7 +14,9 @@ async function saveAnEntity() {
       type: "bike",
     },
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 saveAnEntity();

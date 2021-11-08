@@ -4,28 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Twitter/api](h
 
 Endpoints:
 
-## Timeline
-
-Get the timeline for a given user
-
-
-[https://m3o.com/twitter/api#Timeline](https://m3o.com/twitter/api#Timeline)
-
-```js
-const { TwitterService } = require('m3o/twitter');
-
-// Get the timeline for a given user
-async function getAtwitterTimeline() {
-	let twitterService = new TwitterService(process.env.M3O_API_TOKEN)
-	let rsp = await twitterService.timeline({
-  "limit": 1,
-  "username": "m3oservices"
-})
-	console.log(rsp)
-}
-
-getAtwitterTimeline()
-```
 ## Search
 
 Search for tweets with a simple query
@@ -42,7 +20,9 @@ async function searchForTweets() {
 	let rsp = await twitterService.search({
   "query": "cats"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 searchForTweets()
@@ -61,7 +41,9 @@ const { TwitterService } = require('m3o/twitter');
 async function getTheCurrentGlobalTrendingTopics() {
 	let twitterService = new TwitterService(process.env.M3O_API_TOKEN)
 	let rsp = await twitterService.trends({})
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 getTheCurrentGlobalTrendingTopics()
@@ -82,8 +64,34 @@ async function getAusersTwitterProfile() {
 	let rsp = await twitterService.user({
   "username": "crufter"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 getAusersTwitterProfile()
+```
+## Timeline
+
+Get the timeline for a given user
+
+
+[https://m3o.com/twitter/api#Timeline](https://m3o.com/twitter/api#Timeline)
+
+```js
+const { TwitterService } = require('m3o/twitter');
+
+// Get the timeline for a given user
+async function getAtwitterTimeline() {
+	let twitterService = new TwitterService(process.env.M3O_API_TOKEN)
+	let rsp = await twitterService.timeline({
+  "limit": 1,
+  "username": "m3oservices"
+})
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
+}
+
+getAtwitterTimeline()
 ```

@@ -20,7 +20,9 @@ async function callTheHelloworldService() {
 	let rsp = await helloworldService.call({
   "name": "John"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 callTheHelloworldService()
@@ -42,6 +44,7 @@ async function streamsResponsesFromTheServerUsingWebsockets() {
   "name": "John"
 })
 	console.log(rsp)
+	
 }
 
 streamsResponsesFromTheServerUsingWebsockets()

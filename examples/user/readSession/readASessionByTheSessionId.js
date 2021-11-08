@@ -6,7 +6,9 @@ async function readAsessionByTheSessionId() {
   let rsp = await userService.readSession({
     sessionId: "sds34s34s34-s34s34-s43s43s34-s4s34s",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 readAsessionByTheSessionId();

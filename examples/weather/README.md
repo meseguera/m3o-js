@@ -20,7 +20,9 @@ async function getCurrentWeather() {
 	let rsp = await weatherService.now({
   "location": "london"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 getCurrentWeather()
@@ -42,7 +44,9 @@ async function forecastWeather() {
   "days": 2,
   "location": "London"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 forecastWeather()

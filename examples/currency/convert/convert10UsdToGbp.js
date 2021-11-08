@@ -8,7 +8,9 @@ async function convert10usdToGbp() {
     from: "USD",
     to: "GBP",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 convert10usdToGbp();

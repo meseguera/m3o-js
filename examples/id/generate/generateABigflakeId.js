@@ -6,7 +6,9 @@ async function generateAbigflakeId() {
   let rsp = await idService.generate({
     type: "bigflake",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 generateAbigflakeId();

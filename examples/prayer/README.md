@@ -20,7 +20,9 @@ async function prayerTimes() {
 	let rsp = await prayerService.times({
   "location": "london"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 prayerTimes()

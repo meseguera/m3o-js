@@ -18,7 +18,9 @@ async function sendVerificationEmail() {
     textContent:
       "Hi there,\n\nPlease verify your email by clicking this link: $micro_verification_link",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 sendVerificationEmail();

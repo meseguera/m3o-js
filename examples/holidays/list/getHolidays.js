@@ -7,7 +7,9 @@ async function getHolidays() {
     country_code: "GB",
     year: 2022,
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 getHolidays();

@@ -5,7 +5,9 @@ const { SunnahService } = require("m3o/sunnah");
 async function listAvailableCollections() {
   let sunnahService = new SunnahService(process.env.M3O_API_TOKEN);
   let rsp = await sunnahService.collections({});
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 listAvailableCollections();

@@ -6,7 +6,9 @@ async function resolveAshortUrlToAlongDestinationUrl() {
   let rsp = await urlService.proxy({
     shortURL: "https://m3o.one/u/ck6SGVkYp",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 resolveAshortUrlToAlongDestinationUrl();

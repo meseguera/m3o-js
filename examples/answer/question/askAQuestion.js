@@ -6,7 +6,9 @@ async function askAquestion() {
   let rsp = await answerService.question({
     query: "microsoft",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 askAquestion();

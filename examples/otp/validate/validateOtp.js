@@ -7,7 +7,9 @@ async function validateOtp() {
     code: "656211",
     id: "asim@example.com",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 validateOtp();

@@ -25,7 +25,9 @@ async function publishAmessage() {
   },
   "topic": "events"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 publishAmessage()
@@ -47,6 +49,7 @@ async function subscribeToAtopic() {
   "topic": "events"
 })
 	console.log(rsp)
+	
 }
 
 subscribeToAtopic()

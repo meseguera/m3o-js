@@ -6,7 +6,9 @@ async function verifyEmail() {
   let rsp = await userService.verifyEmail({
     token: "t2323t232t",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 verifyEmail();

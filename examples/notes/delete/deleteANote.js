@@ -6,7 +6,9 @@ async function deleteAnote() {
   let rsp = await notesService.delete({
     id: "63c0cdf8-2121-11ec-a881-0242e36f037a",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 deleteAnote();

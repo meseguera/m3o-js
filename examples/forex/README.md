@@ -20,7 +20,9 @@ async function getAnFxPrice() {
 	let rsp = await forexService.price({
   "symbol": "GBPUSD"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 getAnFxPrice()
@@ -41,7 +43,9 @@ async function getAfxQuote() {
 	let rsp = await forexService.quote({
   "symbol": "GBPUSD"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 getAfxQuote()
@@ -62,7 +66,9 @@ async function getPreviousClose() {
 	let rsp = await forexService.history({
   "symbol": "GBPUSD"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 getPreviousClose()

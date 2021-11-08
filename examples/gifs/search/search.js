@@ -7,7 +7,9 @@ async function search() {
     limit: 2,
     query: "dogs",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 search();

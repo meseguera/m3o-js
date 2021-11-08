@@ -4,7 +4,9 @@ const { TimeService } = require("m3o/time");
 async function returnsCurrentTimeOptionallyWithLocation() {
   let timeService = new TimeService(process.env.M3O_API_TOKEN);
   let rsp = await timeService.now({});
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 returnsCurrentTimeOptionallyWithLocation();

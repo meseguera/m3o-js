@@ -6,7 +6,9 @@ async function getAnFxPrice() {
   let rsp = await forexService.price({
     symbol: "GBPUSD",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 getAnFxPrice();

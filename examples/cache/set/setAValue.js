@@ -7,7 +7,9 @@ async function setAvalue() {
     key: "foo",
     value: "bar",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 setAvalue();

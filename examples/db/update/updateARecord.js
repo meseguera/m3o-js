@@ -10,7 +10,9 @@ async function updateArecord() {
     },
     table: "users",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 updateArecord();

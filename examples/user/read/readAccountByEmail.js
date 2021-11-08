@@ -6,7 +6,9 @@ async function readAccountByEmail() {
   let rsp = await userService.read({
     email: "joe@example.com",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 readAccountByEmail();

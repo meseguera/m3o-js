@@ -11,7 +11,9 @@ async function searchByLocation() {
     },
     max_results: 2,
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 searchByLocation();

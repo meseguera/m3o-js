@@ -7,7 +7,9 @@ async function printTextIncludingEmoji() {
   let rsp = await emojiService.print({
     text: "let's grab a :beer:",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 printTextIncludingEmoji();

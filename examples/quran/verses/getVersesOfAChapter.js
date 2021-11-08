@@ -8,7 +8,9 @@ async function getVersesOfAchapter() {
   let rsp = await quranService.verses({
     chapter: 1,
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 getVersesOfAchapter();

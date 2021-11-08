@@ -20,7 +20,9 @@ async function getAstockPrice() {
 	let rsp = await stockService.price({
   "symbol": "AAPL"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 getAstockPrice()
@@ -41,7 +43,9 @@ async function getAstockQuote() {
 	let rsp = await stockService.quote({
   "symbol": "AAPL"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 getAstockQuote()
@@ -63,7 +67,9 @@ async function getHistoricData() {
   "date": "2020-10-01",
   "stock": "AAPL"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 getHistoricData()
@@ -88,7 +94,9 @@ async function orderBookHistory() {
   "start": "2020-10-01T10:00:00Z",
   "stock": "AAPL"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 orderBookHistory()

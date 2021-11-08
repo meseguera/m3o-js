@@ -6,7 +6,9 @@ async function countEntriesInAtable() {
   let rsp = await dbService.count({
     table: "users",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 countEntriesInAtable();

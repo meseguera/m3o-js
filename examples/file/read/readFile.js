@@ -7,7 +7,9 @@ async function readFile() {
     path: "/document/text-files/file.txt",
     project: "examples",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 readFile();

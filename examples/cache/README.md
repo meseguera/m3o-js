@@ -4,6 +4,30 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Cache/api](htt
 
 Endpoints:
 
+## Set
+
+Set an item in the cache. Overwrites any existing value already set.
+
+
+[https://m3o.com/cache/api#Set](https://m3o.com/cache/api#Set)
+
+```js
+const { CacheService } = require('m3o/cache');
+
+// Set an item in the cache. Overwrites any existing value already set.
+async function setAvalue() {
+	let cacheService = new CacheService(process.env.M3O_API_TOKEN)
+	let rsp = await cacheService.set({
+  "key": "foo",
+  "value": "bar"
+})
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
+}
+
+setAvalue()
+```
 ## Get
 
 Get an item from the cache by key. If key is not found, an empty response is returned.
@@ -20,7 +44,9 @@ async function getAvalue() {
 	let rsp = await cacheService.get({
   "key": "foo"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 getAvalue()
@@ -41,7 +67,9 @@ async function deleteAvalue() {
 	let rsp = await cacheService.delete({
   "key": "foo"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 deleteAvalue()
@@ -63,7 +91,9 @@ async function incrementAvalue() {
   "key": "counter",
   "value": 2
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 incrementAvalue()
@@ -85,30 +115,10 @@ async function decrementAvalue() {
   "key": "counter",
   "value": 2
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 decrementAvalue()
-```
-## Set
-
-Set an item in the cache. Overwrites any existing value already set.
-
-
-[https://m3o.com/cache/api#Set](https://m3o.com/cache/api#Set)
-
-```js
-const { CacheService } = require('m3o/cache');
-
-// Set an item in the cache. Overwrites any existing value already set.
-async function setAvalue() {
-	let cacheService = new CacheService(process.env.M3O_API_TOKEN)
-	let rsp = await cacheService.set({
-  "key": "foo",
-  "value": "bar"
-})
-	console.log(rsp)
-}
-
-setAvalue()
 ```

@@ -6,7 +6,9 @@ async function generateOtp() {
   let rsp = await otpService.generate({
     id: "asim@example.com",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 generateOtp();

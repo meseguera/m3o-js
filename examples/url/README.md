@@ -18,7 +18,9 @@ const { UrlService } = require('m3o/url');
 async function listYourShortenedUrls() {
 	let urlService = new UrlService(process.env.M3O_API_TOKEN)
 	let rsp = await urlService.list({})
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 listYourShortenedUrls()
@@ -39,7 +41,9 @@ async function shortenAlongUrl() {
 	let rsp = await urlService.shorten({
   "destinationURL": "https://mysite.com/this-is-a-rather-long-web-address"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 shortenAlongUrl()
@@ -60,7 +64,9 @@ async function resolveAshortUrlToAlongDestinationUrl() {
 	let rsp = await urlService.proxy({
   "shortURL": "https://m3o.one/u/ck6SGVkYp"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 resolveAshortUrlToAlongDestinationUrl()

@@ -8,7 +8,9 @@ async function logAuserIn() {
     email: "joe@example.com",
     password: "mySecretPass123",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 logAuserIn();

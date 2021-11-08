@@ -22,7 +22,9 @@ async function takeScreenshotOfAurl() {
   "url": "https://m3o.com",
   "width": 600
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 takeScreenshotOfAurl()

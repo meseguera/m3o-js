@@ -6,7 +6,9 @@ async function generateAuniqueId() {
   let rsp = await idService.generate({
     type: "uuid",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 generateAuniqueId();

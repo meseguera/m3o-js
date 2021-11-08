@@ -6,7 +6,9 @@ async function searchForTweets() {
   let rsp = await twitterService.search({
     query: "cats",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 searchForTweets();

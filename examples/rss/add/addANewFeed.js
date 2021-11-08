@@ -8,7 +8,9 @@ async function addAnewFeed() {
     name: "bbc",
     url: "http://feeds.bbci.co.uk/news/rss.xml",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 addAnewFeed();

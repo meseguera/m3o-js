@@ -6,7 +6,9 @@ async function getAfxQuote() {
   let rsp = await forexService.quote({
     symbol: "GBPUSD",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 getAfxQuote();

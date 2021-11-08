@@ -7,7 +7,9 @@ async function describeFunctionStatus() {
     name: "my-first-func",
     project: "tests",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 describeFunctionStatus();

@@ -6,7 +6,9 @@ async function readEventsOnAtopic() {
   let rsp = await eventService.read({
     topic: "user",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 readEventsOnAtopic();

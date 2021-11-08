@@ -23,7 +23,9 @@ async function geocodeAnAddress() {
   "country": "uk",
   "postcode": "wc2b"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 geocodeAnAddress()
@@ -45,7 +47,9 @@ async function reverseGeocodeLocation() {
   "latitude": 51.5123064,
   "longitude": -0.1216235
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 reverseGeocodeLocation()

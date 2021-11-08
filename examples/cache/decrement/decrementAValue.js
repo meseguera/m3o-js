@@ -7,7 +7,9 @@ async function decrementAvalue() {
     key: "counter",
     value: 2,
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 decrementAvalue();

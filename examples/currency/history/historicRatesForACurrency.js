@@ -7,7 +7,9 @@ async function historicRatesForAcurrency() {
     code: "USD",
     date: "2021-05-30",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 historicRatesForAcurrency();

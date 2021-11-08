@@ -8,7 +8,9 @@ async function sendSms() {
     message: "Hi there!",
     to: "+447681129",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 sendSms();

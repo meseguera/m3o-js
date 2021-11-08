@@ -13,7 +13,9 @@ async function etaFromPointAtoPointB() {
       longitude: 13.38886,
     },
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 etaFromPointAtoPointB();

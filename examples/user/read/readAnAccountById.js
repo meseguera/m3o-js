@@ -6,7 +6,9 @@ async function readAnAccountById() {
   let rsp = await userService.read({
     id: "usrid-1",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 readAnAccountById();

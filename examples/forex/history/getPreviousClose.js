@@ -6,7 +6,9 @@ async function getPreviousClose() {
   let rsp = await forexService.history({
     symbol: "GBPUSD",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 getPreviousClose();

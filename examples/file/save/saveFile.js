@@ -10,7 +10,9 @@ async function saveFile() {
       project: "examples",
     },
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 saveFile();

@@ -18,7 +18,9 @@ const { HolidaysService } = require('m3o/holidays');
 async function listCountries() {
 	let holidaysService = new HolidaysService(process.env.M3O_API_TOKEN)
 	let rsp = await holidaysService.countries({})
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 listCountries()
@@ -40,7 +42,9 @@ async function getHolidays() {
   "country_code": "GB",
   "year": 2022
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 getHolidays()

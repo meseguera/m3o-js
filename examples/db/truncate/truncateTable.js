@@ -6,7 +6,9 @@ async function truncateTable() {
   let rsp = await dbService.truncate({
     table: "users",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 truncateTable();

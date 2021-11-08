@@ -7,7 +7,9 @@ async function getTheBooksWithinAcollection() {
   let rsp = await sunnahService.books({
     collection: "bukhari",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 getTheBooksWithinAcollection();

@@ -4,7 +4,9 @@ const { CurrencyService } = require("m3o/currency");
 async function getSupportedCodes() {
   let currencyService = new CurrencyService(process.env.M3O_API_TOKEN);
   let rsp = await currencyService.codes({});
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 getSupportedCodes();

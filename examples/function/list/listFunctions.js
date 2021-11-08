@@ -4,7 +4,9 @@ const { FunctionService } = require("m3o/function");
 async function listFunctions() {
   let functionService = new FunctionService(process.env.M3O_API_TOKEN);
   let rsp = await functionService.list({});
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 listFunctions();

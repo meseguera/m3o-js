@@ -4,25 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Evchargers/api
 
 Endpoints:
 
-## ReferenceData
-
-Retrieve reference data as used by this API and in conjunction with the Search endpoint
-
-
-[https://m3o.com/evchargers/api#ReferenceData](https://m3o.com/evchargers/api#ReferenceData)
-
-```js
-const { EvchargersService } = require('m3o/evchargers');
-
-// Retrieve reference data as used by this API and in conjunction with the Search endpoint
-async function getReferenceData() {
-	let evchargersService = new EvchargersService(process.env.M3O_API_TOKEN)
-	let rsp = await evchargersService.referenceData({})
-	console.log(rsp)
-}
-
-getReferenceData()
-```
 ## Search
 
 Search by giving a coordinate and a max distance, or bounding box and optional filters
@@ -44,7 +25,9 @@ async function searchByLocation() {
   },
   "max_results": 2
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 searchByLocation()
@@ -75,7 +58,9 @@ async function searchByBoundingBox() {
   },
   "max_results": 2
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 searchByBoundingBox()
@@ -104,8 +89,31 @@ async function searchWithFiltersFastChargersOnly() {
   },
   "max_results": 2
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 searchWithFiltersFastChargersOnly()
+```
+## ReferenceData
+
+Retrieve reference data as used by this API and in conjunction with the Search endpoint
+
+
+[https://m3o.com/evchargers/api#ReferenceData](https://m3o.com/evchargers/api#ReferenceData)
+
+```js
+const { EvchargersService } = require('m3o/evchargers');
+
+// Retrieve reference data as used by this API and in conjunction with the Search endpoint
+async function getReferenceData() {
+	let evchargersService = new EvchargersService(process.env.M3O_API_TOKEN)
+	let rsp = await evchargersService.referenceData({})
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
+}
+
+getReferenceData()
 ```

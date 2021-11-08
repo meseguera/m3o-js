@@ -6,7 +6,9 @@ async function lookupIpInfo() {
   let rsp = await ipService.lookup({
     ip: "93.148.214.31",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 lookupIpInfo();

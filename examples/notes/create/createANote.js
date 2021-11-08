@@ -7,7 +7,9 @@ async function createAnote() {
     text: "This is my note",
     title: "New Note",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 createAnote();

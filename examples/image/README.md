@@ -28,7 +28,9 @@ async function base64toHostedImage() {
   "outputURL": true,
   "width": 100
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 base64toHostedImage()
@@ -55,7 +57,9 @@ async function base64toBase64image() {
   "height": 100,
   "width": 100
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 base64toBase64image()
@@ -86,7 +90,9 @@ async function base64toBase64imageWithCropping() {
   "height": 100,
   "width": 100
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 base64toBase64imageWithCropping()
@@ -111,7 +117,9 @@ async function convertApngImageToAjpegTakenFromAurlAndSavedToAurlOnMicrosCdn() {
   "outputURL": true,
   "url": "somewebsite.com/cat.png"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 convertApngImageToAjpegTakenFromAurlAndSavedToAurlOnMicrosCdn()
@@ -135,7 +143,9 @@ async function uploadAbase64imageToMicrosCdn() {
   "base64": "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAx0lEQVR4nOzaMaoDMQyE4ZHj+x82vVdhwQoTkzKQEcwP5r0ihT7sbjUTeAJ4HCegXQJYfOYefOyjDuBiz3yjwJBoCIl6QZOeUjTC1Ix1IxEJXF9+0KWsf2bD4bn37OO/c/wuQ9QyRC1D1DJELUPUMkQtQ9QyRC1D1DJELUPUMkQtQ9QyRC1D1DJELUPUMkQtQ9Sa/NG94Tf3j4WBdaxudMEkn4IM2rZBA0wBrvo7aOcpj2emXvLeVt0IGm0GVXUj91mvAAAA//+V2CZl+4AKXwAAAABJRU5ErkJggg==",
   "name": "cat.jpeg"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 uploadAbase64imageToMicrosCdn()
@@ -159,7 +169,9 @@ async function uploadAnImageFromAurlToMicrosCdn() {
   "name": "cat.jpeg",
   "url": "somewebsite.com/cat.png"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 uploadAnImageFromAurlToMicrosCdn()
@@ -180,7 +192,9 @@ async function deleteAnUploadedImage() {
 	let rsp = await imageService.delete({
   "url": "https://cdn.m3ocontent.com/micro/images/micro/41e23b39-48dd-42b6-9738-79a313414bb8/cat.png"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 deleteAnUploadedImage()

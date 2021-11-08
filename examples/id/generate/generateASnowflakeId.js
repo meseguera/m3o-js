@@ -6,7 +6,9 @@ async function generateAsnowflakeId() {
   let rsp = await idService.generate({
     type: "snowflake",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 generateAsnowflakeId();

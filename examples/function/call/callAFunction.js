@@ -7,7 +7,9 @@ async function callAfunction() {
     name: "my-first-func",
     request: {},
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 callAfunction();
