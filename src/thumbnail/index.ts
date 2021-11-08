@@ -12,7 +12,7 @@ export class ThumbnailService {
       "thumbnail",
       "Screenshot",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<ScreenshotResponse>;
   }
 }
 

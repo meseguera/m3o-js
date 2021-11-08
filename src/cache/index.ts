@@ -12,7 +12,7 @@ export class CacheService {
       "cache",
       "Decrement",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<DecrementResponse>;
   }
   // Delete a value from the cache. If key not found a success response is returned.
   delete(request: DeleteRequest): Promise<DeleteResponse> {
@@ -20,11 +20,11 @@ export class CacheService {
       "cache",
       "Delete",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<DeleteResponse>;
   }
   // Get an item from the cache by key. If key is not found, an empty response is returned.
   get(request: GetRequest): Promise<GetResponse> {
-    return this.client.call("cache", "Get", request) as Promise<ListResponse>;
+    return this.client.call("cache", "Get", request) as Promise<GetResponse>;
   }
   // Increment a value (if it's a number). If key not found it is equivalent to set.
   increment(request: IncrementRequest): Promise<IncrementResponse> {
@@ -32,11 +32,11 @@ export class CacheService {
       "cache",
       "Increment",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<IncrementResponse>;
   }
   // Set an item in the cache. Overwrites any existing value already set.
   set(request: SetRequest): Promise<SetResponse> {
-    return this.client.call("cache", "Set", request) as Promise<ListResponse>;
+    return this.client.call("cache", "Set", request) as Promise<SetResponse>;
   }
 }
 

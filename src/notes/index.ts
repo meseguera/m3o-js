@@ -12,7 +12,7 @@ export class NotesService {
       "notes",
       "Create",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<CreateResponse>;
   }
   // Delete a note
   delete(request: DeleteRequest): Promise<DeleteResponse> {
@@ -20,7 +20,7 @@ export class NotesService {
       "notes",
       "Delete",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<DeleteResponse>;
   }
   // Subscribe to notes events
   events(
@@ -34,7 +34,7 @@ export class NotesService {
   }
   // Read a note
   read(request: ReadRequest): Promise<ReadResponse> {
-    return this.client.call("notes", "Read", request) as Promise<ListResponse>;
+    return this.client.call("notes", "Read", request) as Promise<ReadResponse>;
   }
   // Update a note
   update(request: UpdateRequest): Promise<UpdateResponse> {
@@ -42,7 +42,7 @@ export class NotesService {
       "notes",
       "Update",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<UpdateResponse>;
   }
 }
 

@@ -12,7 +12,7 @@ export class LocationService {
       "location",
       "Read",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<ReadResponse>;
   }
   // Save an entity's current position
   save(request: SaveRequest): Promise<SaveResponse> {
@@ -20,7 +20,7 @@ export class LocationService {
       "location",
       "Save",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<SaveResponse>;
   }
   // Search for entities in a given radius
   search(request: SearchRequest): Promise<SearchResponse> {
@@ -28,7 +28,7 @@ export class LocationService {
       "location",
       "Search",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<SearchResponse>;
   }
 }
 

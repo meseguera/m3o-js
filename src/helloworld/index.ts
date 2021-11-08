@@ -12,7 +12,7 @@ export class HelloworldService {
       "helloworld",
       "Call",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<CallResponse>;
   }
   // Stream returns a stream of "Hello $name" responses
   stream(

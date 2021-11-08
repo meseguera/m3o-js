@@ -12,7 +12,7 @@ export class QuranService {
       "quran",
       "Chapters",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<ChaptersResponse>;
   }
   // Search the Quran for any form of query or questions
   search(request: SearchRequest): Promise<SearchResponse> {
@@ -20,7 +20,7 @@ export class QuranService {
       "quran",
       "Search",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<SearchResponse>;
   }
   // Get a summary for a given chapter (surah)
   summary(request: SummaryRequest): Promise<SummaryResponse> {
@@ -28,7 +28,7 @@ export class QuranService {
       "quran",
       "Summary",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<SummaryResponse>;
   }
   // Lookup the verses (ayahs) for a chapter including
   // translation, interpretation and breakdown by individual
@@ -38,7 +38,7 @@ export class QuranService {
       "quran",
       "Verses",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<VersesResponse>;
   }
 }
 

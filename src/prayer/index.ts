@@ -12,7 +12,7 @@ export class PrayerService {
       "prayer",
       "Times",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<TimesResponse>;
   }
 }
 

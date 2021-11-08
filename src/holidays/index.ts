@@ -12,7 +12,7 @@ export class HolidaysService {
       "holidays",
       "Countries",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<CountriesResponse>;
   }
   // List the holiday dates for a given country and year
   list(request: ListRequest): Promise<ListResponse> {

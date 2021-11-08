@@ -13,7 +13,7 @@ export class StreamService {
       "stream",
       "CreateChannel",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<CreateChannelResponse>;
   }
   // List all the active channels
   listChannels(request: ListChannelsRequest): Promise<ListChannelsResponse> {
@@ -21,7 +21,7 @@ export class StreamService {
       "stream",
       "ListChannels",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<ListChannelsResponse>;
   }
   // List messages for a given channel
   listMessages(request: ListMessagesRequest): Promise<ListMessagesResponse> {
@@ -29,7 +29,7 @@ export class StreamService {
       "stream",
       "ListMessages",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<ListMessagesResponse>;
   }
   // Send a message to the stream.
   sendMessage(request: SendMessageRequest): Promise<SendMessageResponse> {
@@ -37,7 +37,7 @@ export class StreamService {
       "stream",
       "SendMessage",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<SendMessageResponse>;
   }
 }
 

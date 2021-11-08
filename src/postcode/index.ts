@@ -12,7 +12,7 @@ export class PostcodeService {
       "postcode",
       "Lookup",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<LookupResponse>;
   }
   // Return a random postcode and its related info
   random(request: RandomRequest): Promise<RandomResponse> {
@@ -20,7 +20,7 @@ export class PostcodeService {
       "postcode",
       "Random",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<RandomResponse>;
   }
   // Validate a postcode.
   validate(request: ValidateRequest): Promise<ValidateResponse> {
@@ -28,7 +28,7 @@ export class PostcodeService {
       "postcode",
       "Validate",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<ValidateResponse>;
   }
 }
 

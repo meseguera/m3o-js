@@ -12,7 +12,7 @@ export class StockService {
       "stock",
       "History",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<HistoryResponse>;
   }
   // Get the historic order book and each trade by timestamp
   orderBook(request: OrderBookRequest): Promise<OrderBookResponse> {
@@ -20,15 +20,23 @@ export class StockService {
       "stock",
       "OrderBook",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<OrderBookResponse>;
   }
   // Get the last price for a given stock ticker
   price(request: PriceRequest): Promise<PriceResponse> {
-    return this.client.call("stock", "Price", request) as Promise<ListResponse>;
+    return this.client.call(
+      "stock",
+      "Price",
+      request
+    ) as Promise<PriceResponse>;
   }
   // Get the last quote for the stock
   quote(request: QuoteRequest): Promise<QuoteResponse> {
-    return this.client.call("stock", "Quote", request) as Promise<ListResponse>;
+    return this.client.call(
+      "stock",
+      "Quote",
+      request
+    ) as Promise<QuoteResponse>;
   }
 }
 

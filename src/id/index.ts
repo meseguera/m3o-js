@@ -8,11 +8,15 @@ export class IdService {
   }
   // Generate a unique ID. Defaults to uuid.
   generate(request: GenerateRequest): Promise<GenerateResponse> {
-    return this.client.call("id", "Generate", request) as Promise<ListResponse>;
+    return this.client.call(
+      "id",
+      "Generate",
+      request
+    ) as Promise<GenerateResponse>;
   }
   // List the types of IDs available. No query params needed.
   types(request: TypesRequest): Promise<TypesResponse> {
-    return this.client.call("id", "Types", request) as Promise<ListResponse>;
+    return this.client.call("id", "Types", request) as Promise<TypesResponse>;
   }
 }
 

@@ -8,20 +8,24 @@ export class EmojiService {
   }
   // Find an emoji by its alias e.g :beer:
   find(request: FindRequest): Promise<FindResponse> {
-    return this.client.call("emoji", "Find", request) as Promise<ListResponse>;
+    return this.client.call("emoji", "Find", request) as Promise<FindResponse>;
   }
   // Get the flag for a country. Requires country code e.g GB for great britain
   flag(request: FlagRequest): Promise<FlagResponse> {
-    return this.client.call("emoji", "Flag", request) as Promise<ListResponse>;
+    return this.client.call("emoji", "Flag", request) as Promise<FlagResponse>;
   }
   // Print text and renders the emojis with aliases e.g
   // let's grab a :beer: becomes let's grab a 🍺
   print(request: PrintRequest): Promise<PrintResponse> {
-    return this.client.call("emoji", "Print", request) as Promise<ListResponse>;
+    return this.client.call(
+      "emoji",
+      "Print",
+      request
+    ) as Promise<PrintResponse>;
   }
   // Send an emoji to anyone via SMS. Messages are sent in the form '<message> Sent from <from>'
   send(request: SendRequest): Promise<SendResponse> {
-    return this.client.call("emoji", "Send", request) as Promise<ListResponse>;
+    return this.client.call("emoji", "Send", request) as Promise<SendResponse>;
   }
 }
 

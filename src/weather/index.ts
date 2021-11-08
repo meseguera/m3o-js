@@ -12,11 +12,11 @@ export class WeatherService {
       "weather",
       "Forecast",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<ForecastResponse>;
   }
   // Get the current weather report for a location by postcode, city, zip code, ip address
   now(request: NowRequest): Promise<NowResponse> {
-    return this.client.call("weather", "Now", request) as Promise<ListResponse>;
+    return this.client.call("weather", "Now", request) as Promise<NowResponse>;
   }
 }
 

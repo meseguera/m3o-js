@@ -8,7 +8,11 @@ export class MqService {
   }
   // Publish a message. Specify a topic to group messages for a specific topic.
   publish(request: PublishRequest): Promise<PublishResponse> {
-    return this.client.call("mq", "Publish", request) as Promise<ListResponse>;
+    return this.client.call(
+      "mq",
+      "Publish",
+      request
+    ) as Promise<PublishResponse>;
   }
   // Subscribe to messages for a given topic.
   subscribe(

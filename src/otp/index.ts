@@ -12,7 +12,7 @@ export class OtpService {
       "otp",
       "Generate",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<GenerateResponse>;
   }
   // Validate the OTP code
   validate(request: ValidateRequest): Promise<ValidateResponse> {
@@ -20,7 +20,7 @@ export class OtpService {
       "otp",
       "Validate",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<ValidateResponse>;
   }
 }
 

@@ -12,7 +12,7 @@ export class EvchargersService {
       "evchargers",
       "ReferenceData",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<ReferenceDataResponse>;
   }
   // Search by giving a coordinate and a max distance, or bounding box and optional filters
   search(request: SearchRequest): Promise<SearchResponse> {
@@ -20,7 +20,7 @@ export class EvchargersService {
       "evchargers",
       "Search",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<SearchResponse>;
   }
 }
 

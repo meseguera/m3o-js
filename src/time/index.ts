@@ -8,11 +8,11 @@ export class TimeService {
   }
   // Get the current time
   now(request: NowRequest): Promise<NowResponse> {
-    return this.client.call("time", "Now", request) as Promise<ListResponse>;
+    return this.client.call("time", "Now", request) as Promise<NowResponse>;
   }
   // Get the timezone info for a specific location
   zone(request: ZoneRequest): Promise<ZoneResponse> {
-    return this.client.call("time", "Zone", request) as Promise<ListResponse>;
+    return this.client.call("time", "Zone", request) as Promise<ZoneResponse>;
   }
 }
 

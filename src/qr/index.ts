@@ -8,7 +8,11 @@ export class QrService {
   }
   // Generate a QR code with a specific text and size
   generate(request: GenerateRequest): Promise<GenerateResponse> {
-    return this.client.call("qr", "Generate", request) as Promise<ListResponse>;
+    return this.client.call(
+      "qr",
+      "Generate",
+      request
+    ) as Promise<GenerateResponse>;
   }
 }
 

@@ -12,7 +12,7 @@ export class FunctionService {
       "function",
       "Call",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<CallResponse>;
   }
   // Delete a function by name
   delete(request: DeleteRequest): Promise<DeleteResponse> {
@@ -20,7 +20,7 @@ export class FunctionService {
       "function",
       "Delete",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<DeleteResponse>;
   }
   // Deploy a group of functions
   deploy(request: DeployRequest): Promise<DeployResponse> {
@@ -28,7 +28,7 @@ export class FunctionService {
       "function",
       "Deploy",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<DeployResponse>;
   }
   // Get the info for a deployed function
   describe(request: DescribeRequest): Promise<DescribeResponse> {
@@ -36,7 +36,7 @@ export class FunctionService {
       "function",
       "Describe",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<DescribeResponse>;
   }
   // List all the deployed functions
   list(request: ListRequest): Promise<ListResponse> {

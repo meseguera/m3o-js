@@ -12,7 +12,7 @@ export class VehicleService {
       "vehicle",
       "Lookup",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<LookupResponse>;
   }
 }
 

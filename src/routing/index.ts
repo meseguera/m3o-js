@@ -12,11 +12,11 @@ export class RoutingService {
       "routing",
       "Directions",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<DirectionsResponse>;
   }
   // Get the eta for a route from origin to destination. The eta is an estimated time based on car routes
   eta(request: EtaRequest): Promise<EtaResponse> {
-    return this.client.call("routing", "Eta", request) as Promise<ListResponse>;
+    return this.client.call("routing", "Eta", request) as Promise<EtaResponse>;
   }
   // Retrieve a route as a simple list of gps points along with total distance and estimated duration
   route(request: RouteRequest): Promise<RouteResponse> {
@@ -24,7 +24,7 @@ export class RoutingService {
       "routing",
       "Route",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<RouteResponse>;
   }
 }
 

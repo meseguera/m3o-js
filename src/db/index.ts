@@ -8,27 +8,31 @@ export class DbService {
   }
   // Count records in a table
   count(request: CountRequest): Promise<CountResponse> {
-    return this.client.call("db", "Count", request) as Promise<ListResponse>;
+    return this.client.call("db", "Count", request) as Promise<CountResponse>;
   }
   // Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
   create(request: CreateRequest): Promise<CreateResponse> {
-    return this.client.call("db", "Create", request) as Promise<ListResponse>;
+    return this.client.call("db", "Create", request) as Promise<CreateResponse>;
   }
   // Delete a record in the database by id.
   delete(request: DeleteRequest): Promise<DeleteResponse> {
-    return this.client.call("db", "Delete", request) as Promise<ListResponse>;
+    return this.client.call("db", "Delete", request) as Promise<DeleteResponse>;
   }
   // Read data from a table. Lookup can be by ID or via querying any field in the record.
   read(request: ReadRequest): Promise<ReadResponse> {
-    return this.client.call("db", "Read", request) as Promise<ListResponse>;
+    return this.client.call("db", "Read", request) as Promise<ReadResponse>;
   }
   // Truncate the records in a table
   truncate(request: TruncateRequest): Promise<TruncateResponse> {
-    return this.client.call("db", "Truncate", request) as Promise<ListResponse>;
+    return this.client.call(
+      "db",
+      "Truncate",
+      request
+    ) as Promise<TruncateResponse>;
   }
   // Update a record in the database. Include an "id" in the record to update.
   update(request: UpdateRequest): Promise<UpdateResponse> {
-    return this.client.call("db", "Update", request) as Promise<ListResponse>;
+    return this.client.call("db", "Update", request) as Promise<UpdateResponse>;
   }
 }
 

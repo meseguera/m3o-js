@@ -12,7 +12,7 @@ export class TwitterService {
       "twitter",
       "Search",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<SearchResponse>;
   }
   // Get the timeline for a given user
   timeline(request: TimelineRequest): Promise<TimelineResponse> {
@@ -20,7 +20,7 @@ export class TwitterService {
       "twitter",
       "Timeline",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<TimelineResponse>;
   }
   // Get the current global trending topics
   trends(request: TrendsRequest): Promise<TrendsResponse> {
@@ -28,7 +28,7 @@ export class TwitterService {
       "twitter",
       "Trends",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<TrendsResponse>;
   }
   // Get a user's twitter profile
   user(request: UserRequest): Promise<UserResponse> {
@@ -36,7 +36,7 @@ export class TwitterService {
       "twitter",
       "User",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<UserResponse>;
   }
 }
 

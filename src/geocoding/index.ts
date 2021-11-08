@@ -12,7 +12,7 @@ export class GeocodingService {
       "geocoding",
       "Lookup",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<LookupResponse>;
   }
   // Reverse lookup an address from gps coordinates
   reverse(request: ReverseRequest): Promise<ReverseResponse> {
@@ -20,7 +20,7 @@ export class GeocodingService {
       "geocoding",
       "Reverse",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<ReverseResponse>;
   }
 }
 

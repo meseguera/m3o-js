@@ -8,7 +8,7 @@ export class IpService {
   }
   // Lookup the geolocation information for an IP address
   lookup(request: LookupRequest): Promise<LookupResponse> {
-    return this.client.call("ip", "Lookup", request) as Promise<ListResponse>;
+    return this.client.call("ip", "Lookup", request) as Promise<LookupResponse>;
   }
 }
 

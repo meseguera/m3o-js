@@ -18,11 +18,11 @@ export class EventService {
       "event",
       "Publish",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<PublishResponse>;
   }
   // Read stored events
   read(request: ReadRequest): Promise<ReadResponse> {
-    return this.client.call("event", "Read", request) as Promise<ListResponse>;
+    return this.client.call("event", "Read", request) as Promise<ReadResponse>;
   }
 }
 

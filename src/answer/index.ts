@@ -12,7 +12,7 @@ export class AnswerService {
       "answer",
       "Question",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<QuestionResponse>;
   }
 }
 

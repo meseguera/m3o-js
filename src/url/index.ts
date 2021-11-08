@@ -12,11 +12,15 @@ export class UrlService {
   }
   // Proxy returns the destination URL of a short URL.
   proxy(request: ProxyRequest): Promise<ProxyResponse> {
-    return this.client.call("url", "Proxy", request) as Promise<ListResponse>;
+    return this.client.call("url", "Proxy", request) as Promise<ProxyResponse>;
   }
   // Shortens a destination URL and returns a full short URL.
   shorten(request: ShortenRequest): Promise<ShortenResponse> {
-    return this.client.call("url", "Shorten", request) as Promise<ListResponse>;
+    return this.client.call(
+      "url",
+      "Shorten",
+      request
+    ) as Promise<ShortenResponse>;
   }
 }
 

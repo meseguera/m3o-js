@@ -12,11 +12,11 @@ export class CryptoService {
       "crypto",
       "History",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<HistoryResponse>;
   }
   // Get news related to a currency
   news(request: NewsRequest): Promise<NewsResponse> {
-    return this.client.call("crypto", "News", request) as Promise<ListResponse>;
+    return this.client.call("crypto", "News", request) as Promise<NewsResponse>;
   }
   // Get the last price for a given crypto ticker
   price(request: PriceRequest): Promise<PriceResponse> {
@@ -24,7 +24,7 @@ export class CryptoService {
       "crypto",
       "Price",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<PriceResponse>;
   }
   // Get the last quote for a given crypto ticker
   quote(request: QuoteRequest): Promise<QuoteResponse> {
@@ -32,7 +32,7 @@ export class CryptoService {
       "crypto",
       "Quote",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<QuoteResponse>;
   }
 }
 

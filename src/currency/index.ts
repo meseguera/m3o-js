@@ -12,7 +12,7 @@ export class CurrencyService {
       "currency",
       "Codes",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<CodesResponse>;
   }
   // Convert returns the currency conversion rate between two pairs e.g USD/GBP
   convert(request: ConvertRequest): Promise<ConvertResponse> {
@@ -20,7 +20,7 @@ export class CurrencyService {
       "currency",
       "Convert",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<ConvertResponse>;
   }
   // Returns the historic rates for a currency on a given date
   history(request: HistoryRequest): Promise<HistoryResponse> {
@@ -28,7 +28,7 @@ export class CurrencyService {
       "currency",
       "History",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<HistoryResponse>;
   }
   // Rates returns the currency rates for a given code e.g USD
   rates(request: RatesRequest): Promise<RatesResponse> {
@@ -36,7 +36,7 @@ export class CurrencyService {
       "currency",
       "Rates",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<RatesResponse>;
   }
 }
 

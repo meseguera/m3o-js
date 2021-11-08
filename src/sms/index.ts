@@ -8,7 +8,7 @@ export class SmsService {
   }
   // Send an SMS.
   send(request: SendRequest): Promise<SendResponse> {
-    return this.client.call("sms", "Send", request) as Promise<ListResponse>;
+    return this.client.call("sms", "Send", request) as Promise<SendResponse>;
   }
 }
 

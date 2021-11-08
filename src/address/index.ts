@@ -14,7 +14,7 @@ export class AddressService {
       "address",
       "LookupPostcode",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<LookupPostcodeResponse>;
   }
 }
 

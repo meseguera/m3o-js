@@ -12,7 +12,7 @@ export class YoutubeService {
       "youtube",
       "Search",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<SearchResponse>;
   }
 }
 

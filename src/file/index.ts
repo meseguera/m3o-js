@@ -8,7 +8,11 @@ export class FileService {
   }
   // Delete a file by project name/path
   delete(request: DeleteRequest): Promise<DeleteResponse> {
-    return this.client.call("file", "Delete", request) as Promise<ListResponse>;
+    return this.client.call(
+      "file",
+      "Delete",
+      request
+    ) as Promise<DeleteResponse>;
   }
   // List files by their project and optionally a path.
   list(request: ListRequest): Promise<ListResponse> {
@@ -16,11 +20,11 @@ export class FileService {
   }
   // Read a file by path
   read(request: ReadRequest): Promise<ReadResponse> {
-    return this.client.call("file", "Read", request) as Promise<ListResponse>;
+    return this.client.call("file", "Read", request) as Promise<ReadResponse>;
   }
   // Save a file
   save(request: SaveRequest): Promise<SaveResponse> {
-    return this.client.call("file", "Save", request) as Promise<ListResponse>;
+    return this.client.call("file", "Save", request) as Promise<SaveResponse>;
   }
 }
 

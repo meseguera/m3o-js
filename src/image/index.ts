@@ -13,7 +13,7 @@ export class ImageService {
       "image",
       "Convert",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<ConvertResponse>;
   }
   // Delete an image previously uploaded.
   delete(request: DeleteRequest): Promise<DeleteResponse> {
@@ -21,7 +21,7 @@ export class ImageService {
       "image",
       "Delete",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<DeleteResponse>;
   }
   // Resize an image on the fly without storing it (by sending and receiving a base64 encoded image), or resize and upload depending on parameters.
   // If one of width or height is 0, the image aspect ratio is preserved.
@@ -31,7 +31,7 @@ export class ImageService {
       "image",
       "Resize",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<ResizeResponse>;
   }
   // Upload an image by either sending a base64 encoded image to this endpoint or a URL.
   // To resize an image before uploading, see the Resize endpoint.
@@ -40,7 +40,7 @@ export class ImageService {
       "image",
       "Upload",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<UploadResponse>;
   }
 }
 

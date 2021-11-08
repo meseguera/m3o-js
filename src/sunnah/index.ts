@@ -13,7 +13,7 @@ export class SunnahService {
       "sunnah",
       "Books",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<BooksResponse>;
   }
   // Get all the chapters of a given book within a collection.
   chapters(request: ChaptersRequest): Promise<ChaptersResponse> {
@@ -21,7 +21,7 @@ export class SunnahService {
       "sunnah",
       "Chapters",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<ChaptersResponse>;
   }
   // Get a list of available collections. A collection is
   // a compilation of hadiths collected and written by an author.
@@ -30,7 +30,7 @@ export class SunnahService {
       "sunnah",
       "Collections",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<CollectionsResponse>;
   }
   // Hadiths returns a list of hadiths and their corresponding text for a
   // given book within a collection.
@@ -39,7 +39,7 @@ export class SunnahService {
       "sunnah",
       "Hadiths",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<HadithsResponse>;
   }
 }
 

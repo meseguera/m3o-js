@@ -12,15 +12,23 @@ export class ForexService {
       "forex",
       "History",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<HistoryResponse>;
   }
   // Get the latest price for a given forex ticker
   price(request: PriceRequest): Promise<PriceResponse> {
-    return this.client.call("forex", "Price", request) as Promise<ListResponse>;
+    return this.client.call(
+      "forex",
+      "Price",
+      request
+    ) as Promise<PriceResponse>;
   }
   // Get the latest quote for the forex
   quote(request: QuoteRequest): Promise<QuoteResponse> {
-    return this.client.call("forex", "Quote", request) as Promise<ListResponse>;
+    return this.client.call(
+      "forex",
+      "Quote",
+      request
+    ) as Promise<QuoteResponse>;
   }
 }
 

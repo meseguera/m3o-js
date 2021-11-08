@@ -12,7 +12,7 @@ export class SentimentService {
       "sentiment",
       "Analyze",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<AnalyzeResponse>;
   }
 }
 

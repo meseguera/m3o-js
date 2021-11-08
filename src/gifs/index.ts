@@ -8,7 +8,11 @@ export class GifsService {
   }
   // Search for a GIF
   search(request: SearchRequest): Promise<SearchResponse> {
-    return this.client.call("gifs", "Search", request) as Promise<ListResponse>;
+    return this.client.call(
+      "gifs",
+      "Search",
+      request
+    ) as Promise<SearchResponse>;
   }
 }
 

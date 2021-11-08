@@ -8,7 +8,7 @@ export class EmailService {
   }
   // Send an email by passing in from, to, subject, and a text or html body
   send(request: SendRequest): Promise<SendResponse> {
-    return this.client.call("email", "Send", request) as Promise<ListResponse>;
+    return this.client.call("email", "Send", request) as Promise<SendResponse>;
   }
 }
 

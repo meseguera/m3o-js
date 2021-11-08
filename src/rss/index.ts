@@ -8,11 +8,11 @@ export class RssService {
   }
   // Add a new RSS feed with a name, url, and category
   add(request: AddRequest): Promise<AddResponse> {
-    return this.client.call("rss", "Add", request) as Promise<ListResponse>;
+    return this.client.call("rss", "Add", request) as Promise<AddResponse>;
   }
   // Get an RSS feed by name. If no name is given, all feeds are returned. Default limit is 25 entries.
   feed(request: FeedRequest): Promise<FeedResponse> {
-    return this.client.call("rss", "Feed", request) as Promise<ListResponse>;
+    return this.client.call("rss", "Feed", request) as Promise<FeedResponse>;
   }
   // List the saved RSS fields
   list(request: ListRequest): Promise<ListResponse> {
@@ -20,7 +20,11 @@ export class RssService {
   }
   // Remove an RSS feed by name
   remove(request: RemoveRequest): Promise<RemoveResponse> {
-    return this.client.call("rss", "Remove", request) as Promise<ListResponse>;
+    return this.client.call(
+      "rss",
+      "Remove",
+      request
+    ) as Promise<RemoveResponse>;
   }
 }
 

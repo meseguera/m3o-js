@@ -12,7 +12,7 @@ export class GoogleService {
       "google",
       "Search",
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<SearchResponse>;
   }
 }
 
