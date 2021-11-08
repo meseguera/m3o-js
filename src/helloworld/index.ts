@@ -17,7 +17,7 @@ export class HelloworldService {
   // Stream returns a stream of "Hello $name" responses
   stream(
     request: StreamRequest
-  ): Promise<Stream<StreamRequest, StreamResponse>> {
+  ): Promise<m3o.Stream<StreamRequest, StreamResponse>> {
     return this.client.stream("helloworld", "Stream", request);
   }
 }

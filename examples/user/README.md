@@ -4,69 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/User/api](http
 
 Endpoints:
 
-## VerifyEmail
-
-Verify the email address of an account from a token sent in an email to the user.
-
-
-[https://m3o.com/user/api#VerifyEmail](https://m3o.com/user/api#VerifyEmail)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Verify the email address of an account from a token sent in an email to the user.
-async function verifyEmail() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.verifyEmail({
-  "token": "t2323t232t"
-})
-	console.log(rsp)
-}
-
-verifyEmail()
-```
-## Logout
-
-Logout a user account
-
-
-[https://m3o.com/user/api#Logout](https://m3o.com/user/api#Logout)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Logout a user account
-async function logAuserOut() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.logout({
-  "sessionId": "sds34s34s34-s34s34-s43s43s34-s4s34s"
-})
-	console.log(rsp)
-}
-
-logAuserOut()
-```
-## Delete
-
-Delete an account by id
-
-
-[https://m3o.com/user/api#Delete](https://m3o.com/user/api#Delete)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Delete an account by id
-async function deleteUserAccount() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.delete({
-  "id": "fdf34f34f34-f34f34-f43f43f34-f4f34f"
-})
-	console.log(rsp)
-}
-
-deleteUserAccount()
-```
 ## Login
 
 Login using username or email. The response will return a new session for successful login,
@@ -112,29 +49,26 @@ async function readAsessionByTheSessionId() {
 
 readAsessionByTheSessionId()
 ```
-## Create
+## VerifyEmail
 
-Create a new user account. The email address and username for the account must be unique.
+Verify the email address of an account from a token sent in an email to the user.
 
 
-[https://m3o.com/user/api#Create](https://m3o.com/user/api#Create)
+[https://m3o.com/user/api#VerifyEmail](https://m3o.com/user/api#VerifyEmail)
 
 ```js
 const { UserService } = require('m3o/user');
 
-// Create a new user account. The email address and username for the account must be unique.
-async function createAnAccount() {
+// Verify the email address of an account from a token sent in an email to the user.
+async function verifyEmail() {
 	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.create({
-  "email": "joe@example.com",
-  "id": "usrid-1",
-  "password": "mySecretPass123",
-  "username": "usrname-1"
+	let rsp = await userService.verifyEmail({
+  "token": "t2323t232t"
 })
 	console.log(rsp)
 }
 
-createAnAccount()
+verifyEmail()
 ```
 ## Update
 
@@ -282,4 +216,70 @@ async function sendVerificationEmail() {
 }
 
 sendVerificationEmail()
+```
+## Delete
+
+Delete an account by id
+
+
+[https://m3o.com/user/api#Delete](https://m3o.com/user/api#Delete)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Delete an account by id
+async function deleteUserAccount() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.delete({
+  "id": "fdf34f34f34-f34f34-f43f43f34-f4f34f"
+})
+	console.log(rsp)
+}
+
+deleteUserAccount()
+```
+## Logout
+
+Logout a user account
+
+
+[https://m3o.com/user/api#Logout](https://m3o.com/user/api#Logout)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Logout a user account
+async function logAuserOut() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.logout({
+  "sessionId": "sds34s34s34-s34s34-s43s43s34-s4s34s"
+})
+	console.log(rsp)
+}
+
+logAuserOut()
+```
+## Create
+
+Create a new user account. The email address and username for the account must be unique.
+
+
+[https://m3o.com/user/api#Create](https://m3o.com/user/api#Create)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Create a new user account. The email address and username for the account must be unique.
+async function createAnAccount() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.create({
+  "email": "joe@example.com",
+  "id": "usrid-1",
+  "password": "mySecretPass123",
+  "username": "usrname-1"
+})
+	console.log(rsp)
+}
+
+createAnAccount()
 ```

@@ -25,7 +25,7 @@ export class NotesService {
   // Subscribe to notes events
   events(
     request: EventsRequest
-  ): Promise<Stream<EventsRequest, EventsResponse>> {
+  ): Promise<m3o.Stream<EventsRequest, EventsResponse>> {
     return this.client.stream("notes", "Events", request);
   }
   // List all the notes

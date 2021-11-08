@@ -17,7 +17,7 @@ export class MqService {
   // Subscribe to messages for a given topic.
   subscribe(
     request: SubscribeRequest
-  ): Promise<Stream<SubscribeRequest, SubscribeResponse>> {
+  ): Promise<m3o.Stream<SubscribeRequest, SubscribeResponse>> {
     return this.client.stream("mq", "Subscribe", request);
   }
 }

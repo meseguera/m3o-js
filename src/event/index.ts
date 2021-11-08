@@ -9,7 +9,7 @@ export class EventService {
   // Consume events from a given topic.
   consume(
     request: ConsumeRequest
-  ): Promise<Stream<ConsumeRequest, ConsumeResponse>> {
+  ): Promise<m3o.Stream<ConsumeRequest, ConsumeResponse>> {
     return this.client.stream("event", "Consume", request);
   }
   // Publish a event to the event stream.
