@@ -4,52 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Stock/api](htt
 
 Endpoints:
 
-## Price
-
-Get the last price for a given stock ticker
-
-
-[https://m3o.com/stock/api#Price](https://m3o.com/stock/api#Price)
-
-```js
-const { StockService } = require('m3o/stock');
-
-// Get the last price for a given stock ticker
-async function getAstockPrice() {
-	let stockService = new StockService(process.env.M3O_API_TOKEN)
-	let rsp = await stockService.price({
-  "symbol": "AAPL"
-})
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
-}
-
-getAstockPrice()
-```
-## Quote
-
-Get the last quote for the stock
-
-
-[https://m3o.com/stock/api#Quote](https://m3o.com/stock/api#Quote)
-
-```js
-const { StockService } = require('m3o/stock');
-
-// Get the last quote for the stock
-async function getAstockQuote() {
-	let stockService = new StockService(process.env.M3O_API_TOKEN)
-	let rsp = await stockService.quote({
-  "symbol": "AAPL"
-})
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
-}
-
-getAstockQuote()
-```
 ## History
 
 Get the historic open-close for a given day
@@ -67,9 +21,8 @@ async function getHistoricData() {
   "date": "2020-10-01",
   "stock": "AAPL"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 getHistoricData()
@@ -94,10 +47,53 @@ async function orderBookHistory() {
   "start": "2020-10-01T10:00:00Z",
   "stock": "AAPL"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 orderBookHistory()
+```
+## Price
+
+Get the last price for a given stock ticker
+
+
+[https://m3o.com/stock/api#Price](https://m3o.com/stock/api#Price)
+
+```js
+const { StockService } = require('m3o/stock');
+
+// Get the last price for a given stock ticker
+async function getAstockPrice() {
+	let stockService = new StockService(process.env.M3O_API_TOKEN)
+	let rsp = await stockService.price({
+  "symbol": "AAPL"
+})
+	console.log(rsp)
+	
+}
+
+getAstockPrice()
+```
+## Quote
+
+Get the last quote for the stock
+
+
+[https://m3o.com/stock/api#Quote](https://m3o.com/stock/api#Quote)
+
+```js
+const { StockService } = require('m3o/stock');
+
+// Get the last quote for the stock
+async function getAstockQuote() {
+	let stockService = new StockService(process.env.M3O_API_TOKEN)
+	let rsp = await stockService.quote({
+  "symbol": "AAPL"
+})
+	console.log(rsp)
+	
+}
+
+getAstockQuote()
 ```

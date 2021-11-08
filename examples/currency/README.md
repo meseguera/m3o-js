@@ -4,6 +4,26 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Currency/api](
 
 Endpoints:
 
+## Codes
+
+Codes returns the supported currency codes for the API
+
+
+[https://m3o.com/currency/api#Codes](https://m3o.com/currency/api#Codes)
+
+```js
+const { CurrencyService } = require('m3o/currency');
+
+// Codes returns the supported currency codes for the API
+async function getSupportedCodes() {
+	let currencyService = new CurrencyService(process.env.M3O_API_TOKEN)
+	let rsp = await currencyService.codes({})
+	console.log(rsp)
+	
+}
+
+getSupportedCodes()
+```
 ## Rates
 
 Rates returns the currency rates for a given code e.g USD
@@ -20,9 +40,8 @@ async function getRatesForUsd() {
 	let rsp = await currencyService.rates({
   "code": "USD"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 getRatesForUsd()
@@ -44,9 +63,8 @@ async function convertUsdToGbp() {
   "from": "USD",
   "to": "GBP"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 convertUsdToGbp()
@@ -69,9 +87,8 @@ async function convert10usdToGbp() {
   "from": "USD",
   "to": "GBP"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 convert10usdToGbp()
@@ -93,31 +110,9 @@ async function historicRatesForAcurrency() {
   "code": "USD",
   "date": "2021-05-30"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 historicRatesForAcurrency()
-```
-## Codes
-
-Codes returns the supported currency codes for the API
-
-
-[https://m3o.com/currency/api#Codes](https://m3o.com/currency/api#Codes)
-
-```js
-const { CurrencyService } = require('m3o/currency');
-
-// Codes returns the supported currency codes for the API
-async function getSupportedCodes() {
-	let currencyService = new CurrencyService(process.env.M3O_API_TOKEN)
-	let rsp = await currencyService.codes({})
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
-}
-
-getSupportedCodes()
 ```

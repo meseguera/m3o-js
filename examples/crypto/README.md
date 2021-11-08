@@ -20,9 +20,8 @@ async function getCryptocurrencyNews() {
 	let rsp = await cryptoService.news({
   "symbol": "BTCUSD"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 getCryptocurrencyNews()
@@ -43,9 +42,8 @@ async function getCryptocurrencyPrice() {
 	let rsp = await cryptoService.price({
   "symbol": "BTCUSD"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 getCryptocurrencyPrice()
@@ -66,9 +64,8 @@ async function getAcryptocurrencyQuote() {
 	let rsp = await cryptoService.quote({
   "symbol": "BTCUSD"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 getAcryptocurrencyQuote()
@@ -89,9 +86,8 @@ async function getPreviousClose() {
 	let rsp = await cryptoService.history({
   "symbol": "BTCUSD"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 getPreviousClose()

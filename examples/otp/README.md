@@ -20,9 +20,8 @@ async function generateOtp() {
 	let rsp = await otpService.generate({
   "id": "asim@example.com"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 generateOtp()
@@ -44,9 +43,8 @@ async function validateOtp() {
   "code": "656211",
   "id": "asim@example.com"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 validateOtp()

@@ -4,6 +4,29 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/File/api](http
 
 Endpoints:
 
+## Read
+
+Read a file by path
+
+
+[https://m3o.com/file/api#Read](https://m3o.com/file/api#Read)
+
+```js
+const { FileService } = require('m3o/file');
+
+// Read a file by path
+async function readFile() {
+	let fileService = new FileService(process.env.M3O_API_TOKEN)
+	let rsp = await fileService.read({
+  "path": "/document/text-files/file.txt",
+  "project": "examples"
+})
+	console.log(rsp)
+	
+}
+
+readFile()
+```
 ## Save
 
 Save a file
@@ -24,9 +47,8 @@ async function saveFile() {
     "project": "examples"
   }
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 saveFile()
@@ -47,9 +69,8 @@ async function listFiles() {
 	let rsp = await fileService.list({
   "project": "examples"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 listFiles()
@@ -71,34 +92,9 @@ async function deleteFile() {
   "path": "/document/text-files/file.txt",
   "project": "examples"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 deleteFile()
-```
-## Read
-
-Read a file by path
-
-
-[https://m3o.com/file/api#Read](https://m3o.com/file/api#Read)
-
-```js
-const { FileService } = require('m3o/file');
-
-// Read a file by path
-async function readFile() {
-	let fileService = new FileService(process.env.M3O_API_TOKEN)
-	let rsp = await fileService.read({
-  "path": "/document/text-files/file.txt",
-  "project": "examples"
-})
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
-}
-
-readFile()
 ```

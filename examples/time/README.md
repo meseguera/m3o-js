@@ -18,9 +18,8 @@ const { TimeService } = require('m3o/time');
 async function returnsCurrentTimeOptionallyWithLocation() {
 	let timeService = new TimeService(process.env.M3O_API_TOKEN)
 	let rsp = await timeService.now({})
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 returnsCurrentTimeOptionallyWithLocation()
@@ -41,9 +40,8 @@ async function getTheTimezoneInfoForAspecificLocation() {
 	let rsp = await timeService.zone({
   "location": "London"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 getTheTimezoneInfoForAspecificLocation()

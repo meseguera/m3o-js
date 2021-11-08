@@ -22,9 +22,8 @@ async function addAnewFeed() {
   "name": "bbc",
   "url": "http://feeds.bbci.co.uk/news/rss.xml"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 addAnewFeed()
@@ -45,9 +44,8 @@ async function readAfeed() {
 	let rsp = await rssService.feed({
   "name": "bbc"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 readAfeed()
@@ -66,9 +64,8 @@ const { RssService } = require('m3o/rss');
 async function listRssFeeds() {
 	let rssService = new RssService(process.env.M3O_API_TOKEN)
 	let rsp = await rssService.list({})
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 listRssFeeds()
@@ -89,9 +86,8 @@ async function removeAfeed() {
 	let rsp = await rssService.remove({
   "name": "bbc"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 removeAfeed()

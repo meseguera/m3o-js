@@ -21,9 +21,8 @@ async function setAvalue() {
   "key": "foo",
   "value": "bar"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 setAvalue()
@@ -44,9 +43,8 @@ async function getAvalue() {
 	let rsp = await cacheService.get({
   "key": "foo"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 getAvalue()
@@ -67,9 +65,8 @@ async function deleteAvalue() {
 	let rsp = await cacheService.delete({
   "key": "foo"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 deleteAvalue()
@@ -91,9 +88,8 @@ async function incrementAvalue() {
   "key": "counter",
   "value": 2
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 incrementAvalue()
@@ -115,9 +111,8 @@ async function decrementAvalue() {
   "key": "counter",
   "value": 2
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 decrementAvalue()

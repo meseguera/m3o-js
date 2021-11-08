@@ -20,9 +20,8 @@ const { SunnahService } = require('m3o/sunnah');
 async function listAvailableCollections() {
 	let sunnahService = new SunnahService(process.env.M3O_API_TOKEN)
 	let rsp = await sunnahService.collections({})
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 listAvailableCollections()
@@ -45,9 +44,8 @@ async function getTheBooksWithinAcollection() {
 	let rsp = await sunnahService.books({
   "collection": "bukhari"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 getTheBooksWithinAcollection()
@@ -69,9 +67,8 @@ async function listTheChaptersInAbook() {
   "book": 1,
   "collection": "bukhari"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 listTheChaptersInAbook()
@@ -95,9 +92,8 @@ async function listTheHadithsInAbook() {
   "book": 1,
   "collection": "bukhari"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 listTheHadithsInAbook()

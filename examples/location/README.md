@@ -28,9 +28,8 @@ async function saveAnEntity() {
     "type": "bike"
   }
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 saveAnEntity()
@@ -51,9 +50,8 @@ async function getLocationById() {
 	let rsp = await locationService.read({
   "id": "1"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 getLocationById()
@@ -80,9 +78,8 @@ async function searchForLocations() {
   "radius": 100,
   "type": "bike"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 searchForLocations()

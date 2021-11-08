@@ -27,9 +27,8 @@ async function etaFromPointAtoPointB() {
     "longitude": 13.38886
   }
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 etaFromPointAtoPointB()
@@ -57,9 +56,8 @@ async function turnByTurnDirections() {
     "longitude": 13.38886
   }
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 turnByTurnDirections()
@@ -87,9 +85,8 @@ async function gpsPointsForAroute() {
     "longitude": 13.38886
   }
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 gpsPointsForAroute()

@@ -20,9 +20,8 @@ async function generateAuniqueId() {
 	let rsp = await idService.generate({
   "type": "uuid"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 generateAuniqueId()
@@ -43,9 +42,8 @@ async function generateAshortId() {
 	let rsp = await idService.generate({
   "type": "shortid"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 generateAshortId()
@@ -66,9 +64,8 @@ async function generateAsnowflakeId() {
 	let rsp = await idService.generate({
   "type": "snowflake"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 generateAsnowflakeId()
@@ -89,9 +86,8 @@ async function generateAbigflakeId() {
 	let rsp = await idService.generate({
   "type": "bigflake"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 generateAbigflakeId()
@@ -110,9 +106,8 @@ const { IdService } = require('m3o/id');
 async function listTheTypesOfIdsAvailable() {
 	let idService = new IdService(process.env.M3O_API_TOKEN)
 	let rsp = await idService.types({})
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 listTheTypesOfIdsAvailable()

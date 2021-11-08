@@ -20,9 +20,8 @@ async function lookupVehicle() {
 	let rsp = await vehicleService.lookup({
   "registration": "LC60OTA"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 lookupVehicle()

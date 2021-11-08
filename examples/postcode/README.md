@@ -20,9 +20,8 @@ async function lookupPostcode() {
 	let rsp = await postcodeService.lookup({
   "postcode": "SW1A 2AA"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 lookupPostcode()
@@ -41,9 +40,8 @@ const { PostcodeService } = require('m3o/postcode');
 async function returnArandomPostcodeAndItsInformation() {
 	let postcodeService = new PostcodeService(process.env.M3O_API_TOKEN)
 	let rsp = await postcodeService.random({})
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 returnArandomPostcodeAndItsInformation()
@@ -64,9 +62,8 @@ async function returnArandomPostcodeAndItsInformation() {
 	let rsp = await postcodeService.validate({
   "postcode": "SW1A 2AA"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 returnArandomPostcodeAndItsInformation()

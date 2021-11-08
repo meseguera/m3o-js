@@ -20,9 +20,8 @@ async function searchForVideos() {
 	let rsp = await youtubeService.search({
   "query": "donuts"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 searchForVideos()

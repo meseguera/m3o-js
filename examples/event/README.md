@@ -25,9 +25,8 @@ async function publishAnEvent() {
   },
   "topic": "user"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 publishAnEvent()
@@ -48,8 +47,9 @@ async function consumeFromAtopic() {
 	let rsp = await eventService.consume({
   "topic": "user"
 })
-	console.log(rsp)
-	
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 consumeFromAtopic()
@@ -70,9 +70,8 @@ async function readEventsOnAtopic() {
 	let rsp = await eventService.read({
   "topic": "user"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 readEventsOnAtopic()

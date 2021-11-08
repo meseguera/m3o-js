@@ -22,9 +22,8 @@ async function sendEmail() {
   "subject": "Email verification",
   "textBody": "Hi there,\n\nPlease verify your email by clicking this link: $micro_verification_link"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
 sendEmail()
