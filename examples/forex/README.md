@@ -21,6 +21,7 @@ async function getAnFxPrice() {
   "symbol": "GBPUSD"
 })
 	console.log(rsp)
+	
 }
 
 getAnFxPrice()
@@ -42,6 +43,7 @@ async function getAfxQuote() {
   "symbol": "GBPUSD"
 })
 	console.log(rsp)
+	
 }
 
 getAfxQuote()
@@ -63,6 +65,7 @@ async function getPreviousClose() {
   "symbol": "GBPUSD"
 })
 	console.log(rsp)
+	
 }
 
 getPreviousClose()

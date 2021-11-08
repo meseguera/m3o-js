@@ -6,7 +6,9 @@ async function streamsResponsesFromTheServerUsingWebsockets() {
   let rsp = await helloworldService.stream({
     name: "John",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 streamsResponsesFromTheServerUsingWebsockets();

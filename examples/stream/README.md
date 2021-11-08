@@ -4,6 +4,26 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Stream/api](ht
 
 Endpoints:
 
+## ListChannels
+
+List all the active channels
+
+
+[https://m3o.com/stream/api#ListChannels](https://m3o.com/stream/api#ListChannels)
+
+```js
+const { StreamService } = require('m3o/stream');
+
+// List all the active channels
+async function listChannels() {
+	let streamService = new StreamService(process.env.M3O_API_TOKEN)
+	let rsp = await streamService.listChannels({})
+	console.log(rsp)
+	
+}
+
+listChannels()
+```
 ## CreateChannel
 
 Create a channel with a given name and description. Channels are created automatically but
@@ -24,6 +44,7 @@ async function createChannel() {
   "name": "general"
 })
 	console.log(rsp)
+	
 }
 
 createChannel()
@@ -46,6 +67,7 @@ async function sendMessage() {
   "text": "Hey checkout this tweet https://twitter.com/m3oservices/status/1455291054295498752"
 })
 	console.log(rsp)
+	
 }
 
 sendMessage()
@@ -67,26 +89,8 @@ async function listMessages() {
   "channel": "general"
 })
 	console.log(rsp)
+	
 }
 
 listMessages()
-```
-## ListChannels
-
-List all the active channels
-
-
-[https://m3o.com/stream/api#ListChannels](https://m3o.com/stream/api#ListChannels)
-
-```js
-const { StreamService } = require('m3o/stream');
-
-// List all the active channels
-async function listChannels() {
-	let streamService = new StreamService(process.env.M3O_API_TOKEN)
-	let rsp = await streamService.listChannels({})
-	console.log(rsp)
-}
-
-listChannels()
 ```

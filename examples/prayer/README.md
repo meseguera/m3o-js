@@ -21,6 +21,7 @@ async function prayerTimes() {
   "location": "london"
 })
 	console.log(rsp)
+	
 }
 
 prayerTimes()

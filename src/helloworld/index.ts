@@ -15,12 +15,10 @@ export class HelloworldService {
     ) as Promise<CallResponse>;
   }
   // Stream returns a stream of "Hello $name" responses
-  stream(request: StreamRequest): Promise<StreamResponse> {
-    return this.client.call(
-      "helloworld",
-      "Stream",
-      request
-    ) as Promise<StreamResponse>;
+  stream(
+    request: StreamRequest
+  ): Promise<m3o.Stream<StreamRequest, StreamResponse>> {
+    return this.client.stream("helloworld", "Stream", request);
   }
 }
 

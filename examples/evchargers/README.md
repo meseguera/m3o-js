@@ -26,6 +26,7 @@ async function searchByLocation() {
   "max_results": 2
 })
 	console.log(rsp)
+	
 }
 
 searchByLocation()
@@ -57,6 +58,7 @@ async function searchByBoundingBox() {
   "max_results": 2
 })
 	console.log(rsp)
+	
 }
 
 searchByBoundingBox()
@@ -86,6 +88,7 @@ async function searchWithFiltersFastChargersOnly() {
   "max_results": 2
 })
 	console.log(rsp)
+	
 }
 
 searchWithFiltersFastChargersOnly()
@@ -105,6 +108,7 @@ async function getReferenceData() {
 	let evchargersService = new EvchargersService(process.env.M3O_API_TOKEN)
 	let rsp = await evchargersService.referenceData({})
 	console.log(rsp)
+	
 }
 
 getReferenceData()

@@ -21,6 +21,7 @@ async function analyzeApieceOfText() {
   "text": "this is amazing"
 })
 	console.log(rsp)
+	
 }
 
 analyzeApieceOfText()

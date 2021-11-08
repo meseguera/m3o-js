@@ -28,6 +28,7 @@ async function etaFromPointAtoPointB() {
   }
 })
 	console.log(rsp)
+	
 }
 
 etaFromPointAtoPointB()
@@ -56,6 +57,7 @@ async function turnByTurnDirections() {
   }
 })
 	console.log(rsp)
+	
 }
 
 turnByTurnDirections()
@@ -84,6 +86,7 @@ async function gpsPointsForAroute() {
   }
 })
 	console.log(rsp)
+	
 }
 
 gpsPointsForAroute()

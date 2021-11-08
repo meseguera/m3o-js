@@ -21,6 +21,7 @@ async function lookupPostcode() {
   "postcode": "SW1A 2AA"
 })
 	console.log(rsp)
+	
 }
 
 lookupPostcode()

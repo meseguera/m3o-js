@@ -21,6 +21,7 @@ async function getCryptocurrencyNews() {
   "symbol": "BTCUSD"
 })
 	console.log(rsp)
+	
 }
 
 getCryptocurrencyNews()
@@ -42,6 +43,7 @@ async function getCryptocurrencyPrice() {
   "symbol": "BTCUSD"
 })
 	console.log(rsp)
+	
 }
 
 getCryptocurrencyPrice()
@@ -63,6 +65,7 @@ async function getAcryptocurrencyQuote() {
   "symbol": "BTCUSD"
 })
 	console.log(rsp)
+	
 }
 
 getAcryptocurrencyQuote()
@@ -84,6 +87,7 @@ async function getPreviousClose() {
   "symbol": "BTCUSD"
 })
 	console.log(rsp)
+	
 }
 
 getPreviousClose()

@@ -26,6 +26,7 @@ async function publishAmessage() {
   "topic": "events"
 })
 	console.log(rsp)
+	
 }
 
 publishAmessage()
@@ -46,7 +47,9 @@ async function subscribeToAtopic() {
 	let rsp = await mqService.subscribe({
   "topic": "events"
 })
-	console.log(rsp)
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
 subscribeToAtopic()

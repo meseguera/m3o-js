@@ -4,27 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Db/api](https:
 
 Endpoints:
 
-## Count
-
-Count records in a table
-
-
-[https://m3o.com/db/api#Count](https://m3o.com/db/api#Count)
-
-```js
-const { DbService } = require('m3o/db');
-
-// Count records in a table
-async function countEntriesInAtable() {
-	let dbService = new DbService(process.env.M3O_API_TOKEN)
-	let rsp = await dbService.count({
-  "table": "users"
-})
-	console.log(rsp)
-}
-
-countEntriesInAtable()
-```
 ## Create
 
 Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
@@ -48,6 +27,7 @@ async function createArecord() {
   "table": "users"
 })
 	console.log(rsp)
+	
 }
 
 createArecord()
@@ -73,6 +53,7 @@ async function updateArecord() {
   "table": "users"
 })
 	console.log(rsp)
+	
 }
 
 updateArecord()
@@ -95,6 +76,7 @@ async function readRecords() {
   "table": "users"
 })
 	console.log(rsp)
+	
 }
 
 readRecords()
@@ -117,6 +99,7 @@ async function deleteArecord() {
   "table": "users"
 })
 	console.log(rsp)
+	
 }
 
 deleteArecord()
@@ -138,7 +121,30 @@ async function truncateTable() {
   "table": "users"
 })
 	console.log(rsp)
+	
 }
 
 truncateTable()
+```
+## Count
+
+Count records in a table
+
+
+[https://m3o.com/db/api#Count](https://m3o.com/db/api#Count)
+
+```js
+const { DbService } = require('m3o/db');
+
+// Count records in a table
+async function countEntriesInAtable() {
+	let dbService = new DbService(process.env.M3O_API_TOKEN)
+	let rsp = await dbService.count({
+  "table": "users"
+})
+	console.log(rsp)
+	
+}
+
+countEntriesInAtable()
 ```

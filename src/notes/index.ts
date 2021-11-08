@@ -23,12 +23,10 @@ export class NotesService {
     ) as Promise<DeleteResponse>;
   }
   // Subscribe to notes events
-  events(request: EventsRequest): Promise<EventsResponse> {
-    return this.client.call(
-      "notes",
-      "Events",
-      request
-    ) as Promise<EventsResponse>;
+  events(
+    request: EventsRequest
+  ): Promise<m3o.Stream<EventsRequest, EventsResponse>> {
+    return this.client.stream("notes", "Events", request);
   }
   // List all the notes
   list(request: ListRequest): Promise<ListResponse> {

@@ -23,6 +23,7 @@ async function addAnewFeed() {
   "url": "http://feeds.bbci.co.uk/news/rss.xml"
 })
 	console.log(rsp)
+	
 }
 
 addAnewFeed()
@@ -44,6 +45,7 @@ async function readAfeed() {
   "name": "bbc"
 })
 	console.log(rsp)
+	
 }
 
 readAfeed()
@@ -63,6 +65,7 @@ async function listRssFeeds() {
 	let rssService = new RssService(process.env.M3O_API_TOKEN)
 	let rsp = await rssService.list({})
 	console.log(rsp)
+	
 }
 
 listRssFeeds()
@@ -84,6 +87,7 @@ async function removeAfeed() {
   "name": "bbc"
 })
 	console.log(rsp)
+	
 }
 
 removeAfeed()

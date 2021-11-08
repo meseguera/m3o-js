@@ -21,6 +21,7 @@ async function lookupVehicle() {
   "registration": "LC60OTA"
 })
 	console.log(rsp)
+	
 }
 
 lookupVehicle()

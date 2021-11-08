@@ -24,6 +24,7 @@ async function geocodeAnAddress() {
   "postcode": "wc2b"
 })
 	console.log(rsp)
+	
 }
 
 geocodeAnAddress()
@@ -46,6 +47,7 @@ async function reverseGeocodeLocation() {
   "longitude": -0.1216235
 })
 	console.log(rsp)
+	
 }
 
 reverseGeocodeLocation()

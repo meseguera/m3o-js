@@ -21,6 +21,7 @@ async function findEmoji() {
   "alias": ":beer:"
 })
 	console.log(rsp)
+	
 }
 
 findEmoji()
@@ -42,6 +43,7 @@ async function getFlagByCountryCode() {
   "alias": "GB"
 })
 	console.log(rsp)
+	
 }
 
 getFlagByCountryCode()
@@ -65,6 +67,7 @@ async function printTextIncludingEmoji() {
   "text": "let's grab a :beer:"
 })
 	console.log(rsp)
+	
 }
 
 printTextIncludingEmoji()
@@ -88,6 +91,7 @@ async function sendAtextContainingAnEmojiToAnyoneViaSms() {
   "to": "+44782669123"
 })
 	console.log(rsp)
+	
 }
 
 sendAtextContainingAnEmojiToAnyoneViaSms()

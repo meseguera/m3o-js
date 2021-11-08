@@ -29,6 +29,7 @@ async function base64toHostedImage() {
   "width": 100
 })
 	console.log(rsp)
+	
 }
 
 base64toHostedImage()
@@ -56,6 +57,7 @@ async function base64toBase64image() {
   "width": 100
 })
 	console.log(rsp)
+	
 }
 
 base64toBase64image()
@@ -87,6 +89,7 @@ async function base64toBase64imageWithCropping() {
   "width": 100
 })
 	console.log(rsp)
+	
 }
 
 base64toBase64imageWithCropping()
@@ -112,6 +115,7 @@ async function convertApngImageToAjpegTakenFromAurlAndSavedToAurlOnMicrosCdn() {
   "url": "somewebsite.com/cat.png"
 })
 	console.log(rsp)
+	
 }
 
 convertApngImageToAjpegTakenFromAurlAndSavedToAurlOnMicrosCdn()
@@ -136,6 +140,7 @@ async function uploadAbase64imageToMicrosCdn() {
   "name": "cat.jpeg"
 })
 	console.log(rsp)
+	
 }
 
 uploadAbase64imageToMicrosCdn()
@@ -160,6 +165,7 @@ async function uploadAnImageFromAurlToMicrosCdn() {
   "url": "somewebsite.com/cat.png"
 })
 	console.log(rsp)
+	
 }
 
 uploadAnImageFromAurlToMicrosCdn()
@@ -181,6 +187,7 @@ async function deleteAnUploadedImage() {
   "url": "https://cdn.m3ocontent.com/micro/images/micro/41e23b39-48dd-42b6-9738-79a313414bb8/cat.png"
 })
 	console.log(rsp)
+	
 }
 
 deleteAnUploadedImage()

@@ -21,6 +21,7 @@ async function lookupIpInfo() {
   "ip": "93.148.214.31"
 })
 	console.log(rsp)
+	
 }
 
 lookupIpInfo()

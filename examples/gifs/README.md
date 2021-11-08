@@ -22,6 +22,7 @@ async function search() {
   "query": "dogs"
 })
 	console.log(rsp)
+	
 }
 
 search()

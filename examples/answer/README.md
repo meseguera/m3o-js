@@ -21,6 +21,7 @@ async function askAquestion() {
   "query": "microsoft"
 })
 	console.log(rsp)
+	
 }
 
 askAquestion()

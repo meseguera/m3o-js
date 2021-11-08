@@ -22,6 +22,7 @@ async function generateAqrCode() {
   "text": "https://m3o.com/qr"
 })
 	console.log(rsp)
+	
 }
 
 generateAqrCode()

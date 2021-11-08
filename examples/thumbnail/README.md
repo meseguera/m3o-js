@@ -23,6 +23,7 @@ async function takeScreenshotOfAurl() {
   "width": 600
 })
 	console.log(rsp)
+	
 }
 
 takeScreenshotOfAurl()

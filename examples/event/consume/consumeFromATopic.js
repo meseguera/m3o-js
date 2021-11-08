@@ -6,7 +6,9 @@ async function consumeFromAtopic() {
   let rsp = await eventService.consume({
     topic: "user",
   });
-  console.log(rsp);
+  rsp.onMessage((msg) => {
+    console.log(msg);
+  });
 }
 
 consumeFromAtopic();

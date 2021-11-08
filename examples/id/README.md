@@ -21,6 +21,7 @@ async function generateAuniqueId() {
   "type": "uuid"
 })
 	console.log(rsp)
+	
 }
 
 generateAuniqueId()
@@ -42,6 +43,7 @@ async function generateAshortId() {
   "type": "shortid"
 })
 	console.log(rsp)
+	
 }
 
 generateAshortId()
@@ -63,6 +65,7 @@ async function generateAsnowflakeId() {
   "type": "snowflake"
 })
 	console.log(rsp)
+	
 }
 
 generateAsnowflakeId()
@@ -84,6 +87,7 @@ async function generateAbigflakeId() {
   "type": "bigflake"
 })
 	console.log(rsp)
+	
 }
 
 generateAbigflakeId()
@@ -103,6 +107,7 @@ async function listTheTypesOfIdsAvailable() {
 	let idService = new IdService(process.env.M3O_API_TOKEN)
 	let rsp = await idService.types({})
 	console.log(rsp)
+	
 }
 
 listTheTypesOfIdsAvailable()

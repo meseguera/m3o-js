@@ -21,6 +21,7 @@ async function listAvailableCollections() {
 	let sunnahService = new SunnahService(process.env.M3O_API_TOKEN)
 	let rsp = await sunnahService.collections({})
 	console.log(rsp)
+	
 }
 
 listAvailableCollections()
@@ -44,6 +45,7 @@ async function getTheBooksWithinAcollection() {
   "collection": "bukhari"
 })
 	console.log(rsp)
+	
 }
 
 getTheBooksWithinAcollection()
@@ -66,6 +68,7 @@ async function listTheChaptersInAbook() {
   "collection": "bukhari"
 })
 	console.log(rsp)
+	
 }
 
 listTheChaptersInAbook()
@@ -90,6 +93,7 @@ async function listTheHadithsInAbook() {
   "collection": "bukhari"
 })
 	console.log(rsp)
+	
 }
 
 listTheHadithsInAbook()
