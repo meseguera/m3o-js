@@ -4,6 +4,48 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Stream/api](ht
 
 Endpoints:
 
+## ListMessages
+
+List messages for a given channel
+
+
+[https://m3o.com/stream/api#ListMessages](https://m3o.com/stream/api#ListMessages)
+
+```js
+const { StreamService } = require('m3o/stream');
+
+// List messages for a given channel
+async function listMessages() {
+	let streamService = new StreamService(process.env.M3O_API_TOKEN)
+	let rsp = await streamService.listMessages({
+  "channel": "general"
+})
+	console.log(rsp)
+	
+}
+
+listMessages()
+```
+## ListChannels
+
+List all the active channels
+
+
+[https://m3o.com/stream/api#ListChannels](https://m3o.com/stream/api#ListChannels)
+
+```js
+const { StreamService } = require('m3o/stream');
+
+// List all the active channels
+async function listChannels() {
+	let streamService = new StreamService(process.env.M3O_API_TOKEN)
+	let rsp = await streamService.listChannels({})
+	console.log(rsp)
+	
+}
+
+listChannels()
+```
 ## CreateChannel
 
 Create a channel with a given name and description. Channels are created automatically but
@@ -51,46 +93,4 @@ async function sendMessage() {
 }
 
 sendMessage()
-```
-## ListMessages
-
-List messages for a given channel
-
-
-[https://m3o.com/stream/api#ListMessages](https://m3o.com/stream/api#ListMessages)
-
-```js
-const { StreamService } = require('m3o/stream');
-
-// List messages for a given channel
-async function listMessages() {
-	let streamService = new StreamService(process.env.M3O_API_TOKEN)
-	let rsp = await streamService.listMessages({
-  "channel": "general"
-})
-	console.log(rsp)
-	
-}
-
-listMessages()
-```
-## ListChannels
-
-List all the active channels
-
-
-[https://m3o.com/stream/api#ListChannels](https://m3o.com/stream/api#ListChannels)
-
-```js
-const { StreamService } = require('m3o/stream');
-
-// List all the active channels
-async function listChannels() {
-	let streamService = new StreamService(process.env.M3O_API_TOKEN)
-	let rsp = await streamService.listChannels({})
-	console.log(rsp)
-	
-}
-
-listChannels()
 ```
