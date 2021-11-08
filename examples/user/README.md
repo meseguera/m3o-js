@@ -4,55 +4,44 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/User/api](http
 
 Endpoints:
 
-## Create
+## SendVerificationEmail
 
-Create a new user account. The email address and username for the account must be unique.
+Send a verification email
+to the user being signed up. Email from will be from 'support@m3o.com',
+but you can provide the title and contents.
+The verification link will be injected in to the email as a template variable, $micro_verification_link.
+Example: 'Hi there, welcome onboard! Use the link below to verify your email: $micro_verification_link'
+The variable will be replaced with an actual url that will look similar to this:
+'https://user.m3o.com/user/verify?token=a-verification-token&redirectUrl=your-redir-url'
 
 
-[https://m3o.com/user/api#Create](https://m3o.com/user/api#Create)
+[https://m3o.com/user/api#SendVerificationEmail](https://m3o.com/user/api#SendVerificationEmail)
 
 ```js
 const { UserService } = require('m3o/user');
 
-// Create a new user account. The email address and username for the account must be unique.
-async function createAnAccount() {
+// Send a verification email
+// to the user being signed up. Email from will be from 'support@m3o.com',
+// but you can provide the title and contents.
+// The verification link will be injected in to the email as a template variable, $micro_verification_link.
+// Example: 'Hi there, welcome onboard! Use the link below to verify your email: $micro_verification_link'
+// The variable will be replaced with an actual url that will look similar to this:
+// 'https://user.m3o.com/user/verify?token=a-verification-token&redirectUrl=your-redir-url'
+async function sendVerificationEmail() {
 	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.create({
+	let rsp = await userService.sendVerificationEmail({
   "email": "joe@example.com",
-  "id": "usrid-1",
-  "password": "mySecretPass123",
-  "username": "usrname-1"
+  "failureRedirectUrl": "https://m3o.com/verification-failed",
+  "fromName": "Awesome Dot Com",
+  "redirectUrl": "https://m3o.com",
+  "subject": "Email verification",
+  "textContent": "Hi there,\n\nPlease verify your email by clicking this link: $micro_verification_link"
 })
 	console.log(rsp)
 	
 }
 
-createAnAccount()
-```
-## UpdatePassword
-
-Update the account password
-
-
-[https://m3o.com/user/api#UpdatePassword](https://m3o.com/user/api#UpdatePassword)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Update the account password
-async function updateTheAccountPassword() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.updatePassword({
-  "confirmPassword": "myEvenMoreSecretPass123",
-  "id": "usrid-1",
-  "newPassword": "myEvenMoreSecretPass123",
-  "oldPassword": "mySecretPass123"
-})
-	console.log(rsp)
-	
-}
-
-updateTheAccountPassword()
+sendVerificationEmail()
 ```
 ## VerifyEmail
 
@@ -98,31 +87,6 @@ async function deleteUserAccount() {
 
 deleteUserAccount()
 ```
-## Login
-
-Login using username or email. The response will return a new session for successful login,
-401 in the case of login failure and 500 for any other error
-
-
-[https://m3o.com/user/api#Login](https://m3o.com/user/api#Login)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Login using username or email. The response will return a new session for successful login,
-// 401 in the case of login failure and 500 for any other error
-async function logAuserIn() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.login({
-  "email": "joe@example.com",
-  "password": "mySecretPass123"
-})
-	console.log(rsp)
-	
-}
-
-logAuserIn()
-```
 ## Logout
 
 Logout a user account
@@ -144,6 +108,53 @@ async function logAuserOut() {
 }
 
 logAuserOut()
+```
+## ReadSession
+
+Read a session by the session id. In the event it has expired or is not found and error is returned.
+
+
+[https://m3o.com/user/api#ReadSession](https://m3o.com/user/api#ReadSession)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Read a session by the session id. In the event it has expired or is not found and error is returned.
+async function readAsessionByTheSessionId() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.readSession({
+  "sessionId": "sds34s34s34-s34s34-s43s43s34-s4s34s"
+})
+	console.log(rsp)
+	
+}
+
+readAsessionByTheSessionId()
+```
+## UpdatePassword
+
+Update the account password
+
+
+[https://m3o.com/user/api#UpdatePassword](https://m3o.com/user/api#UpdatePassword)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Update the account password
+async function updateTheAccountPassword() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.updatePassword({
+  "confirmPassword": "myEvenMoreSecretPass123",
+  "id": "usrid-1",
+  "newPassword": "myEvenMoreSecretPass123",
+  "oldPassword": "mySecretPass123"
+})
+	console.log(rsp)
+	
+}
+
+updateTheAccountPassword()
 ```
 ## Update
 
@@ -234,64 +245,53 @@ async function readAccountByEmail() {
 
 readAccountByEmail()
 ```
-## SendVerificationEmail
+## Login
 
-Send a verification email
-to the user being signed up. Email from will be from 'support@m3o.com',
-but you can provide the title and contents.
-The verification link will be injected in to the email as a template variable, $micro_verification_link.
-Example: 'Hi there, welcome onboard! Use the link below to verify your email: $micro_verification_link'
-The variable will be replaced with an actual url that will look similar to this:
-'https://user.m3o.com/user/verify?token=a-verification-token&redirectUrl=your-redir-url'
+Login using username or email. The response will return a new session for successful login,
+401 in the case of login failure and 500 for any other error
 
 
-[https://m3o.com/user/api#SendVerificationEmail](https://m3o.com/user/api#SendVerificationEmail)
+[https://m3o.com/user/api#Login](https://m3o.com/user/api#Login)
 
 ```js
 const { UserService } = require('m3o/user');
 
-// Send a verification email
-// to the user being signed up. Email from will be from 'support@m3o.com',
-// but you can provide the title and contents.
-// The verification link will be injected in to the email as a template variable, $micro_verification_link.
-// Example: 'Hi there, welcome onboard! Use the link below to verify your email: $micro_verification_link'
-// The variable will be replaced with an actual url that will look similar to this:
-// 'https://user.m3o.com/user/verify?token=a-verification-token&redirectUrl=your-redir-url'
-async function sendVerificationEmail() {
+// Login using username or email. The response will return a new session for successful login,
+// 401 in the case of login failure and 500 for any other error
+async function logAuserIn() {
 	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.sendVerificationEmail({
+	let rsp = await userService.login({
   "email": "joe@example.com",
-  "failureRedirectUrl": "https://m3o.com/verification-failed",
-  "fromName": "Awesome Dot Com",
-  "redirectUrl": "https://m3o.com",
-  "subject": "Email verification",
-  "textContent": "Hi there,\n\nPlease verify your email by clicking this link: $micro_verification_link"
+  "password": "mySecretPass123"
 })
 	console.log(rsp)
 	
 }
 
-sendVerificationEmail()
+logAuserIn()
 ```
-## ReadSession
+## Create
 
-Read a session by the session id. In the event it has expired or is not found and error is returned.
+Create a new user account. The email address and username for the account must be unique.
 
 
-[https://m3o.com/user/api#ReadSession](https://m3o.com/user/api#ReadSession)
+[https://m3o.com/user/api#Create](https://m3o.com/user/api#Create)
 
 ```js
 const { UserService } = require('m3o/user');
 
-// Read a session by the session id. In the event it has expired or is not found and error is returned.
-async function readAsessionByTheSessionId() {
+// Create a new user account. The email address and username for the account must be unique.
+async function createAnAccount() {
 	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.readSession({
-  "sessionId": "sds34s34s34-s34s34-s43s43s34-s4s34s"
+	let rsp = await userService.create({
+  "email": "joe@example.com",
+  "id": "usrid-1",
+  "password": "mySecretPass123",
+  "username": "usrname-1"
 })
 	console.log(rsp)
 	
 }
 
-readAsessionByTheSessionId()
+createAnAccount()
 ```
