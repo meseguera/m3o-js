@@ -4,6 +4,7 @@ const { HelloworldService } = require("m3o/helloworld");
 async function streamsResponsesFromTheServerUsingWebsockets() {
   let helloworldService = new HelloworldService(process.env.M3O_API_TOKEN);
   let rsp = await helloworldService.stream({
+    messages: 10,
     name: "John",
   });
   rsp.onMessage((msg) => {
