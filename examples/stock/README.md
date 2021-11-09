@@ -4,6 +4,28 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Stock/api](htt
 
 Endpoints:
 
+## Price
+
+Get the last price for a given stock ticker
+
+
+[https://m3o.com/stock/api#Price](https://m3o.com/stock/api#Price)
+
+```js
+const { StockService } = require('m3o/stock');
+
+// Get the last price for a given stock ticker
+async function getAstockPrice() {
+	let stockService = new StockService(process.env.M3O_API_TOKEN)
+	let rsp = await stockService.price({
+  "symbol": "AAPL"
+})
+	console.log(rsp)
+	
+}
+
+getAstockPrice()
+```
 ## Quote
 
 Get the last quote for the stock
@@ -74,26 +96,4 @@ async function orderBookHistory() {
 }
 
 orderBookHistory()
-```
-## Price
-
-Get the last price for a given stock ticker
-
-
-[https://m3o.com/stock/api#Price](https://m3o.com/stock/api#Price)
-
-```js
-const { StockService } = require('m3o/stock');
-
-// Get the last price for a given stock ticker
-async function getAstockPrice() {
-	let stockService = new StockService(process.env.M3O_API_TOKEN)
-	let rsp = await stockService.price({
-  "symbol": "AAPL"
-})
-	console.log(rsp)
-	
-}
-
-getAstockPrice()
 ```
