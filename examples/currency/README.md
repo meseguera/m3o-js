@@ -4,28 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Currency/api](
 
 Endpoints:
 
-## Rates
-
-Rates returns the currency rates for a given code e.g USD
-
-
-[https://m3o.com/currency/api#Rates](https://m3o.com/currency/api#Rates)
-
-```js
-const { CurrencyService } = require('m3o/currency');
-
-// Rates returns the currency rates for a given code e.g USD
-async function getRatesForUsd() {
-	let currencyService = new CurrencyService(process.env.M3O_API_TOKEN)
-	let rsp = await currencyService.rates({
-  "code": "USD"
-})
-	console.log(rsp)
-	
-}
-
-getRatesForUsd()
-```
 ## Convert
 
 Convert returns the currency conversion rate between two pairs e.g USD/GBP
@@ -115,4 +93,26 @@ async function getSupportedCodes() {
 }
 
 getSupportedCodes()
+```
+## Rates
+
+Rates returns the currency rates for a given code e.g USD
+
+
+[https://m3o.com/currency/api#Rates](https://m3o.com/currency/api#Rates)
+
+```js
+const { CurrencyService } = require('m3o/currency');
+
+// Rates returns the currency rates for a given code e.g USD
+async function getRatesForUsd() {
+	let currencyService = new CurrencyService(process.env.M3O_API_TOKEN)
+	let rsp = await currencyService.rates({
+  "code": "USD"
+})
+	console.log(rsp)
+	
+}
+
+getRatesForUsd()
 ```
