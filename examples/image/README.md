@@ -9,6 +9,8 @@ Endpoints:
 Resize an image on the fly without storing it (by sending and receiving a base64 encoded image), or resize and upload depending on parameters.
 If one of width or height is 0, the image aspect ratio is preserved.
 Optional cropping.
+To use the file parameter you need to send the request as a multipart/form-data rather than the usual application/json
+with each parameter as a form field.
 
 
 [https://m3o.com/image/api#Resize](https://m3o.com/image/api#Resize)
@@ -19,6 +21,8 @@ const { ImageService } = require('m3o/image');
 // Resize an image on the fly without storing it (by sending and receiving a base64 encoded image), or resize and upload depending on parameters.
 // If one of width or height is 0, the image aspect ratio is preserved.
 // Optional cropping.
+// To use the file parameter you need to send the request as a multipart/form-data rather than the usual application/json
+// with each parameter as a form field.
 async function base64toHostedImage() {
 	let imageService = new ImageService(process.env.M3O_API_TOKEN)
 	let rsp = await imageService.resize({
@@ -39,6 +43,8 @@ base64toHostedImage()
 Resize an image on the fly without storing it (by sending and receiving a base64 encoded image), or resize and upload depending on parameters.
 If one of width or height is 0, the image aspect ratio is preserved.
 Optional cropping.
+To use the file parameter you need to send the request as a multipart/form-data rather than the usual application/json
+with each parameter as a form field.
 
 
 [https://m3o.com/image/api#Resize](https://m3o.com/image/api#Resize)
@@ -49,6 +55,8 @@ const { ImageService } = require('m3o/image');
 // Resize an image on the fly without storing it (by sending and receiving a base64 encoded image), or resize and upload depending on parameters.
 // If one of width or height is 0, the image aspect ratio is preserved.
 // Optional cropping.
+// To use the file parameter you need to send the request as a multipart/form-data rather than the usual application/json
+// with each parameter as a form field.
 async function base64toBase64image() {
 	let imageService = new ImageService(process.env.M3O_API_TOKEN)
 	let rsp = await imageService.resize({
@@ -67,6 +75,8 @@ base64toBase64image()
 Resize an image on the fly without storing it (by sending and receiving a base64 encoded image), or resize and upload depending on parameters.
 If one of width or height is 0, the image aspect ratio is preserved.
 Optional cropping.
+To use the file parameter you need to send the request as a multipart/form-data rather than the usual application/json
+with each parameter as a form field.
 
 
 [https://m3o.com/image/api#Resize](https://m3o.com/image/api#Resize)
@@ -77,6 +87,8 @@ const { ImageService } = require('m3o/image');
 // Resize an image on the fly without storing it (by sending and receiving a base64 encoded image), or resize and upload depending on parameters.
 // If one of width or height is 0, the image aspect ratio is preserved.
 // Optional cropping.
+// To use the file parameter you need to send the request as a multipart/form-data rather than the usual application/json
+// with each parameter as a form field.
 async function base64toBase64imageWithCropping() {
 	let imageService = new ImageService(process.env.M3O_API_TOKEN)
 	let rsp = await imageService.resize({
@@ -98,6 +110,8 @@ base64toBase64imageWithCropping()
 
 Convert an image from one format (jpeg, png etc.) to an other either on the fly (from base64 to base64),
 or by uploading the conversion result.
+To use the file parameter you need to send the request as a multipart/form-data rather than the usual application/json
+with each parameter as a form field.
 
 
 [https://m3o.com/image/api#Convert](https://m3o.com/image/api#Convert)
@@ -107,6 +121,8 @@ const { ImageService } = require('m3o/image');
 
 // Convert an image from one format (jpeg, png etc.) to an other either on the fly (from base64 to base64),
 // or by uploading the conversion result.
+// To use the file parameter you need to send the request as a multipart/form-data rather than the usual application/json
+// with each parameter as a form field.
 async function convertApngImageToAjpegTakenFromAurlAndSavedToAurlOnMicrosCdn() {
 	let imageService = new ImageService(process.env.M3O_API_TOKEN)
 	let rsp = await imageService.convert({
@@ -124,6 +140,8 @@ convertApngImageToAjpegTakenFromAurlAndSavedToAurlOnMicrosCdn()
 
 Upload an image by either sending a base64 encoded image to this endpoint or a URL.
 To resize an image before uploading, see the Resize endpoint.
+To use the file parameter you need to send the request as a multipart/form-data rather than the usual application/json
+with each parameter as a form field.
 
 
 [https://m3o.com/image/api#Upload](https://m3o.com/image/api#Upload)
@@ -133,6 +151,8 @@ const { ImageService } = require('m3o/image');
 
 // Upload an image by either sending a base64 encoded image to this endpoint or a URL.
 // To resize an image before uploading, see the Resize endpoint.
+// To use the file parameter you need to send the request as a multipart/form-data rather than the usual application/json
+// with each parameter as a form field.
 async function uploadAbase64imageToMicrosCdn() {
 	let imageService = new ImageService(process.env.M3O_API_TOKEN)
 	let rsp = await imageService.upload({
@@ -149,6 +169,8 @@ uploadAbase64imageToMicrosCdn()
 
 Upload an image by either sending a base64 encoded image to this endpoint or a URL.
 To resize an image before uploading, see the Resize endpoint.
+To use the file parameter you need to send the request as a multipart/form-data rather than the usual application/json
+with each parameter as a form field.
 
 
 [https://m3o.com/image/api#Upload](https://m3o.com/image/api#Upload)
@@ -158,6 +180,8 @@ const { ImageService } = require('m3o/image');
 
 // Upload an image by either sending a base64 encoded image to this endpoint or a URL.
 // To resize an image before uploading, see the Resize endpoint.
+// To use the file parameter you need to send the request as a multipart/form-data rather than the usual application/json
+// with each parameter as a form field.
 async function uploadAnImageFromAurlToMicrosCdn() {
 	let imageService = new ImageService(process.env.M3O_API_TOKEN)
 	let rsp = await imageService.upload({
