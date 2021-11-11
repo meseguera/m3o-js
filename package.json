@@ -49,6 +49,7 @@
   "rss",
   "sentiment",
   "sms",
+  "spam",
   "stock",
   "stream",
   "sunnah",
@@ -75,5 +76,5 @@
   "prepare": "npm run build"
  },
  "types": "index.d.ts",
- "version": "1.0.733"
+ "version": "1.0.734"
 }

@@ -1,0 +1,31 @@
+# Spam
+
+An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Spam/api](https://m3o.com/Spam/api).
+
+Endpoints:
+
+## Classify
+
+Check whether an email is likely to be spam based on its attributes
+
+
+[https://m3o.com/spam/api#Classify](https://m3o.com/spam/api#Classify)
+
+```js
+const { SpamService } = require('m3o/spam');
+
+// Check whether an email is likely to be spam based on its attributes
+async function classifyAnEmail() {
+	let spamService = new SpamService(process.env.M3O_API_TOKEN)
+	let rsp = await spamService.classify({
+  "email_body": "Hi there,\n\nWelcome to M3O.\n\nThanks\nM3O team",
+  "from": "noreply@m3o.com",
+  "subject": "Welcome",
+  "to": "hello@example.com"
+})
+	console.log(rsp)
+	
+}
+
+classifyAnEmail()
+```
