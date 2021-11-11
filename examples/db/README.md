@@ -4,6 +4,49 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Db/api](https:
 
 Endpoints:
 
+## ListTables
+
+
+
+
+[https://m3o.com/db/api#ListTables](https://m3o.com/db/api#ListTables)
+
+```js
+const { DbService } = require('m3o/db');
+
+// 
+async function listTables() {
+	let dbService = new DbService(process.env.M3O_API_TOKEN)
+	let rsp = await dbService.listTables({})
+	console.log(rsp)
+	
+}
+
+listTables()
+```
+## RenameTable
+
+
+
+
+[https://m3o.com/db/api#RenameTable](https://m3o.com/db/api#RenameTable)
+
+```js
+const { DbService } = require('m3o/db');
+
+// 
+async function renameTable() {
+	let dbService = new DbService(process.env.M3O_API_TOKEN)
+	let rsp = await dbService.renameTable({
+  "from": "events",
+  "to": "events_backup"
+})
+	console.log(rsp)
+	
+}
+
+renameTable()
+```
 ## Create
 
 Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
@@ -147,47 +190,4 @@ async function countEntriesInAtable() {
 }
 
 countEntriesInAtable()
-```
-## ListTables
-
-
-
-
-[https://m3o.com/db/api#ListTables](https://m3o.com/db/api#ListTables)
-
-```js
-const { DbService } = require('m3o/db');
-
-// 
-async function listTables() {
-	let dbService = new DbService(process.env.M3O_API_TOKEN)
-	let rsp = await dbService.listTables({})
-	console.log(rsp)
-	
-}
-
-listTables()
-```
-## RenameTable
-
-
-
-
-[https://m3o.com/db/api#RenameTable](https://m3o.com/db/api#RenameTable)
-
-```js
-const { DbService } = require('m3o/db');
-
-// 
-async function renameTable() {
-	let dbService = new DbService(process.env.M3O_API_TOKEN)
-	let rsp = await dbService.renameTable({
-  "from": "events",
-  "to": "events_backup"
-})
-	console.log(rsp)
-	
-}
-
-renameTable()
 ```
