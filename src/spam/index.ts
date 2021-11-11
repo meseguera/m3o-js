@@ -17,12 +17,16 @@ export class SpamService {
 }
 
 export interface ClassifyRequest {
-  // The body of the email
+  // The raw body of the email including headers etc per RFC 822. Alternatively, use the other parameters to correctly format the message
   emailBody?: string;
   // The email address it has been sent from
   from?: string;
+  // the HTML version of the email body
+  htmlBody?: string;
   // The subject of the email
   subject?: string;
+  // the plain text version of the email body
+  textBody?: string;
   // The email address it is being sent to
   to?: string;
 }

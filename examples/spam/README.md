@@ -18,9 +18,9 @@ const { SpamService } = require('m3o/spam');
 async function classifyAnEmail() {
 	let spamService = new SpamService(process.env.M3O_API_TOKEN)
 	let rsp = await spamService.classify({
-  "email_body": "Hi there,\n\nWelcome to M3O.\n\nThanks\nM3O team",
   "from": "noreply@m3o.com",
   "subject": "Welcome",
+  "text_body": "Hi there,\n\nWelcome to M3O.\n\nThanks\nM3O team",
   "to": "hello@example.com"
 })
 	console.log(rsp)
@@ -28,4 +28,26 @@ async function classifyAnEmail() {
 }
 
 classifyAnEmail()
+```
+## Classify
+
+Check whether an email is likely to be spam based on its attributes
+
+
+[https://m3o.com/spam/api#Classify](https://m3o.com/spam/api#Classify)
+
+```js
+const { SpamService } = require('m3o/spam');
+
+// Check whether an email is likely to be spam based on its attributes
+async function classifyAnEmailUsingTheRawData() {
+	let spamService = new SpamService(process.env.M3O_API_TOKEN)
+	let rsp = await spamService.classify({
+  "email_body": "Subject: Welcome\r\nTo: hello@emaple.com\r\nFrom: noreply@m3o.com\r\n\r\nHi there,\n\nWelcome to M3O.\n\nThanks\nM3O team"
+})
+	console.log(rsp)
+	
+}
+
+classifyAnEmailUsingTheRawData()
 ```
