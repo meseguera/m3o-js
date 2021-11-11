@@ -29,6 +29,72 @@ async function createAnAccount() {
 
 createAnAccount()
 ```
+## Read
+
+Read an account by id, username or email. Only one need to be specified.
+
+
+[https://m3o.com/user/api#Read](https://m3o.com/user/api#Read)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Read an account by id, username or email. Only one need to be specified.
+async function readAnAccountById() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.read({
+  "id": "usrid-1"
+})
+	console.log(rsp)
+	
+}
+
+readAnAccountById()
+```
+## Read
+
+Read an account by id, username or email. Only one need to be specified.
+
+
+[https://m3o.com/user/api#Read](https://m3o.com/user/api#Read)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Read an account by id, username or email. Only one need to be specified.
+async function readAccountByUsernameOrEmail() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.read({
+  "username": "usrname-1"
+})
+	console.log(rsp)
+	
+}
+
+readAccountByUsernameOrEmail()
+```
+## Read
+
+Read an account by id, username or email. Only one need to be specified.
+
+
+[https://m3o.com/user/api#Read](https://m3o.com/user/api#Read)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Read an account by id, username or email. Only one need to be specified.
+async function readAccountByEmail() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.read({
+  "email": "joe@example.com"
+})
+	console.log(rsp)
+	
+}
+
+readAccountByEmail()
+```
 ## Delete
 
 Delete an account by id
@@ -50,53 +116,6 @@ async function deleteUserAccount() {
 }
 
 deleteUserAccount()
-```
-## Login
-
-Login using username or email. The response will return a new session for successful login,
-401 in the case of login failure and 500 for any other error
-
-
-[https://m3o.com/user/api#Login](https://m3o.com/user/api#Login)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Login using username or email. The response will return a new session for successful login,
-// 401 in the case of login failure and 500 for any other error
-async function logAuserIn() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.login({
-  "email": "joe@example.com",
-  "password": "mySecretPass123"
-})
-	console.log(rsp)
-	
-}
-
-logAuserIn()
-```
-## Logout
-
-Logout a user account
-
-
-[https://m3o.com/user/api#Logout](https://m3o.com/user/api#Logout)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Logout a user account
-async function logAuserOut() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.logout({
-  "sessionId": "sds34s34s34-s34s34-s43s43s34-s4s34s"
-})
-	console.log(rsp)
-	
-}
-
-logAuserOut()
 ```
 ## ReadSession
 
@@ -168,72 +187,6 @@ async function updateTheAccountPassword() {
 
 updateTheAccountPassword()
 ```
-## Read
-
-Read an account by id, username or email. Only one need to be specified.
-
-
-[https://m3o.com/user/api#Read](https://m3o.com/user/api#Read)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Read an account by id, username or email. Only one need to be specified.
-async function readAnAccountById() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.read({
-  "id": "usrid-1"
-})
-	console.log(rsp)
-	
-}
-
-readAnAccountById()
-```
-## Read
-
-Read an account by id, username or email. Only one need to be specified.
-
-
-[https://m3o.com/user/api#Read](https://m3o.com/user/api#Read)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Read an account by id, username or email. Only one need to be specified.
-async function readAccountByUsernameOrEmail() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.read({
-  "username": "usrname-1"
-})
-	console.log(rsp)
-	
-}
-
-readAccountByUsernameOrEmail()
-```
-## Read
-
-Read an account by id, username or email. Only one need to be specified.
-
-
-[https://m3o.com/user/api#Read](https://m3o.com/user/api#Read)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Read an account by id, username or email. Only one need to be specified.
-async function readAccountByEmail() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.read({
-  "email": "joe@example.com"
-})
-	console.log(rsp)
-	
-}
-
-readAccountByEmail()
-```
 ## SendVerificationEmail
 
 Send a verification email
@@ -294,4 +247,51 @@ async function verifyEmail() {
 }
 
 verifyEmail()
+```
+## Login
+
+Login using username or email. The response will return a new session for successful login,
+401 in the case of login failure and 500 for any other error
+
+
+[https://m3o.com/user/api#Login](https://m3o.com/user/api#Login)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Login using username or email. The response will return a new session for successful login,
+// 401 in the case of login failure and 500 for any other error
+async function logAuserIn() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.login({
+  "email": "joe@example.com",
+  "password": "mySecretPass123"
+})
+	console.log(rsp)
+	
+}
+
+logAuserIn()
+```
+## Logout
+
+Logout a user account
+
+
+[https://m3o.com/user/api#Logout](https://m3o.com/user/api#Logout)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Logout a user account
+async function logAuserOut() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.logout({
+  "sessionId": "sds34s34s34-s34s34-s43s43s34-s4s34s"
+})
+	console.log(rsp)
+	
+}
+
+logAuserOut()
 ```
