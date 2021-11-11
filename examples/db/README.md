@@ -4,6 +4,93 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Db/api](https:
 
 Endpoints:
 
+## Truncate
+
+Truncate the records in a table
+
+
+[https://m3o.com/db/api#Truncate](https://m3o.com/db/api#Truncate)
+
+```js
+const { DbService } = require('m3o/db');
+
+// Truncate the records in a table
+async function truncateTable() {
+	let dbService = new DbService(process.env.M3O_API_TOKEN)
+	let rsp = await dbService.truncate({
+  "table": "users"
+})
+	console.log(rsp)
+	
+}
+
+truncateTable()
+```
+## Count
+
+Count records in a table
+
+
+[https://m3o.com/db/api#Count](https://m3o.com/db/api#Count)
+
+```js
+const { DbService } = require('m3o/db');
+
+// Count records in a table
+async function countEntriesInAtable() {
+	let dbService = new DbService(process.env.M3O_API_TOKEN)
+	let rsp = await dbService.count({
+  "table": "users"
+})
+	console.log(rsp)
+	
+}
+
+countEntriesInAtable()
+```
+## ListTables
+
+
+
+
+[https://m3o.com/db/api#ListTables](https://m3o.com/db/api#ListTables)
+
+```js
+const { DbService } = require('m3o/db');
+
+// 
+async function listTables() {
+	let dbService = new DbService(process.env.M3O_API_TOKEN)
+	let rsp = await dbService.listTables({})
+	console.log(rsp)
+	
+}
+
+listTables()
+```
+## RenameTable
+
+
+
+
+[https://m3o.com/db/api#RenameTable](https://m3o.com/db/api#RenameTable)
+
+```js
+const { DbService } = require('m3o/db');
+
+// 
+async function renameTable() {
+	let dbService = new DbService(process.env.M3O_API_TOKEN)
+	let rsp = await dbService.renameTable({
+  "from": "events",
+  "to": "events_backup"
+})
+	console.log(rsp)
+	
+}
+
+renameTable()
+```
 ## Create
 
 Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
@@ -103,91 +190,4 @@ async function deleteArecord() {
 }
 
 deleteArecord()
-```
-## Truncate
-
-Truncate the records in a table
-
-
-[https://m3o.com/db/api#Truncate](https://m3o.com/db/api#Truncate)
-
-```js
-const { DbService } = require('m3o/db');
-
-// Truncate the records in a table
-async function truncateTable() {
-	let dbService = new DbService(process.env.M3O_API_TOKEN)
-	let rsp = await dbService.truncate({
-  "table": "users"
-})
-	console.log(rsp)
-	
-}
-
-truncateTable()
-```
-## Count
-
-Count records in a table
-
-
-[https://m3o.com/db/api#Count](https://m3o.com/db/api#Count)
-
-```js
-const { DbService } = require('m3o/db');
-
-// Count records in a table
-async function countEntriesInAtable() {
-	let dbService = new DbService(process.env.M3O_API_TOKEN)
-	let rsp = await dbService.count({
-  "table": "users"
-})
-	console.log(rsp)
-	
-}
-
-countEntriesInAtable()
-```
-## ListTables
-
-
-
-
-[https://m3o.com/db/api#ListTables](https://m3o.com/db/api#ListTables)
-
-```js
-const { DbService } = require('m3o/db');
-
-// 
-async function listTables() {
-	let dbService = new DbService(process.env.M3O_API_TOKEN)
-	let rsp = await dbService.listTables({})
-	console.log(rsp)
-	
-}
-
-listTables()
-```
-## RenameTable
-
-
-
-
-[https://m3o.com/db/api#RenameTable](https://m3o.com/db/api#RenameTable)
-
-```js
-const { DbService } = require('m3o/db');
-
-// 
-async function renameTable() {
-	let dbService = new DbService(process.env.M3O_API_TOKEN)
-	let rsp = await dbService.renameTable({
-  "from": "events",
-  "to": "events_backup"
-})
-	console.log(rsp)
-	
-}
-
-renameTable()
 ```
