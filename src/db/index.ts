@@ -18,9 +18,25 @@ export class DbService {
   delete(request: DeleteRequest): Promise<DeleteResponse> {
     return this.client.call("db", "Delete", request) as Promise<DeleteResponse>;
   }
+  //
+  listTables(request: ListTablesRequest): Promise<ListTablesResponse> {
+    return this.client.call(
+      "db",
+      "ListTables",
+      request
+    ) as Promise<ListTablesResponse>;
+  }
   // Read data from a table. Lookup can be by ID or via querying any field in the record.
   read(request: ReadRequest): Promise<ReadResponse> {
     return this.client.call("db", "Read", request) as Promise<ReadResponse>;
+  }
+  //
+  renameTable(request: RenameTableRequest): Promise<RenameTableResponse> {
+    return this.client.call(
+      "db",
+      "RenameTable",
+      request
+    ) as Promise<RenameTableResponse>;
   }
   // Truncate the records in a table
   truncate(request: TruncateRequest): Promise<TruncateResponse> {
@@ -67,6 +83,12 @@ export interface DeleteRequest {
 
 export interface DeleteResponse {}
 
+export interface ListTablesRequest {}
+
+export interface ListTablesResponse {
+  tables?: string[];
+}
+
 export interface ReadRequest {
   // Read by id. Equivalent to 'id == "your-id"'
   id?: string;
@@ -92,6 +114,13 @@ export interface ReadResponse {
   // JSON encoded records
   records?: { [key: string]: any }[];
 }
+
+export interface RenameTableRequest {
+  from?: string;
+  to?: string;
+}
+
+export interface RenameTableResponse {}
 
 export interface TruncateRequest {
   // Optional table name. Defaults to 'default'
