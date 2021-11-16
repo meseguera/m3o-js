@@ -47,6 +47,25 @@ export class UserService {
       request
     ) as Promise<ReadSessionResponse>;
   }
+  // Reset password with the code sent by the "SendPasswordResetEmail" endoint.
+  resetPassword(request: ResetPasswordRequest): Promise<ResetPasswordResponse> {
+    return this.client.call(
+      "user",
+      "ResetPassword",
+      request
+    ) as Promise<ResetPasswordResponse>;
+  }
+  // Send an email with a verification code to reset password.
+  // Call "ResetPassword" endpoint once user provides the code.
+  sendPasswordResetEmail(
+    request: SendPasswordResetEmailRequest
+  ): Promise<SendPasswordResetEmailResponse> {
+    return this.client.call(
+      "user",
+      "SendPasswordResetEmail",
+      request
+    ) as Promise<SendPasswordResetEmailResponse>;
+  }
   // Send a verification email
   // to the user being signed up. Email from will be from 'support@m3o.com',
   // but you can provide the title and contents.
@@ -175,6 +194,29 @@ export interface ReadSessionRequest {
 export interface ReadSessionResponse {
   session?: { [key: string]: any };
 }
+
+export interface ResetPasswordRequest {
+  // The code from the verification email
+  code?: string;
+  // confirm new password
+  confirmPassword?: string;
+  // the new password
+  newPassword?: string;
+}
+
+export interface ResetPasswordResponse {}
+
+export interface SendPasswordResetEmailRequest {
+  email?: string;
+  // Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
+  fromName?: string;
+  subject?: string;
+  // Text content of the email. Don't forget to include the string '$code' which will be replaced by the real verification link
+  // HTML emails are not available currently.
+  textContent?: string;
+}
+
+export interface SendPasswordResetEmailResponse {}
 
 export interface SendVerificationEmailRequest {
   email?: string;
