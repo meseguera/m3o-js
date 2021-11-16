@@ -18,7 +18,7 @@ export class DbService {
   delete(request: DeleteRequest): Promise<DeleteResponse> {
     return this.client.call("db", "Delete", request) as Promise<DeleteResponse>;
   }
-  //
+  // List tables in the DB
   listTables(request: ListTablesRequest): Promise<ListTablesResponse> {
     return this.client.call(
       "db",
@@ -30,7 +30,7 @@ export class DbService {
   read(request: ReadRequest): Promise<ReadResponse> {
     return this.client.call("db", "Read", request) as Promise<ReadResponse>;
   }
-  //
+  // Rename a table
   renameTable(request: RenameTableRequest): Promise<RenameTableResponse> {
     return this.client.call(
       "db",
@@ -86,6 +86,7 @@ export interface DeleteResponse {}
 export interface ListTablesRequest {}
 
 export interface ListTablesResponse {
+  // list of tables
   tables?: string[];
 }
 
@@ -116,7 +117,9 @@ export interface ReadResponse {
 }
 
 export interface RenameTableRequest {
+  // current table name
   from?: string;
+  // new table name
   to?: string;
 }
 
