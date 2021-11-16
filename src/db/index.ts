@@ -18,6 +18,14 @@ export class DbService {
   delete(request: DeleteRequest): Promise<DeleteResponse> {
     return this.client.call("db", "Delete", request) as Promise<DeleteResponse>;
   }
+  // Drop a table in the DB
+  dropTable(request: DropTableRequest): Promise<DropTableResponse> {
+    return this.client.call(
+      "db",
+      "DropTable",
+      request
+    ) as Promise<DropTableResponse>;
+  }
   // List tables in the DB
   listTables(request: ListTablesRequest): Promise<ListTablesResponse> {
     return this.client.call(
@@ -83,6 +91,12 @@ export interface DeleteRequest {
 
 export interface DeleteResponse {}
 
+export interface DropTableRequest {
+  table?: string;
+}
+
+export interface DropTableResponse {}
+
 export interface ListTablesRequest {}
 
 export interface ListTablesResponse {
@@ -126,14 +140,10 @@ export interface RenameTableRequest {
 export interface RenameTableResponse {}
 
 export interface TruncateRequest {
-  // Optional table name. Defaults to 'default'
   table?: string;
 }
 
-export interface TruncateResponse {
-  // The table truncated
-  table?: string;
-}
+export interface TruncateResponse {}
 
 export interface UpdateRequest {
   // The id of the record. If not specified it is inferred from the 'id' field of the record
