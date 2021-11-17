@@ -4,53 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/User/api](http
 
 Endpoints:
 
-## Login
-
-Login using username or email. The response will return a new session for successful login,
-401 in the case of login failure and 500 for any other error
-
-
-[https://m3o.com/user/api#Login](https://m3o.com/user/api#Login)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Login using username or email. The response will return a new session for successful login,
-// 401 in the case of login failure and 500 for any other error
-async function logAuserIn() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.login({
-  "email": "joe@example.com",
-  "password": "mySecretPass123"
-})
-	console.log(rsp)
-	
-}
-
-logAuserIn()
-```
-## ReadSession
-
-Read a session by the session id. In the event it has expired or is not found and error is returned.
-
-
-[https://m3o.com/user/api#ReadSession](https://m3o.com/user/api#ReadSession)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Read a session by the session id. In the event it has expired or is not found and error is returned.
-async function readAsessionByTheSessionId() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.readSession({
-  "sessionId": "sds34s34s34-s34s34-s43s43s34-s4s34s"
-})
-	console.log(rsp)
-	
-}
-
-readAsessionByTheSessionId()
-```
 ## Update
 
 Update the account username or email
@@ -73,30 +26,6 @@ async function updateAnAccount() {
 }
 
 updateAnAccount()
-```
-## ResetPassword
-
-Reset password with the code sent by the "SendPasswordResetEmail" endoint.
-
-
-[https://m3o.com/user/api#ResetPassword](https://m3o.com/user/api#ResetPassword)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Reset password with the code sent by the "SendPasswordResetEmail" endoint.
-async function resetPassword() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.resetPassword({
-  "code": "some-code-from-email",
-  "confirmPassword": "newpass123",
-  "newPassword": "newpass123"
-})
-	console.log(rsp)
-	
-}
-
-resetPassword()
 ```
 ## Read
 
@@ -164,72 +93,6 @@ async function readAccountByEmail() {
 
 readAccountByEmail()
 ```
-## SendVerificationEmail
-
-Send a verification email
-to the user being signed up. Email from will be from 'support@m3o.com',
-but you can provide the title and contents.
-The verification link will be injected in to the email as a template variable, $micro_verification_link.
-Example: 'Hi there, welcome onboard! Use the link below to verify your email: $micro_verification_link'
-The variable will be replaced with an actual url that will look similar to this:
-'https://user.m3o.com/user/verify?token=a-verification-token&redirectUrl=your-redir-url'
-
-
-[https://m3o.com/user/api#SendVerificationEmail](https://m3o.com/user/api#SendVerificationEmail)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Send a verification email
-// to the user being signed up. Email from will be from 'support@m3o.com',
-// but you can provide the title and contents.
-// The verification link will be injected in to the email as a template variable, $micro_verification_link.
-// Example: 'Hi there, welcome onboard! Use the link below to verify your email: $micro_verification_link'
-// The variable will be replaced with an actual url that will look similar to this:
-// 'https://user.m3o.com/user/verify?token=a-verification-token&redirectUrl=your-redir-url'
-async function sendVerificationEmail() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.sendVerificationEmail({
-  "email": "joe@example.com",
-  "failureRedirectUrl": "https://m3o.com/verification-failed",
-  "fromName": "Awesome Dot Com",
-  "redirectUrl": "https://m3o.com",
-  "subject": "Email verification",
-  "textContent": "Hi there,\n\nPlease verify your email by clicking this link: $micro_verification_link"
-})
-	console.log(rsp)
-	
-}
-
-sendVerificationEmail()
-```
-## SendPasswordResetEmail
-
-Send an email with a verification code to reset password.
-Call "ResetPassword" endpoint once user provides the code.
-
-
-[https://m3o.com/user/api#SendPasswordResetEmail](https://m3o.com/user/api#SendPasswordResetEmail)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Send an email with a verification code to reset password.
-// Call "ResetPassword" endpoint once user provides the code.
-async function sendPasswordResetEmail() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.sendPasswordResetEmail({
-  "email": "joe@example.com",
-  "fromName": "Awesome Dot Com",
-  "subject": "Password reset",
-  "textContent": "Hi there,\n click here to reset your password: myapp.com/reset/code?=$code"
-})
-	console.log(rsp)
-	
-}
-
-sendPasswordResetEmail()
-```
 ## VerifyEmail
 
 Verify the email address of an account from a token sent in an email to the user.
@@ -296,6 +159,28 @@ async function logAuserOut() {
 
 logAuserOut()
 ```
+## ReadSession
+
+Read a session by the session id. In the event it has expired or is not found and error is returned.
+
+
+[https://m3o.com/user/api#ReadSession](https://m3o.com/user/api#ReadSession)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Read a session by the session id. In the event it has expired or is not found and error is returned.
+async function readAsessionByTheSessionId() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.readSession({
+  "sessionId": "sds34s34s34-s34s34-s43s43s34-s4s34s"
+})
+	console.log(rsp)
+	
+}
+
+readAsessionByTheSessionId()
+```
 ## Create
 
 Create a new user account. The email address and username for the account must be unique.
@@ -345,4 +230,119 @@ async function updateTheAccountPassword() {
 }
 
 updateTheAccountPassword()
+```
+## SendVerificationEmail
+
+Send a verification email
+to the user being signed up. Email from will be from 'support@m3o.com',
+but you can provide the title and contents.
+The verification link will be injected in to the email as a template variable, $micro_verification_link.
+Example: 'Hi there, welcome onboard! Use the link below to verify your email: $micro_verification_link'
+The variable will be replaced with an actual url that will look similar to this:
+'https://user.m3o.com/user/verify?token=a-verification-token&redirectUrl=your-redir-url'
+
+
+[https://m3o.com/user/api#SendVerificationEmail](https://m3o.com/user/api#SendVerificationEmail)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Send a verification email
+// to the user being signed up. Email from will be from 'support@m3o.com',
+// but you can provide the title and contents.
+// The verification link will be injected in to the email as a template variable, $micro_verification_link.
+// Example: 'Hi there, welcome onboard! Use the link below to verify your email: $micro_verification_link'
+// The variable will be replaced with an actual url that will look similar to this:
+// 'https://user.m3o.com/user/verify?token=a-verification-token&redirectUrl=your-redir-url'
+async function sendVerificationEmail() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.sendVerificationEmail({
+  "email": "joe@example.com",
+  "failureRedirectUrl": "https://m3o.com/verification-failed",
+  "fromName": "Awesome Dot Com",
+  "redirectUrl": "https://m3o.com",
+  "subject": "Email verification",
+  "textContent": "Hi there,\n\nPlease verify your email by clicking this link: $micro_verification_link"
+})
+	console.log(rsp)
+	
+}
+
+sendVerificationEmail()
+```
+## SendPasswordResetEmail
+
+Send an email with a verification code to reset password.
+Call "ResetPassword" endpoint once user provides the code.
+
+
+[https://m3o.com/user/api#SendPasswordResetEmail](https://m3o.com/user/api#SendPasswordResetEmail)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Send an email with a verification code to reset password.
+// Call "ResetPassword" endpoint once user provides the code.
+async function sendPasswordResetEmail() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.sendPasswordResetEmail({
+  "email": "joe@example.com",
+  "fromName": "Awesome Dot Com",
+  "subject": "Password reset",
+  "textContent": "Hi there,\n click here to reset your password: myapp.com/reset/code?=$code"
+})
+	console.log(rsp)
+	
+}
+
+sendPasswordResetEmail()
+```
+## ResetPassword
+
+Reset password with the code sent by the "SendPasswordResetEmail" endoint.
+
+
+[https://m3o.com/user/api#ResetPassword](https://m3o.com/user/api#ResetPassword)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Reset password with the code sent by the "SendPasswordResetEmail" endoint.
+async function resetPassword() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.resetPassword({
+  "code": "some-code-from-email",
+  "confirmPassword": "newpass123",
+  "newPassword": "newpass123"
+})
+	console.log(rsp)
+	
+}
+
+resetPassword()
+```
+## Login
+
+Login using username or email. The response will return a new session for successful login,
+401 in the case of login failure and 500 for any other error
+
+
+[https://m3o.com/user/api#Login](https://m3o.com/user/api#Login)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Login using username or email. The response will return a new session for successful login,
+// 401 in the case of login failure and 500 for any other error
+async function logAuserIn() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.login({
+  "email": "joe@example.com",
+  "password": "mySecretPass123"
+})
+	console.log(rsp)
+	
+}
+
+logAuserIn()
 ```
