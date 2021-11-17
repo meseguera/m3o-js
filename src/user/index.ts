@@ -200,6 +200,8 @@ export interface ResetPasswordRequest {
   code?: string;
   // confirm new password
   confirmPassword?: string;
+  // the email to reset the password for
+  email?: string;
   // the new password
   newPassword?: string;
 }
@@ -207,9 +209,11 @@ export interface ResetPasswordRequest {
 export interface ResetPasswordResponse {}
 
 export interface SendPasswordResetEmailRequest {
+  // email address to send reset for
   email?: string;
   // Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
   fromName?: string;
+  // subject of the email
   subject?: string;
   // Text content of the email. Don't forget to include the string '$code' which will be replaced by the real verification link
   // HTML emails are not available currently.
@@ -270,6 +274,8 @@ export interface UpdateRequest {
 export interface UpdateResponse {}
 
 export interface VerifyEmailRequest {
+  // the email address to verify
+  email?: string;
   // The token from the verification email
   token?: string;
 }
