@@ -223,11 +223,13 @@ export interface SendPasswordResetEmailRequest {
 export interface SendPasswordResetEmailResponse {}
 
 export interface SendVerificationEmailRequest {
+  // email address to send the verification code
   email?: string;
   failureRedirectUrl?: string;
   // Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
   fromName?: string;
   redirectUrl?: string;
+  // subject of the email
   subject?: string;
   // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
   // HTML emails are not available currently.

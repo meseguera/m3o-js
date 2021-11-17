@@ -30,28 +30,28 @@ async function updateArecord() {
 
 updateArecord()
 ```
-## Read
+## Delete
 
-Read data from a table. Lookup can be by ID or via querying any field in the record.
+Delete a record in the database by id.
 
 
-[https://m3o.com/db/api#Read](https://m3o.com/db/api#Read)
+[https://m3o.com/db/api#Delete](https://m3o.com/db/api#Delete)
 
 ```js
 const { DbService } = require('m3o/db');
 
-// Read data from a table. Lookup can be by ID or via querying any field in the record.
-async function readRecords() {
+// Delete a record in the database by id.
+async function deleteArecord() {
 	let dbService = new DbService(process.env.M3O_API_TOKEN)
-	let rsp = await dbService.read({
-  "query": "age == 43",
+	let rsp = await dbService.delete({
+  "id": "1",
   "table": "users"
 })
 	console.log(rsp)
 	
 }
 
-readRecords()
+deleteArecord()
 ```
 ## Truncate
 
@@ -145,28 +145,28 @@ async function createArecord() {
 
 createArecord()
 ```
-## Delete
+## Read
 
-Delete a record in the database by id.
+Read data from a table. Lookup can be by ID or via querying any field in the record.
 
 
-[https://m3o.com/db/api#Delete](https://m3o.com/db/api#Delete)
+[https://m3o.com/db/api#Read](https://m3o.com/db/api#Read)
 
 ```js
 const { DbService } = require('m3o/db');
 
-// Delete a record in the database by id.
-async function deleteArecord() {
+// Read data from a table. Lookup can be by ID or via querying any field in the record.
+async function readRecords() {
 	let dbService = new DbService(process.env.M3O_API_TOKEN)
-	let rsp = await dbService.delete({
-  "id": "1",
+	let rsp = await dbService.read({
+  "query": "age == 43",
   "table": "users"
 })
 	console.log(rsp)
 	
 }
 
-deleteArecord()
+readRecords()
 ```
 ## DropTable
 
