@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Stock/api](htt
 
 Endpoints:
 
-## History
-
-Get the historic open-close for a given day
-
-
-[https://m3o.com/stock/api#History](https://m3o.com/stock/api#History)
-
-```js
-const { StockService } = require('m3o/stock');
-
-// Get the historic open-close for a given day
-async function getHistoricData() {
-	let stockService = new StockService(process.env.M3O_API_TOKEN)
-	let rsp = await stockService.history({
-  "date": "2020-10-01",
-  "stock": "AAPL"
-})
-	console.log(rsp)
-	
-}
-
-getHistoricData()
-```
 ## OrderBook
 
 Get the historic order book and each trade by timestamp
@@ -96,4 +73,27 @@ async function getAstockQuote() {
 }
 
 getAstockQuote()
+```
+## History
+
+Get the historic open-close for a given day
+
+
+[https://m3o.com/stock/api#History](https://m3o.com/stock/api#History)
+
+```js
+const { StockService } = require('m3o/stock');
+
+// Get the historic open-close for a given day
+async function getHistoricData() {
+	let stockService = new StockService(process.env.M3O_API_TOKEN)
+	let rsp = await stockService.history({
+  "date": "2020-10-01",
+  "stock": "AAPL"
+})
+	console.log(rsp)
+	
+}
+
+getHistoricData()
 ```
