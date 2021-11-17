@@ -4,95 +4,30 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/User/api](http
 
 Endpoints:
 
-## SendVerificationEmail
+## Create
 
-Send a verification email
-to the user being signed up. Email from will be from 'support@m3o.com',
-but you can provide the title and contents.
-The verification link will be injected in to the email as a template variable, $micro_verification_link.
-Example: 'Hi there, welcome onboard! Use the link below to verify your email: $micro_verification_link'
-The variable will be replaced with an actual url that will look similar to this:
-'https://user.m3o.com/user/verify?token=a-verification-token&redirectUrl=your-redir-url'
+Create a new user account. The email address and username for the account must be unique.
 
 
-[https://m3o.com/user/api#SendVerificationEmail](https://m3o.com/user/api#SendVerificationEmail)
+[https://m3o.com/user/api#Create](https://m3o.com/user/api#Create)
 
 ```js
 const { UserService } = require('m3o/user');
 
-// Send a verification email
-// to the user being signed up. Email from will be from 'support@m3o.com',
-// but you can provide the title and contents.
-// The verification link will be injected in to the email as a template variable, $micro_verification_link.
-// Example: 'Hi there, welcome onboard! Use the link below to verify your email: $micro_verification_link'
-// The variable will be replaced with an actual url that will look similar to this:
-// 'https://user.m3o.com/user/verify?token=a-verification-token&redirectUrl=your-redir-url'
-async function sendVerificationEmail() {
+// Create a new user account. The email address and username for the account must be unique.
+async function createAnAccount() {
 	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.sendVerificationEmail({
+	let rsp = await userService.create({
   "email": "joe@example.com",
-  "failureRedirectUrl": "https://m3o.com/verification-failed",
-  "fromName": "Awesome Dot Com",
-  "redirectUrl": "https://m3o.com",
-  "subject": "Email verification",
-  "textContent": "Hi there,\n\nPlease verify your email by clicking this link: $micro_verification_link"
+  "id": "usrid-1",
+  "password": "mySecretPass123",
+  "username": "usrname-1"
 })
 	console.log(rsp)
 	
 }
 
-sendVerificationEmail()
-```
-## SendPasswordResetEmail
-
-Send an email with a verification code to reset password.
-Call "ResetPassword" endpoint once user provides the code.
-
-
-[https://m3o.com/user/api#SendPasswordResetEmail](https://m3o.com/user/api#SendPasswordResetEmail)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Send an email with a verification code to reset password.
-// Call "ResetPassword" endpoint once user provides the code.
-async function sendPasswordResetEmail() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.sendPasswordResetEmail({
-  "email": "joe@example.com",
-  "fromName": "Awesome Dot Com",
-  "subject": "Password reset",
-  "textContent": "Hi there,\n click here to reset your password: myapp.com/reset/code?=$code"
-})
-	console.log(rsp)
-	
-}
-
-sendPasswordResetEmail()
-```
-## ResetPassword
-
-Reset password with the code sent by the "SendPasswordResetEmail" endoint.
-
-
-[https://m3o.com/user/api#ResetPassword](https://m3o.com/user/api#ResetPassword)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Reset password with the code sent by the "SendPasswordResetEmail" endoint.
-async function resetPassword() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.resetPassword({
-  "code": "some-code-from-email",
-  "confirmPassword": "newpass123",
-  "newPassword": "newpass123"
-})
-	console.log(rsp)
-	
-}
-
-resetPassword()
+createAnAccount()
 ```
 ## Update
 
@@ -141,6 +76,162 @@ async function updateTheAccountPassword() {
 }
 
 updateTheAccountPassword()
+```
+## Read
+
+Read an account by id, username or email. Only one need to be specified.
+
+
+[https://m3o.com/user/api#Read](https://m3o.com/user/api#Read)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Read an account by id, username or email. Only one need to be specified.
+async function readAnAccountById() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.read({
+  "id": "usrid-1"
+})
+	console.log(rsp)
+	
+}
+
+readAnAccountById()
+```
+## Read
+
+Read an account by id, username or email. Only one need to be specified.
+
+
+[https://m3o.com/user/api#Read](https://m3o.com/user/api#Read)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Read an account by id, username or email. Only one need to be specified.
+async function readAccountByUsernameOrEmail() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.read({
+  "username": "usrname-1"
+})
+	console.log(rsp)
+	
+}
+
+readAccountByUsernameOrEmail()
+```
+## Read
+
+Read an account by id, username or email. Only one need to be specified.
+
+
+[https://m3o.com/user/api#Read](https://m3o.com/user/api#Read)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Read an account by id, username or email. Only one need to be specified.
+async function readAccountByEmail() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.read({
+  "email": "joe@example.com"
+})
+	console.log(rsp)
+	
+}
+
+readAccountByEmail()
+```
+## SendVerificationEmail
+
+Send a verification email
+to the user being signed up. Email from will be from 'support@m3o.com',
+but you can provide the title and contents.
+The verification link will be injected in to the email as a template variable, $micro_verification_link.
+Example: 'Hi there, welcome onboard! Use the link below to verify your email: $micro_verification_link'
+The variable will be replaced with an actual url that will look similar to this:
+'https://user.m3o.com/user/verify?token=a-verification-token&redirectUrl=your-redir-url'
+
+
+[https://m3o.com/user/api#SendVerificationEmail](https://m3o.com/user/api#SendVerificationEmail)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Send a verification email
+// to the user being signed up. Email from will be from 'support@m3o.com',
+// but you can provide the title and contents.
+// The verification link will be injected in to the email as a template variable, $micro_verification_link.
+// Example: 'Hi there, welcome onboard! Use the link below to verify your email: $micro_verification_link'
+// The variable will be replaced with an actual url that will look similar to this:
+// 'https://user.m3o.com/user/verify?token=a-verification-token&redirectUrl=your-redir-url'
+async function sendVerificationEmail() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.sendVerificationEmail({
+  "email": "joe@example.com",
+  "failureRedirectUrl": "https://m3o.com/verification-failed",
+  "fromName": "Awesome Dot Com",
+  "redirectUrl": "https://m3o.com",
+  "subject": "Email verification",
+  "textContent": "Hi there,\n\nPlease verify your email by clicking this link: $micro_verification_link"
+})
+	console.log(rsp)
+	
+}
+
+sendVerificationEmail()
+```
+## ResetPassword
+
+Reset password with the code sent by the "SendPasswordResetEmail" endoint.
+
+
+[https://m3o.com/user/api#ResetPassword](https://m3o.com/user/api#ResetPassword)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Reset password with the code sent by the "SendPasswordResetEmail" endoint.
+async function resetPassword() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.resetPassword({
+  "code": "some-code-from-email",
+  "confirmPassword": "newpass123",
+  "newPassword": "newpass123"
+})
+	console.log(rsp)
+	
+}
+
+resetPassword()
+```
+## SendPasswordResetEmail
+
+Send an email with a verification code to reset password.
+Call "ResetPassword" endpoint once user provides the code.
+
+
+[https://m3o.com/user/api#SendPasswordResetEmail](https://m3o.com/user/api#SendPasswordResetEmail)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Send an email with a verification code to reset password.
+// Call "ResetPassword" endpoint once user provides the code.
+async function sendPasswordResetEmail() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.sendPasswordResetEmail({
+  "email": "joe@example.com",
+  "fromName": "Awesome Dot Com",
+  "subject": "Password reset",
+  "textContent": "Hi there,\n click here to reset your password: myapp.com/reset/code?=$code"
+})
+	console.log(rsp)
+	
+}
+
+sendPasswordResetEmail()
 ```
 ## VerifyEmail
 
@@ -254,95 +345,4 @@ async function readAsessionByTheSessionId() {
 }
 
 readAsessionByTheSessionId()
-```
-## Create
-
-Create a new user account. The email address and username for the account must be unique.
-
-
-[https://m3o.com/user/api#Create](https://m3o.com/user/api#Create)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Create a new user account. The email address and username for the account must be unique.
-async function createAnAccount() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.create({
-  "email": "joe@example.com",
-  "id": "usrid-1",
-  "password": "mySecretPass123",
-  "username": "usrname-1"
-})
-	console.log(rsp)
-	
-}
-
-createAnAccount()
-```
-## Read
-
-Read an account by id, username or email. Only one need to be specified.
-
-
-[https://m3o.com/user/api#Read](https://m3o.com/user/api#Read)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Read an account by id, username or email. Only one need to be specified.
-async function readAnAccountById() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.read({
-  "id": "usrid-1"
-})
-	console.log(rsp)
-	
-}
-
-readAnAccountById()
-```
-## Read
-
-Read an account by id, username or email. Only one need to be specified.
-
-
-[https://m3o.com/user/api#Read](https://m3o.com/user/api#Read)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Read an account by id, username or email. Only one need to be specified.
-async function readAccountByUsernameOrEmail() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.read({
-  "username": "usrname-1"
-})
-	console.log(rsp)
-	
-}
-
-readAccountByUsernameOrEmail()
-```
-## Read
-
-Read an account by id, username or email. Only one need to be specified.
-
-
-[https://m3o.com/user/api#Read](https://m3o.com/user/api#Read)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Read an account by id, username or email. Only one need to be specified.
-async function readAccountByEmail() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.read({
-  "email": "joe@example.com"
-})
-	console.log(rsp)
-	
-}
-
-readAccountByEmail()
 ```
