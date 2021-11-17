@@ -4,49 +4,51 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Db/api](https:
 
 Endpoints:
 
-## Truncate
+## Read
 
-Truncate the records in a table
+Read data from a table. Lookup can be by ID or via querying any field in the record.
 
 
-[https://m3o.com/db/api#Truncate](https://m3o.com/db/api#Truncate)
+[https://m3o.com/db/api#Read](https://m3o.com/db/api#Read)
 
 ```js
 const { DbService } = require('m3o/db');
 
-// Truncate the records in a table
-async function truncateTable() {
+// Read data from a table. Lookup can be by ID or via querying any field in the record.
+async function readRecords() {
 	let dbService = new DbService(process.env.M3O_API_TOKEN)
-	let rsp = await dbService.truncate({
+	let rsp = await dbService.read({
+  "query": "age == 43",
   "table": "users"
 })
 	console.log(rsp)
 	
 }
 
-truncateTable()
+readRecords()
 ```
-## DropTable
+## Delete
 
-Drop a table in the DB
+Delete a record in the database by id.
 
 
-[https://m3o.com/db/api#DropTable](https://m3o.com/db/api#DropTable)
+[https://m3o.com/db/api#Delete](https://m3o.com/db/api#Delete)
 
 ```js
 const { DbService } = require('m3o/db');
 
-// Drop a table in the DB
-async function dropTable() {
+// Delete a record in the database by id.
+async function deleteArecord() {
 	let dbService = new DbService(process.env.M3O_API_TOKEN)
-	let rsp = await dbService.dropTable({
+	let rsp = await dbService.delete({
+  "id": "1",
   "table": "users"
 })
 	console.log(rsp)
 	
 }
 
-dropTable()
+deleteArecord()
 ```
 ## Count
 
@@ -98,77 +100,49 @@ async function createArecord() {
 
 createArecord()
 ```
-## Update
+## Truncate
 
-Update a record in the database. Include an "id" in the record to update.
+Truncate the records in a table
 
 
-[https://m3o.com/db/api#Update](https://m3o.com/db/api#Update)
+[https://m3o.com/db/api#Truncate](https://m3o.com/db/api#Truncate)
 
 ```js
 const { DbService } = require('m3o/db');
 
-// Update a record in the database. Include an "id" in the record to update.
-async function updateArecord() {
+// Truncate the records in a table
+async function truncateTable() {
 	let dbService = new DbService(process.env.M3O_API_TOKEN)
-	let rsp = await dbService.update({
-  "record": {
-    "age": 43,
-    "id": "1"
-  },
+	let rsp = await dbService.truncate({
   "table": "users"
 })
 	console.log(rsp)
 	
 }
 
-updateArecord()
+truncateTable()
 ```
-## Read
+## DropTable
 
-Read data from a table. Lookup can be by ID or via querying any field in the record.
+Drop a table in the DB
 
 
-[https://m3o.com/db/api#Read](https://m3o.com/db/api#Read)
+[https://m3o.com/db/api#DropTable](https://m3o.com/db/api#DropTable)
 
 ```js
 const { DbService } = require('m3o/db');
 
-// Read data from a table. Lookup can be by ID or via querying any field in the record.
-async function readRecords() {
+// Drop a table in the DB
+async function dropTable() {
 	let dbService = new DbService(process.env.M3O_API_TOKEN)
-	let rsp = await dbService.read({
-  "query": "age == 43",
+	let rsp = await dbService.dropTable({
   "table": "users"
 })
 	console.log(rsp)
 	
 }
 
-readRecords()
-```
-## Delete
-
-Delete a record in the database by id.
-
-
-[https://m3o.com/db/api#Delete](https://m3o.com/db/api#Delete)
-
-```js
-const { DbService } = require('m3o/db');
-
-// Delete a record in the database by id.
-async function deleteArecord() {
-	let dbService = new DbService(process.env.M3O_API_TOKEN)
-	let rsp = await dbService.delete({
-  "id": "1",
-  "table": "users"
-})
-	console.log(rsp)
-	
-}
-
-deleteArecord()
+dropTable()
 ```
 ## ListTables
 
@@ -212,4 +186,30 @@ async function renameTable() {
 }
 
 renameTable()
+```
+## Update
+
+Update a record in the database. Include an "id" in the record to update.
+
+
+[https://m3o.com/db/api#Update](https://m3o.com/db/api#Update)
+
+```js
+const { DbService } = require('m3o/db');
+
+// Update a record in the database. Include an "id" in the record to update.
+async function updateArecord() {
+	let dbService = new DbService(process.env.M3O_API_TOKEN)
+	let rsp = await dbService.update({
+  "record": {
+    "age": 43,
+    "id": "1"
+  },
+  "table": "users"
+})
+	console.log(rsp)
+	
+}
+
+updateArecord()
 ```
