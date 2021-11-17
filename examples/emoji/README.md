@@ -4,52 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Emoji/api](htt
 
 Endpoints:
 
-## Flag
-
-Get the flag for a country. Requires country code e.g GB for great britain
-
-
-[https://m3o.com/emoji/api#Flag](https://m3o.com/emoji/api#Flag)
-
-```js
-const { EmojiService } = require('m3o/emoji');
-
-// Get the flag for a country. Requires country code e.g GB for great britain
-async function getFlagByCountryCode() {
-	let emojiService = new EmojiService(process.env.M3O_API_TOKEN)
-	let rsp = await emojiService.flag({
-  "alias": "GB"
-})
-	console.log(rsp)
-	
-}
-
-getFlagByCountryCode()
-```
-## Print
-
-Print text and renders the emojis with aliases e.g
-let's grab a :beer: becomes let's grab a 🍺
-
-
-[https://m3o.com/emoji/api#Print](https://m3o.com/emoji/api#Print)
-
-```js
-const { EmojiService } = require('m3o/emoji');
-
-// Print text and renders the emojis with aliases e.g
-// let's grab a :beer: becomes let's grab a 🍺
-async function printTextIncludingEmoji() {
-	let emojiService = new EmojiService(process.env.M3O_API_TOKEN)
-	let rsp = await emojiService.print({
-  "text": "let's grab a :beer:"
-})
-	console.log(rsp)
-	
-}
-
-printTextIncludingEmoji()
-```
 ## Send
 
 Send an emoji to anyone via SMS. Messages are sent in the form '<message> Sent from <from>'
@@ -95,4 +49,50 @@ async function findEmoji() {
 }
 
 findEmoji()
+```
+## Flag
+
+Get the flag for a country. Requires country code e.g GB for great britain
+
+
+[https://m3o.com/emoji/api#Flag](https://m3o.com/emoji/api#Flag)
+
+```js
+const { EmojiService } = require('m3o/emoji');
+
+// Get the flag for a country. Requires country code e.g GB for great britain
+async function getFlagByCountryCode() {
+	let emojiService = new EmojiService(process.env.M3O_API_TOKEN)
+	let rsp = await emojiService.flag({
+  "alias": "GB"
+})
+	console.log(rsp)
+	
+}
+
+getFlagByCountryCode()
+```
+## Print
+
+Print text and renders the emojis with aliases e.g
+let's grab a :beer: becomes let's grab a 🍺
+
+
+[https://m3o.com/emoji/api#Print](https://m3o.com/emoji/api#Print)
+
+```js
+const { EmojiService } = require('m3o/emoji');
+
+// Print text and renders the emojis with aliases e.g
+// let's grab a :beer: becomes let's grab a 🍺
+async function printTextIncludingEmoji() {
+	let emojiService = new EmojiService(process.env.M3O_API_TOKEN)
+	let rsp = await emojiService.print({
+  "text": "let's grab a :beer:"
+})
+	console.log(rsp)
+	
+}
+
+printTextIncludingEmoji()
 ```
