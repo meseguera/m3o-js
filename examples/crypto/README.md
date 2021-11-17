@@ -4,28 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Crypto/api](ht
 
 Endpoints:
 
-## Quote
-
-Get the last quote for a given crypto ticker
-
-
-[https://m3o.com/crypto/api#Quote](https://m3o.com/crypto/api#Quote)
-
-```js
-const { CryptoService } = require('m3o/crypto');
-
-// Get the last quote for a given crypto ticker
-async function getAcryptocurrencyQuote() {
-	let cryptoService = new CryptoService(process.env.M3O_API_TOKEN)
-	let rsp = await cryptoService.quote({
-  "symbol": "BTCUSD"
-})
-	console.log(rsp)
-	
-}
-
-getAcryptocurrencyQuote()
-```
 ## History
 
 Returns the history for the previous close
@@ -91,4 +69,26 @@ async function getCryptocurrencyPrice() {
 }
 
 getCryptocurrencyPrice()
+```
+## Quote
+
+Get the last quote for a given crypto ticker
+
+
+[https://m3o.com/crypto/api#Quote](https://m3o.com/crypto/api#Quote)
+
+```js
+const { CryptoService } = require('m3o/crypto');
+
+// Get the last quote for a given crypto ticker
+async function getAcryptocurrencyQuote() {
+	let cryptoService = new CryptoService(process.env.M3O_API_TOKEN)
+	let rsp = await cryptoService.quote({
+  "symbol": "BTCUSD"
+})
+	console.log(rsp)
+	
+}
+
+getAcryptocurrencyQuote()
 ```
