@@ -4,27 +4,53 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/User/api](http
 
 Endpoints:
 
-## ReadSession
+## Update
 
-Read a session by the session id. In the event it has expired or is not found and error is returned.
+Update the account username or email
 
 
-[https://m3o.com/user/api#ReadSession](https://m3o.com/user/api#ReadSession)
+[https://m3o.com/user/api#Update](https://m3o.com/user/api#Update)
 
 ```js
 const { UserService } = require('m3o/user');
 
-// Read a session by the session id. In the event it has expired or is not found and error is returned.
-async function readAsessionByTheSessionId() {
+// Update the account username or email
+async function updateAnAccount() {
 	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.readSession({
-  "sessionId": "sds34s34s34-s34s34-s43s43s34-s4s34s"
+	let rsp = await userService.update({
+  "email": "joeotheremail@example.com",
+  "id": "usrid-1"
 })
 	console.log(rsp)
 	
 }
 
-readAsessionByTheSessionId()
+updateAnAccount()
+```
+## UpdatePassword
+
+Update the account password
+
+
+[https://m3o.com/user/api#UpdatePassword](https://m3o.com/user/api#UpdatePassword)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Update the account password
+async function updateTheAccountPassword() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.updatePassword({
+  "confirmPassword": "myEvenMoreSecretPass123",
+  "id": "usrid-1",
+  "newPassword": "myEvenMoreSecretPass123",
+  "oldPassword": "mySecretPass123"
+})
+	console.log(rsp)
+	
+}
+
+updateTheAccountPassword()
 ```
 ## SendVerificationEmail
 
@@ -64,6 +90,33 @@ async function sendVerificationEmail() {
 }
 
 sendVerificationEmail()
+```
+## SendPasswordResetEmail
+
+Send an email with a verification code to reset password.
+Call "ResetPassword" endpoint once user provides the code.
+
+
+[https://m3o.com/user/api#SendPasswordResetEmail](https://m3o.com/user/api#SendPasswordResetEmail)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Send an email with a verification code to reset password.
+// Call "ResetPassword" endpoint once user provides the code.
+async function sendPasswordResetEmail() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.sendPasswordResetEmail({
+  "email": "joe@example.com",
+  "fromName": "Awesome Dot Com",
+  "subject": "Password reset",
+  "textContent": "Hi there,\n click here to reset your password: myapp.com/reset/code?=$code"
+})
+	console.log(rsp)
+	
+}
+
+sendPasswordResetEmail()
 ```
 ## ResetPassword
 
@@ -113,6 +166,119 @@ async function logAuserIn() {
 }
 
 logAuserIn()
+```
+## Logout
+
+Logout a user account
+
+
+[https://m3o.com/user/api#Logout](https://m3o.com/user/api#Logout)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Logout a user account
+async function logAuserOut() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.logout({
+  "sessionId": "sds34s34s34-s34s34-s43s43s34-s4s34s"
+})
+	console.log(rsp)
+	
+}
+
+logAuserOut()
+```
+## Create
+
+Create a new user account. The email address and username for the account must be unique.
+
+
+[https://m3o.com/user/api#Create](https://m3o.com/user/api#Create)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Create a new user account. The email address and username for the account must be unique.
+async function createAnAccount() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.create({
+  "email": "joe@example.com",
+  "id": "usrid-1",
+  "password": "mySecretPass123",
+  "username": "usrname-1"
+})
+	console.log(rsp)
+	
+}
+
+createAnAccount()
+```
+## VerifyEmail
+
+Verify the email address of an account from a token sent in an email to the user.
+
+
+[https://m3o.com/user/api#VerifyEmail](https://m3o.com/user/api#VerifyEmail)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Verify the email address of an account from a token sent in an email to the user.
+async function verifyEmail() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.verifyEmail({
+  "token": "t2323t232t"
+})
+	console.log(rsp)
+	
+}
+
+verifyEmail()
+```
+## Delete
+
+Delete an account by id
+
+
+[https://m3o.com/user/api#Delete](https://m3o.com/user/api#Delete)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Delete an account by id
+async function deleteUserAccount() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.delete({
+  "id": "fdf34f34f34-f34f34-f43f43f34-f4f34f"
+})
+	console.log(rsp)
+	
+}
+
+deleteUserAccount()
+```
+## ReadSession
+
+Read a session by the session id. In the event it has expired or is not found and error is returned.
+
+
+[https://m3o.com/user/api#ReadSession](https://m3o.com/user/api#ReadSession)
+
+```js
+const { UserService } = require('m3o/user');
+
+// Read a session by the session id. In the event it has expired or is not found and error is returned.
+async function readAsessionByTheSessionId() {
+	let userService = new UserService(process.env.M3O_API_TOKEN)
+	let rsp = await userService.readSession({
+  "sessionId": "sds34s34s34-s34s34-s43s43s34-s4s34s"
+})
+	console.log(rsp)
+	
+}
+
+readAsessionByTheSessionId()
 ```
 ## Read
 
@@ -179,170 +345,4 @@ async function readAccountByEmail() {
 }
 
 readAccountByEmail()
-```
-## SendPasswordResetEmail
-
-Send an email with a verification code to reset password.
-Call "ResetPassword" endpoint once user provides the code.
-
-
-[https://m3o.com/user/api#SendPasswordResetEmail](https://m3o.com/user/api#SendPasswordResetEmail)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Send an email with a verification code to reset password.
-// Call "ResetPassword" endpoint once user provides the code.
-async function sendPasswordResetEmail() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.sendPasswordResetEmail({
-  "email": "joe@example.com",
-  "fromName": "Awesome Dot Com",
-  "subject": "Password reset",
-  "textContent": "Hi there,\n click here to reset your password: myapp.com/reset/code?=$code"
-})
-	console.log(rsp)
-	
-}
-
-sendPasswordResetEmail()
-```
-## VerifyEmail
-
-Verify the email address of an account from a token sent in an email to the user.
-
-
-[https://m3o.com/user/api#VerifyEmail](https://m3o.com/user/api#VerifyEmail)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Verify the email address of an account from a token sent in an email to the user.
-async function verifyEmail() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.verifyEmail({
-  "token": "t2323t232t"
-})
-	console.log(rsp)
-	
-}
-
-verifyEmail()
-```
-## Delete
-
-Delete an account by id
-
-
-[https://m3o.com/user/api#Delete](https://m3o.com/user/api#Delete)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Delete an account by id
-async function deleteUserAccount() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.delete({
-  "id": "fdf34f34f34-f34f34-f43f43f34-f4f34f"
-})
-	console.log(rsp)
-	
-}
-
-deleteUserAccount()
-```
-## Logout
-
-Logout a user account
-
-
-[https://m3o.com/user/api#Logout](https://m3o.com/user/api#Logout)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Logout a user account
-async function logAuserOut() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.logout({
-  "sessionId": "sds34s34s34-s34s34-s43s43s34-s4s34s"
-})
-	console.log(rsp)
-	
-}
-
-logAuserOut()
-```
-## Create
-
-Create a new user account. The email address and username for the account must be unique.
-
-
-[https://m3o.com/user/api#Create](https://m3o.com/user/api#Create)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Create a new user account. The email address and username for the account must be unique.
-async function createAnAccount() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.create({
-  "email": "joe@example.com",
-  "id": "usrid-1",
-  "password": "mySecretPass123",
-  "username": "usrname-1"
-})
-	console.log(rsp)
-	
-}
-
-createAnAccount()
-```
-## Update
-
-Update the account username or email
-
-
-[https://m3o.com/user/api#Update](https://m3o.com/user/api#Update)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Update the account username or email
-async function updateAnAccount() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.update({
-  "email": "joeotheremail@example.com",
-  "id": "usrid-1"
-})
-	console.log(rsp)
-	
-}
-
-updateAnAccount()
-```
-## UpdatePassword
-
-Update the account password
-
-
-[https://m3o.com/user/api#UpdatePassword](https://m3o.com/user/api#UpdatePassword)
-
-```js
-const { UserService } = require('m3o/user');
-
-// Update the account password
-async function updateTheAccountPassword() {
-	let userService = new UserService(process.env.M3O_API_TOKEN)
-	let rsp = await userService.updatePassword({
-  "confirmPassword": "myEvenMoreSecretPass123",
-  "id": "usrid-1",
-  "newPassword": "myEvenMoreSecretPass123",
-  "oldPassword": "mySecretPass123"
-})
-	console.log(rsp)
-	
-}
-
-updateTheAccountPassword()
 ```

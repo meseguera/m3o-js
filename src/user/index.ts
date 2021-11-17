@@ -168,6 +168,7 @@ export interface LoginResponse {
 }
 
 export interface LogoutRequest {
+  // the session id for the user to logout
   sessionId?: string;
 }
 
@@ -192,6 +193,7 @@ export interface ReadSessionRequest {
 }
 
 export interface ReadSessionResponse {
+  // the session for the user
   session?: { [key: string]: any };
 }
 
