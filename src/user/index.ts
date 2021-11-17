@@ -67,7 +67,7 @@ export class UserService {
     ) as Promise<SendPasswordResetEmailResponse>;
   }
   // Send a verification email
-  // to the user being signed up. Email from will be from 'support@m3o.com',
+  // to the user being signed up. Email from will be from 'noreply@email.m3ocontent.com',
   // but you can provide the title and contents.
   // The verification link will be injected in to the email as a template variable, $micro_verification_link.
   // Example: 'Hi there, welcome onboard! Use the link below to verify your email: $micro_verification_link'
@@ -213,7 +213,7 @@ export interface ResetPasswordResponse {}
 export interface SendPasswordResetEmailRequest {
   // email address to send reset for
   email?: string;
-  // Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
+  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
   fromName?: string;
   // subject of the email
   subject?: string;
@@ -228,7 +228,7 @@ export interface SendVerificationEmailRequest {
   // email address to send the verification code
   email?: string;
   failureRedirectUrl?: string;
-  // Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
+  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
   fromName?: string;
   redirectUrl?: string;
   // subject of the email
