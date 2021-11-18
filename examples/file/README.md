@@ -4,28 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/File/api](http
 
 Endpoints:
 
-## List
-
-List files by their project and optionally a path.
-
-
-[https://m3o.com/file/api#List](https://m3o.com/file/api#List)
-
-```js
-const { FileService } = require('m3o/file');
-
-// List files by their project and optionally a path.
-async function listFiles() {
-	let fileService = new FileService(process.env.M3O_API_TOKEN)
-	let rsp = await fileService.list({
-  "project": "examples"
-})
-	console.log(rsp)
-	
-}
-
-listFiles()
-```
 ## Delete
 
 Delete a file by project name/path
@@ -97,4 +75,26 @@ async function saveFile() {
 }
 
 saveFile()
+```
+## List
+
+List files by their project and optionally a path.
+
+
+[https://m3o.com/file/api#List](https://m3o.com/file/api#List)
+
+```js
+const { FileService } = require('m3o/file');
+
+// List files by their project and optionally a path.
+async function listFiles() {
+	let fileService = new FileService(process.env.M3O_API_TOKEN)
+	let rsp = await fileService.list({
+  "project": "examples"
+})
+	console.log(rsp)
+	
+}
+
+listFiles()
 ```
