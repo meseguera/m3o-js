@@ -22,6 +22,10 @@ export class UserService {
       request
     ) as Promise<DeleteResponse>;
   }
+  // List all users. Returns a paged list of results
+  list(request: ListRequest): Promise<ListResponse> {
+    return this.client.call("user", "List", request) as Promise<ListResponse>;
+  }
   // Login using username or email. The response will return a new session for successful login,
   // 401 in the case of login failure and 500 for any other error
   login(request: LoginRequest): Promise<LoginResponse> {
@@ -152,6 +156,17 @@ export interface DeleteRequest {
 }
 
 export interface DeleteResponse {}
+
+export interface ListRequest {
+  // Maximum number of records to return. Default limit is 25.
+  // Maximum limit is 1000. Anything higher will return an error.
+  limit?: number;
+  offset?: number;
+}
+
+export interface ListResponse {
+  users?: Account[];
+}
 
 export interface LoginRequest {
   // The email address of the user
