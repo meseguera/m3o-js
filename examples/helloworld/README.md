@@ -13,10 +13,10 @@ Call returns a personalised "Hello $name" response
 
 ```js
 const { HelloworldService } = require('m3o/helloworld');
-// Call returns a personalised "Hello $name" response
 
 const helloworldService = new HelloworldService(process.env.M3O_API_TOKEN)
 
+// Call returns a personalised "Hello $name" response
 async function callTheHelloworldService() {
 	const rsp = await helloworldService.call({
   "name": "John"
@@ -36,10 +36,10 @@ Stream returns a stream of "Hello $name" responses
 
 ```js
 const { HelloworldService } = require('m3o/helloworld');
-// Stream returns a stream of "Hello $name" responses
 
 const helloworldService = new HelloworldService(process.env.M3O_API_TOKEN)
 
+// Stream returns a stream of "Hello $name" responses
 async function streamsResponsesFromTheServerUsingWebsockets() {
 	const rsp = await helloworldService.stream({
   "messages": 10,

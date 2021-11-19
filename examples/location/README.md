@@ -13,10 +13,10 @@ Save an entity's current position
 
 ```js
 const { LocationService } = require('m3o/location');
-// Save an entity's current position
 
 const locationService = new LocationService(process.env.M3O_API_TOKEN)
 
+// Save an entity's current position
 async function saveAnEntity() {
 	const rsp = await locationService.save({
   "entity": {
@@ -44,10 +44,10 @@ Read an entity by its ID
 
 ```js
 const { LocationService } = require('m3o/location');
-// Read an entity by its ID
 
 const locationService = new LocationService(process.env.M3O_API_TOKEN)
 
+// Read an entity by its ID
 async function getLocationById() {
 	const rsp = await locationService.read({
   "id": "1"
@@ -67,10 +67,10 @@ Search for entities in a given radius
 
 ```js
 const { LocationService } = require('m3o/location');
-// Search for entities in a given radius
 
 const locationService = new LocationService(process.env.M3O_API_TOKEN)
 
+// Search for entities in a given radius
 async function searchForLocations() {
 	const rsp = await locationService.search({
   "center": {

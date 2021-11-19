@@ -13,10 +13,10 @@ List the Chapters (surahs) of the Quran
 
 ```js
 const { QuranService } = require('m3o/quran');
-// List the Chapters (surahs) of the Quran
 
 const quranService = new QuranService(process.env.M3O_API_TOKEN)
 
+// List the Chapters (surahs) of the Quran
 async function listChapters() {
 	const rsp = await quranService.chapters({
   "language": "en"
@@ -36,10 +36,10 @@ Get a summary for a given chapter (surah)
 
 ```js
 const { QuranService } = require('m3o/quran');
-// Get a summary for a given chapter (surah)
 
 const quranService = new QuranService(process.env.M3O_API_TOKEN)
 
+// Get a summary for a given chapter (surah)
 async function getChapterSummary() {
 	const rsp = await quranService.summary({
   "chapter": 1
@@ -61,12 +61,12 @@ words.
 
 ```js
 const { QuranService } = require('m3o/quran');
-// Lookup the verses (ayahs) for a chapter including
-// translation, interpretation and breakdown by individual
-// words.
 
 const quranService = new QuranService(process.env.M3O_API_TOKEN)
 
+// Lookup the verses (ayahs) for a chapter including
+// translation, interpretation and breakdown by individual
+// words.
 async function getVersesOfAchapter() {
 	const rsp = await quranService.verses({
   "chapter": 1
@@ -86,10 +86,10 @@ Search the Quran for any form of query or questions
 
 ```js
 const { QuranService } = require('m3o/quran');
-// Search the Quran for any form of query or questions
 
 const quranService = new QuranService(process.env.M3O_API_TOKEN)
 
+// Search the Quran for any form of query or questions
 async function searchTheQuran() {
 	const rsp = await quranService.search({
   "query": "messenger"

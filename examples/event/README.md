@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Event/api](htt
 
 Endpoints:
 
-## Read
-
-Read stored events
-
-
-[https://m3o.com/event/api#Read](https://m3o.com/event/api#Read)
-
-```js
-const { EventService } = require('m3o/event');
-// Read stored events
-
-const eventService = new EventService(process.env.M3O_API_TOKEN)
-
-async function readEventsOnAtopic() {
-	const rsp = await eventService.read({
-  "topic": "user"
-})
-	console.log(rsp)
-	
-}
-
-readEventsOnAtopic()
-```
 ## Publish
 
 Publish a event to the event stream.
@@ -36,10 +13,10 @@ Publish a event to the event stream.
 
 ```js
 const { EventService } = require('m3o/event');
-// Publish a event to the event stream.
 
 const eventService = new EventService(process.env.M3O_API_TOKEN)
 
+// Publish a event to the event stream.
 async function publishAnEvent() {
 	const rsp = await eventService.publish({
   "message": {
@@ -64,10 +41,10 @@ Consume events from a given topic.
 
 ```js
 const { EventService } = require('m3o/event');
-// Consume events from a given topic.
 
 const eventService = new EventService(process.env.M3O_API_TOKEN)
 
+// Consume events from a given topic.
 async function consumeFromAtopic() {
 	const rsp = await eventService.consume({
   "topic": "user"
@@ -78,4 +55,27 @@ async function consumeFromAtopic() {
 }
 
 consumeFromAtopic()
+```
+## Read
+
+Read stored events
+
+
+[https://m3o.com/event/api#Read](https://m3o.com/event/api#Read)
+
+```js
+const { EventService } = require('m3o/event');
+
+const eventService = new EventService(process.env.M3O_API_TOKEN)
+
+// Read stored events
+async function readEventsOnAtopic() {
+	const rsp = await eventService.read({
+  "topic": "user"
+})
+	console.log(rsp)
+	
+}
+
+readEventsOnAtopic()
 ```

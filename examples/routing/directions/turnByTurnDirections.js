@@ -1,8 +1,8 @@
 const { RoutingService } = require("m3o/routing");
-// Turn by turn directions from a start point to an end point including maneuvers and bearings
 
 const routingService = new RoutingService(process.env.M3O_API_TOKEN);
 
+// Turn by turn directions from a start point to an end point including maneuvers and bearings
 async function turnByTurnDirections() {
   const rsp = await routingService.directions({
     destination: {

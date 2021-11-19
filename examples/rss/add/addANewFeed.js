@@ -1,8 +1,8 @@
 const { RssService } = require("m3o/rss");
-// Add a new RSS feed with a name, url, and category
 
 const rssService = new RssService(process.env.M3O_API_TOKEN);
 
+// Add a new RSS feed with a name, url, and category
 async function addAnewFeed() {
   const rsp = await rssService.add({
     category: "news",

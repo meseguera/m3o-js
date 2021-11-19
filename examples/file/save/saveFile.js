@@ -1,8 +1,8 @@
 const { FileService } = require("m3o/file");
-// Save a file
 
 const fileService = new FileService(process.env.M3O_API_TOKEN);
 
+// Save a file
 async function saveFile() {
   const rsp = await fileService.save({
     file: {

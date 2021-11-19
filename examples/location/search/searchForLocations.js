@@ -1,8 +1,8 @@
 const { LocationService } = require("m3o/location");
-// Search for entities in a given radius
 
 const locationService = new LocationService(process.env.M3O_API_TOKEN);
 
+// Search for entities in a given radius
 async function searchForLocations() {
   const rsp = await locationService.search({
     center: {

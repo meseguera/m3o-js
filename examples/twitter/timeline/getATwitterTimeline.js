@@ -1,8 +1,8 @@
 const { TwitterService } = require("m3o/twitter");
-// Get the timeline for a given user
 
 const twitterService = new TwitterService(process.env.M3O_API_TOKEN);
 
+// Get the timeline for a given user
 async function getAtwitterTimeline() {
   const rsp = await twitterService.timeline({
     limit: 1,

@@ -1,8 +1,8 @@
 const { FunctionService } = require("m3o/function");
-// Deploy a group of functions
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN);
 
+// Deploy a group of functions
 async function deployAfunction() {
   const rsp = await functionService.deploy({
     entrypoint: "helloworld",

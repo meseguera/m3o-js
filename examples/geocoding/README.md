@@ -13,10 +13,10 @@ Lookup returns a geocoded address including normalized address and gps coordinat
 
 ```js
 const { GeocodingService } = require('m3o/geocoding');
-// Lookup returns a geocoded address including normalized address and gps coordinates. All fields are optional, provide more to get more accurate results
 
 const geocodingService = new GeocodingService(process.env.M3O_API_TOKEN)
 
+// Lookup returns a geocoded address including normalized address and gps coordinates. All fields are optional, provide more to get more accurate results
 async function geocodeAnAddress() {
 	const rsp = await geocodingService.lookup({
   "address": "10 russell st",
@@ -39,10 +39,10 @@ Reverse lookup an address from gps coordinates
 
 ```js
 const { GeocodingService } = require('m3o/geocoding');
-// Reverse lookup an address from gps coordinates
 
 const geocodingService = new GeocodingService(process.env.M3O_API_TOKEN)
 
+// Reverse lookup an address from gps coordinates
 async function reverseGeocodeLocation() {
 	const rsp = await geocodingService.reverse({
   "latitude": 51.5123064,

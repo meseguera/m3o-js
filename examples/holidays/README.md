@@ -13,10 +13,10 @@ Get the list of countries that are supported by this API
 
 ```js
 const { HolidaysService } = require('m3o/holidays');
-// Get the list of countries that are supported by this API
 
 const holidaysService = new HolidaysService(process.env.M3O_API_TOKEN)
 
+// Get the list of countries that are supported by this API
 async function listCountries() {
 	const rsp = await holidaysService.countries({})
 	console.log(rsp)
@@ -34,10 +34,10 @@ List the holiday dates for a given country and year
 
 ```js
 const { HolidaysService } = require('m3o/holidays');
-// List the holiday dates for a given country and year
 
 const holidaysService = new HolidaysService(process.env.M3O_API_TOKEN)
 
+// List the holiday dates for a given country and year
 async function getHolidays() {
 	const rsp = await holidaysService.list({
   "country_code": "GB",

@@ -13,10 +13,10 @@ Get news related to a currency
 
 ```js
 const { CryptoService } = require('m3o/crypto');
-// Get news related to a currency
 
 const cryptoService = new CryptoService(process.env.M3O_API_TOKEN)
 
+// Get news related to a currency
 async function getCryptocurrencyNews() {
 	const rsp = await cryptoService.news({
   "symbol": "BTCUSD"
@@ -36,10 +36,10 @@ Get the last price for a given crypto ticker
 
 ```js
 const { CryptoService } = require('m3o/crypto');
-// Get the last price for a given crypto ticker
 
 const cryptoService = new CryptoService(process.env.M3O_API_TOKEN)
 
+// Get the last price for a given crypto ticker
 async function getCryptocurrencyPrice() {
 	const rsp = await cryptoService.price({
   "symbol": "BTCUSD"
@@ -59,10 +59,10 @@ Get the last quote for a given crypto ticker
 
 ```js
 const { CryptoService } = require('m3o/crypto');
-// Get the last quote for a given crypto ticker
 
 const cryptoService = new CryptoService(process.env.M3O_API_TOKEN)
 
+// Get the last quote for a given crypto ticker
 async function getAcryptocurrencyQuote() {
 	const rsp = await cryptoService.quote({
   "symbol": "BTCUSD"
@@ -82,10 +82,10 @@ Returns the history for the previous close
 
 ```js
 const { CryptoService } = require('m3o/crypto');
-// Returns the history for the previous close
 
 const cryptoService = new CryptoService(process.env.M3O_API_TOKEN)
 
+// Returns the history for the previous close
 async function getPreviousClose() {
 	const rsp = await cryptoService.history({
   "symbol": "BTCUSD"

@@ -4,50 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Rss/api](https
 
 Endpoints:
 
-## List
-
-List the saved RSS fields
-
-
-[https://m3o.com/rss/api#List](https://m3o.com/rss/api#List)
-
-```js
-const { RssService } = require('m3o/rss');
-// List the saved RSS fields
-
-const rssService = new RssService(process.env.M3O_API_TOKEN)
-
-async function listRssFeeds() {
-	const rsp = await rssService.list({})
-	console.log(rsp)
-	
-}
-
-listRssFeeds()
-```
-## Remove
-
-Remove an RSS feed by name
-
-
-[https://m3o.com/rss/api#Remove](https://m3o.com/rss/api#Remove)
-
-```js
-const { RssService } = require('m3o/rss');
-// Remove an RSS feed by name
-
-const rssService = new RssService(process.env.M3O_API_TOKEN)
-
-async function removeAfeed() {
-	const rsp = await rssService.remove({
-  "name": "bbc"
-})
-	console.log(rsp)
-	
-}
-
-removeAfeed()
-```
 ## Add
 
 Add a new RSS feed with a name, url, and category
@@ -57,10 +13,10 @@ Add a new RSS feed with a name, url, and category
 
 ```js
 const { RssService } = require('m3o/rss');
-// Add a new RSS feed with a name, url, and category
 
 const rssService = new RssService(process.env.M3O_API_TOKEN)
 
+// Add a new RSS feed with a name, url, and category
 async function addAnewFeed() {
 	const rsp = await rssService.add({
   "category": "news",
@@ -82,10 +38,10 @@ Get an RSS feed by name. If no name is given, all feeds are returned. Default li
 
 ```js
 const { RssService } = require('m3o/rss');
-// Get an RSS feed by name. If no name is given, all feeds are returned. Default limit is 25 entries.
 
 const rssService = new RssService(process.env.M3O_API_TOKEN)
 
+// Get an RSS feed by name. If no name is given, all feeds are returned. Default limit is 25 entries.
 async function readAfeed() {
 	const rsp = await rssService.feed({
   "name": "bbc"
@@ -95,4 +51,48 @@ async function readAfeed() {
 }
 
 readAfeed()
+```
+## List
+
+List the saved RSS fields
+
+
+[https://m3o.com/rss/api#List](https://m3o.com/rss/api#List)
+
+```js
+const { RssService } = require('m3o/rss');
+
+const rssService = new RssService(process.env.M3O_API_TOKEN)
+
+// List the saved RSS fields
+async function listRssFeeds() {
+	const rsp = await rssService.list({})
+	console.log(rsp)
+	
+}
+
+listRssFeeds()
+```
+## Remove
+
+Remove an RSS feed by name
+
+
+[https://m3o.com/rss/api#Remove](https://m3o.com/rss/api#Remove)
+
+```js
+const { RssService } = require('m3o/rss');
+
+const rssService = new RssService(process.env.M3O_API_TOKEN)
+
+// Remove an RSS feed by name
+async function removeAfeed() {
+	const rsp = await rssService.remove({
+  "name": "bbc"
+})
+	console.log(rsp)
+	
+}
+
+removeAfeed()
 ```

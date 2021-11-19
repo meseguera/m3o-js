@@ -13,10 +13,10 @@ Generate a unique ID. Defaults to uuid.
 
 ```js
 const { IdService } = require('m3o/id');
-// Generate a unique ID. Defaults to uuid.
 
 const idService = new IdService(process.env.M3O_API_TOKEN)
 
+// Generate a unique ID. Defaults to uuid.
 async function generateAuniqueId() {
 	const rsp = await idService.generate({
   "type": "uuid"
@@ -36,10 +36,10 @@ Generate a unique ID. Defaults to uuid.
 
 ```js
 const { IdService } = require('m3o/id');
-// Generate a unique ID. Defaults to uuid.
 
 const idService = new IdService(process.env.M3O_API_TOKEN)
 
+// Generate a unique ID. Defaults to uuid.
 async function generateAshortId() {
 	const rsp = await idService.generate({
   "type": "shortid"
@@ -59,10 +59,10 @@ Generate a unique ID. Defaults to uuid.
 
 ```js
 const { IdService } = require('m3o/id');
-// Generate a unique ID. Defaults to uuid.
 
 const idService = new IdService(process.env.M3O_API_TOKEN)
 
+// Generate a unique ID. Defaults to uuid.
 async function generateAsnowflakeId() {
 	const rsp = await idService.generate({
   "type": "snowflake"
@@ -82,10 +82,10 @@ Generate a unique ID. Defaults to uuid.
 
 ```js
 const { IdService } = require('m3o/id');
-// Generate a unique ID. Defaults to uuid.
 
 const idService = new IdService(process.env.M3O_API_TOKEN)
 
+// Generate a unique ID. Defaults to uuid.
 async function generateAbigflakeId() {
 	const rsp = await idService.generate({
   "type": "bigflake"
@@ -105,10 +105,10 @@ List the types of IDs available. No query params needed.
 
 ```js
 const { IdService } = require('m3o/id');
-// List the types of IDs available. No query params needed.
 
 const idService = new IdService(process.env.M3O_API_TOKEN)
 
+// List the types of IDs available. No query params needed.
 async function listTheTypesOfIdsAvailable() {
 	const rsp = await idService.types({})
 	console.log(rsp)

@@ -4,36 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Routing/api](h
 
 Endpoints:
 
-## Route
-
-Retrieve a route as a simple list of gps points along with total distance and estimated duration
-
-
-[https://m3o.com/routing/api#Route](https://m3o.com/routing/api#Route)
-
-```js
-const { RoutingService } = require('m3o/routing');
-// Retrieve a route as a simple list of gps points along with total distance and estimated duration
-
-const routingService = new RoutingService(process.env.M3O_API_TOKEN)
-
-async function gpsPointsForAroute() {
-	const rsp = await routingService.route({
-  "destination": {
-    "latitude": 52.529407,
-    "longitude": 13.397634
-  },
-  "origin": {
-    "latitude": 52.517037,
-    "longitude": 13.38886
-  }
-})
-	console.log(rsp)
-	
-}
-
-gpsPointsForAroute()
-```
 ## Eta
 
 Get the eta for a route from origin to destination. The eta is an estimated time based on car routes
@@ -43,10 +13,10 @@ Get the eta for a route from origin to destination. The eta is an estimated time
 
 ```js
 const { RoutingService } = require('m3o/routing');
-// Get the eta for a route from origin to destination. The eta is an estimated time based on car routes
 
 const routingService = new RoutingService(process.env.M3O_API_TOKEN)
 
+// Get the eta for a route from origin to destination. The eta is an estimated time based on car routes
 async function etaFromPointAtoPointB() {
 	const rsp = await routingService.eta({
   "destination": {
@@ -73,10 +43,10 @@ Turn by turn directions from a start point to an end point including maneuvers a
 
 ```js
 const { RoutingService } = require('m3o/routing');
-// Turn by turn directions from a start point to an end point including maneuvers and bearings
 
 const routingService = new RoutingService(process.env.M3O_API_TOKEN)
 
+// Turn by turn directions from a start point to an end point including maneuvers and bearings
 async function turnByTurnDirections() {
 	const rsp = await routingService.directions({
   "destination": {
@@ -93,4 +63,34 @@ async function turnByTurnDirections() {
 }
 
 turnByTurnDirections()
+```
+## Route
+
+Retrieve a route as a simple list of gps points along with total distance and estimated duration
+
+
+[https://m3o.com/routing/api#Route](https://m3o.com/routing/api#Route)
+
+```js
+const { RoutingService } = require('m3o/routing');
+
+const routingService = new RoutingService(process.env.M3O_API_TOKEN)
+
+// Retrieve a route as a simple list of gps points along with total distance and estimated duration
+async function gpsPointsForAroute() {
+	const rsp = await routingService.route({
+  "destination": {
+    "latitude": 52.529407,
+    "longitude": 13.397634
+  },
+  "origin": {
+    "latitude": 52.517037,
+    "longitude": 13.38886
+  }
+})
+	console.log(rsp)
+	
+}
+
+gpsPointsForAroute()
 ```

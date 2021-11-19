@@ -13,10 +13,10 @@ Lookup a postcode to retrieve the related region, county, etc
 
 ```js
 const { PostcodeService } = require('m3o/postcode');
-// Lookup a postcode to retrieve the related region, county, etc
 
 const postcodeService = new PostcodeService(process.env.M3O_API_TOKEN)
 
+// Lookup a postcode to retrieve the related region, county, etc
 async function lookupPostcode() {
 	const rsp = await postcodeService.lookup({
   "postcode": "SW1A 2AA"
@@ -36,10 +36,10 @@ Return a random postcode and its related info
 
 ```js
 const { PostcodeService } = require('m3o/postcode');
-// Return a random postcode and its related info
 
 const postcodeService = new PostcodeService(process.env.M3O_API_TOKEN)
 
+// Return a random postcode and its related info
 async function returnArandomPostcodeAndItsInformation() {
 	const rsp = await postcodeService.random({})
 	console.log(rsp)
@@ -57,10 +57,10 @@ Validate a postcode.
 
 ```js
 const { PostcodeService } = require('m3o/postcode');
-// Validate a postcode.
 
 const postcodeService = new PostcodeService(process.env.M3O_API_TOKEN)
 
+// Validate a postcode.
 async function returnArandomPostcodeAndItsInformation() {
 	const rsp = await postcodeService.validate({
   "postcode": "SW1A 2AA"

@@ -13,10 +13,10 @@ Lookup a list of UK addresses by postcode
 
 ```js
 const { AddressService } = require('m3o/address');
-// Lookup a list of UK addresses by postcode
 
 const addressService = new AddressService(process.env.M3O_API_TOKEN)
 
+// Lookup a list of UK addresses by postcode
 async function lookupPostcode() {
 	const rsp = await addressService.lookupPostcode({
   "postcode": "SW1A 2AA"

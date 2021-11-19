@@ -1,8 +1,8 @@
 const { EventService } = require("m3o/event");
-// Publish a event to the event stream.
 
 const eventService = new EventService(process.env.M3O_API_TOKEN);
 
+// Publish a event to the event stream.
 async function publishAnEvent() {
   const rsp = await eventService.publish({
     message: {

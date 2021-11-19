@@ -1,8 +1,8 @@
 const { PostcodeService } = require("m3o/postcode");
-// Validate a postcode.
 
 const postcodeService = new PostcodeService(process.env.M3O_API_TOKEN);
 
+// Validate a postcode.
 async function returnArandomPostcodeAndItsInformation() {
   const rsp = await postcodeService.validate({
     postcode: "SW1A 2AA",

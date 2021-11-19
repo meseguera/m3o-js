@@ -1,8 +1,8 @@
 const { RoutingService } = require("m3o/routing");
-// Retrieve a route as a simple list of gps points along with total distance and estimated duration
 
 const routingService = new RoutingService(process.env.M3O_API_TOKEN);
 
+// Retrieve a route as a simple list of gps points along with total distance and estimated duration
 async function gpsPointsForAroute() {
   const rsp = await routingService.route({
     destination: {

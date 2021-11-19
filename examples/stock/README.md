@@ -13,10 +13,10 @@ Get the last price for a given stock ticker
 
 ```js
 const { StockService } = require('m3o/stock');
-// Get the last price for a given stock ticker
 
 const stockService = new StockService(process.env.M3O_API_TOKEN)
 
+// Get the last price for a given stock ticker
 async function getAstockPrice() {
 	const rsp = await stockService.price({
   "symbol": "AAPL"
@@ -36,10 +36,10 @@ Get the last quote for the stock
 
 ```js
 const { StockService } = require('m3o/stock');
-// Get the last quote for the stock
 
 const stockService = new StockService(process.env.M3O_API_TOKEN)
 
+// Get the last quote for the stock
 async function getAstockQuote() {
 	const rsp = await stockService.quote({
   "symbol": "AAPL"
@@ -59,10 +59,10 @@ Get the historic open-close for a given day
 
 ```js
 const { StockService } = require('m3o/stock');
-// Get the historic open-close for a given day
 
 const stockService = new StockService(process.env.M3O_API_TOKEN)
 
+// Get the historic open-close for a given day
 async function getHistoricData() {
 	const rsp = await stockService.history({
   "date": "2020-10-01",
@@ -83,10 +83,10 @@ Get the historic order book and each trade by timestamp
 
 ```js
 const { StockService } = require('m3o/stock');
-// Get the historic order book and each trade by timestamp
 
 const stockService = new StockService(process.env.M3O_API_TOKEN)
 
+// Get the historic order book and each trade by timestamp
 async function orderBookHistory() {
 	const rsp = await stockService.orderBook({
   "date": "2020-10-01",

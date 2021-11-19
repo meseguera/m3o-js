@@ -13,10 +13,10 @@ Get the latest price for a given forex ticker
 
 ```js
 const { ForexService } = require('m3o/forex');
-// Get the latest price for a given forex ticker
 
 const forexService = new ForexService(process.env.M3O_API_TOKEN)
 
+// Get the latest price for a given forex ticker
 async function getAnFxPrice() {
 	const rsp = await forexService.price({
   "symbol": "GBPUSD"
@@ -36,10 +36,10 @@ Get the latest quote for the forex
 
 ```js
 const { ForexService } = require('m3o/forex');
-// Get the latest quote for the forex
 
 const forexService = new ForexService(process.env.M3O_API_TOKEN)
 
+// Get the latest quote for the forex
 async function getAfxQuote() {
 	const rsp = await forexService.quote({
   "symbol": "GBPUSD"
@@ -59,10 +59,10 @@ Returns the data for the previous close
 
 ```js
 const { ForexService } = require('m3o/forex');
-// Returns the data for the previous close
 
 const forexService = new ForexService(process.env.M3O_API_TOKEN)
 
+// Returns the data for the previous close
 async function getPreviousClose() {
 	const rsp = await forexService.history({
   "symbol": "GBPUSD"

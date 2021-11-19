@@ -1,8 +1,8 @@
 const { StreamService } = require("m3o/stream");
-// Send a message to the stream.
 
 const streamService = new StreamService(process.env.M3O_API_TOKEN);
 
+// Send a message to the stream.
 async function sendMessage() {
   const rsp = await streamService.sendMessage({
     channel: "general",

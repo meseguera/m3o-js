@@ -13,10 +13,10 @@ Send an email by passing in from, to, subject, and a text or html body
 
 ```js
 const { EmailService } = require('m3o/email');
-// Send an email by passing in from, to, subject, and a text or html body
 
 const emailService = new EmailService(process.env.M3O_API_TOKEN)
 
+// Send an email by passing in from, to, subject, and a text or html body
 async function sendEmail() {
 	const rsp = await emailService.send({
   "from": "Awesome Dot Com",

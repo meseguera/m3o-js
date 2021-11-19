@@ -13,10 +13,10 @@ Search by giving a coordinate and a max distance, or bounding box and optional f
 
 ```js
 const { EvchargersService } = require('m3o/evchargers');
-// Search by giving a coordinate and a max distance, or bounding box and optional filters
 
 const evchargersService = new EvchargersService(process.env.M3O_API_TOKEN)
 
+// Search by giving a coordinate and a max distance, or bounding box and optional filters
 async function searchByLocation() {
 	const rsp = await evchargersService.search({
   "distance": 2000,
@@ -41,10 +41,10 @@ Search by giving a coordinate and a max distance, or bounding box and optional f
 
 ```js
 const { EvchargersService } = require('m3o/evchargers');
-// Search by giving a coordinate and a max distance, or bounding box and optional filters
 
 const evchargersService = new EvchargersService(process.env.M3O_API_TOKEN)
 
+// Search by giving a coordinate and a max distance, or bounding box and optional filters
 async function searchByBoundingBox() {
 	const rsp = await evchargersService.search({
   "box": {
@@ -74,10 +74,10 @@ Search by giving a coordinate and a max distance, or bounding box and optional f
 
 ```js
 const { EvchargersService } = require('m3o/evchargers');
-// Search by giving a coordinate and a max distance, or bounding box and optional filters
 
 const evchargersService = new EvchargersService(process.env.M3O_API_TOKEN)
 
+// Search by giving a coordinate and a max distance, or bounding box and optional filters
 async function searchWithFiltersFastChargersOnly() {
 	const rsp = await evchargersService.search({
   "distance": 2000,
@@ -105,10 +105,10 @@ Retrieve reference data as used by this API and in conjunction with the Search e
 
 ```js
 const { EvchargersService } = require('m3o/evchargers');
-// Retrieve reference data as used by this API and in conjunction with the Search endpoint
 
 const evchargersService = new EvchargersService(process.env.M3O_API_TOKEN)
 
+// Retrieve reference data as used by this API and in conjunction with the Search endpoint
 async function getReferenceData() {
 	const rsp = await evchargersService.referenceData({})
 	console.log(rsp)

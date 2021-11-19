@@ -1,9 +1,9 @@
 const { UserService } = require("m3o/user");
-// Send an email with a verification code to reset password.
-// Call "ResetPassword" endpoint once user provides the code.
 
 const userService = new UserService(process.env.M3O_API_TOKEN);
 
+// Send an email with a verification code to reset password.
+// Call "ResetPassword" endpoint once user provides the code.
 async function sendPasswordResetEmail() {
   const rsp = await userService.sendPasswordResetEmail({
     email: "joe@example.com",

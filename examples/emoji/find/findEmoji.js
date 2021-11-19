@@ -1,8 +1,8 @@
 const { EmojiService } = require("m3o/emoji");
-// Find an emoji by its alias e.g :beer:
 
 const emojiService = new EmojiService(process.env.M3O_API_TOKEN);
 
+// Find an emoji by its alias e.g :beer:
 async function findEmoji() {
   const rsp = await emojiService.find({
     alias: ":beer:",

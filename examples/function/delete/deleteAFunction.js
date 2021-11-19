@@ -1,8 +1,8 @@
 const { FunctionService } = require("m3o/function");
-// Delete a function by name
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN);
 
+// Delete a function by name
 async function deleteAfunction() {
   const rsp = await functionService.delete({
     name: "my-first-func",

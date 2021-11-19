@@ -1,8 +1,8 @@
 const { MqService } = require("m3o/mq");
-// Publish a message. Specify a topic to group messages for a specific topic.
 
 const mqService = new MqService(process.env.M3O_API_TOKEN);
 
+// Publish a message. Specify a topic to group messages for a specific topic.
 async function publishAmessage() {
   const rsp = await mqService.publish({
     message: {

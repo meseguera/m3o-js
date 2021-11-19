@@ -1,8 +1,8 @@
 const { OtpService } = require("m3o/otp");
-// Validate the OTP code
 
 const otpService = new OtpService(process.env.M3O_API_TOKEN);
 
+// Validate the OTP code
 async function validateOtp() {
   const rsp = await otpService.validate({
     code: "656211",

@@ -1,8 +1,8 @@
 const { GeocodingService } = require("m3o/geocoding");
-// Reverse lookup an address from gps coordinates
 
 const geocodingService = new GeocodingService(process.env.M3O_API_TOKEN);
 
+// Reverse lookup an address from gps coordinates
 async function reverseGeocodeLocation() {
   const rsp = await geocodingService.reverse({
     latitude: 51.5123064,

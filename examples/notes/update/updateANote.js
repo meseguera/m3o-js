@@ -1,8 +1,8 @@
 const { NotesService } = require("m3o/notes");
-// Update a note
 
 const notesService = new NotesService(process.env.M3O_API_TOKEN);
 
+// Update a note
 async function updateAnote() {
   const rsp = await notesService.update({
     note: {
