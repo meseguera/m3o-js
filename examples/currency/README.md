@@ -13,11 +13,12 @@ Codes returns the supported currency codes for the API
 
 ```js
 const { CurrencyService } = require('m3o/currency');
-
 // Codes returns the supported currency codes for the API
+
+const currencyService = new CurrencyService(process.env.M3O_API_TOKEN)
+
 async function getSupportedCodes() {
-	let currencyService = new CurrencyService(process.env.M3O_API_TOKEN)
-	let rsp = await currencyService.codes({})
+	const rsp = await currencyService.codes({})
 	console.log(rsp)
 	
 }
@@ -33,11 +34,12 @@ Rates returns the currency rates for a given code e.g USD
 
 ```js
 const { CurrencyService } = require('m3o/currency');
-
 // Rates returns the currency rates for a given code e.g USD
+
+const currencyService = new CurrencyService(process.env.M3O_API_TOKEN)
+
 async function getRatesForUsd() {
-	let currencyService = new CurrencyService(process.env.M3O_API_TOKEN)
-	let rsp = await currencyService.rates({
+	const rsp = await currencyService.rates({
   "code": "USD"
 })
 	console.log(rsp)
@@ -55,11 +57,12 @@ Convert returns the currency conversion rate between two pairs e.g USD/GBP
 
 ```js
 const { CurrencyService } = require('m3o/currency');
-
 // Convert returns the currency conversion rate between two pairs e.g USD/GBP
+
+const currencyService = new CurrencyService(process.env.M3O_API_TOKEN)
+
 async function convertUsdToGbp() {
-	let currencyService = new CurrencyService(process.env.M3O_API_TOKEN)
-	let rsp = await currencyService.convert({
+	const rsp = await currencyService.convert({
   "from": "USD",
   "to": "GBP"
 })
@@ -78,11 +81,12 @@ Convert returns the currency conversion rate between two pairs e.g USD/GBP
 
 ```js
 const { CurrencyService } = require('m3o/currency');
-
 // Convert returns the currency conversion rate between two pairs e.g USD/GBP
+
+const currencyService = new CurrencyService(process.env.M3O_API_TOKEN)
+
 async function convert10usdToGbp() {
-	let currencyService = new CurrencyService(process.env.M3O_API_TOKEN)
-	let rsp = await currencyService.convert({
+	const rsp = await currencyService.convert({
   "amount": 10,
   "from": "USD",
   "to": "GBP"
@@ -102,11 +106,12 @@ Returns the historic rates for a currency on a given date
 
 ```js
 const { CurrencyService } = require('m3o/currency');
-
 // Returns the historic rates for a currency on a given date
+
+const currencyService = new CurrencyService(process.env.M3O_API_TOKEN)
+
 async function historicRatesForAcurrency() {
-	let currencyService = new CurrencyService(process.env.M3O_API_TOKEN)
-	let rsp = await currencyService.history({
+	const rsp = await currencyService.history({
   "code": "USD",
   "date": "2021-05-30"
 })

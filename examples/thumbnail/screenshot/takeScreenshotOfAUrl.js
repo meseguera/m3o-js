@@ -1,9 +1,10 @@
 const { ThumbnailService } = require("m3o/thumbnail");
-
 // Create a thumbnail screenshot by passing in a url, height and width
+
+const thumbnailService = new ThumbnailService(process.env.M3O_API_TOKEN);
+
 async function takeScreenshotOfAurl() {
-  let thumbnailService = new ThumbnailService(process.env.M3O_API_TOKEN);
-  let rsp = await thumbnailService.screenshot({
+  const rsp = await thumbnailService.screenshot({
     height: 600,
     url: "https://google.com",
     width: 600,

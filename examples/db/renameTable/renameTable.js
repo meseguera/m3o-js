@@ -1,9 +1,10 @@
 const { DbService } = require("m3o/db");
-
 // Rename a table
+
+const dbService = new DbService(process.env.M3O_API_TOKEN);
+
 async function renameTable() {
-  let dbService = new DbService(process.env.M3O_API_TOKEN);
-  let rsp = await dbService.renameTable({
+  const rsp = await dbService.renameTable({
     from: "events",
     to: "events_backup",
   });

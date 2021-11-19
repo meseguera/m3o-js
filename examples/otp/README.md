@@ -13,11 +13,12 @@ Generate an OTP (one time pass) code
 
 ```js
 const { OtpService } = require('m3o/otp');
-
 // Generate an OTP (one time pass) code
+
+const otpService = new OtpService(process.env.M3O_API_TOKEN)
+
 async function generateOtp() {
-	let otpService = new OtpService(process.env.M3O_API_TOKEN)
-	let rsp = await otpService.generate({
+	const rsp = await otpService.generate({
   "id": "asim@example.com"
 })
 	console.log(rsp)
@@ -35,11 +36,12 @@ Validate the OTP code
 
 ```js
 const { OtpService } = require('m3o/otp');
-
 // Validate the OTP code
+
+const otpService = new OtpService(process.env.M3O_API_TOKEN)
+
 async function validateOtp() {
-	let otpService = new OtpService(process.env.M3O_API_TOKEN)
-	let rsp = await otpService.validate({
+	const rsp = await otpService.validate({
   "code": "656211",
   "id": "asim@example.com"
 })

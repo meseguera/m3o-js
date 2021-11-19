@@ -1,9 +1,10 @@
 const { WeatherService } = require("m3o/weather");
-
 // Get the current weather report for a location by postcode, city, zip code, ip address
+
+const weatherService = new WeatherService(process.env.M3O_API_TOKEN);
+
 async function getCurrentWeather() {
-  let weatherService = new WeatherService(process.env.M3O_API_TOKEN);
-  let rsp = await weatherService.now({
+  const rsp = await weatherService.now({
     location: "london",
   });
   console.log(rsp);

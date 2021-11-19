@@ -13,11 +13,12 @@ Generate a unique ID. Defaults to uuid.
 
 ```js
 const { IdService } = require('m3o/id');
-
 // Generate a unique ID. Defaults to uuid.
+
+const idService = new IdService(process.env.M3O_API_TOKEN)
+
 async function generateAuniqueId() {
-	let idService = new IdService(process.env.M3O_API_TOKEN)
-	let rsp = await idService.generate({
+	const rsp = await idService.generate({
   "type": "uuid"
 })
 	console.log(rsp)
@@ -35,11 +36,12 @@ Generate a unique ID. Defaults to uuid.
 
 ```js
 const { IdService } = require('m3o/id');
-
 // Generate a unique ID. Defaults to uuid.
+
+const idService = new IdService(process.env.M3O_API_TOKEN)
+
 async function generateAshortId() {
-	let idService = new IdService(process.env.M3O_API_TOKEN)
-	let rsp = await idService.generate({
+	const rsp = await idService.generate({
   "type": "shortid"
 })
 	console.log(rsp)
@@ -57,11 +59,12 @@ Generate a unique ID. Defaults to uuid.
 
 ```js
 const { IdService } = require('m3o/id');
-
 // Generate a unique ID. Defaults to uuid.
+
+const idService = new IdService(process.env.M3O_API_TOKEN)
+
 async function generateAsnowflakeId() {
-	let idService = new IdService(process.env.M3O_API_TOKEN)
-	let rsp = await idService.generate({
+	const rsp = await idService.generate({
   "type": "snowflake"
 })
 	console.log(rsp)
@@ -79,11 +82,12 @@ Generate a unique ID. Defaults to uuid.
 
 ```js
 const { IdService } = require('m3o/id');
-
 // Generate a unique ID. Defaults to uuid.
+
+const idService = new IdService(process.env.M3O_API_TOKEN)
+
 async function generateAbigflakeId() {
-	let idService = new IdService(process.env.M3O_API_TOKEN)
-	let rsp = await idService.generate({
+	const rsp = await idService.generate({
   "type": "bigflake"
 })
 	console.log(rsp)
@@ -101,11 +105,12 @@ List the types of IDs available. No query params needed.
 
 ```js
 const { IdService } = require('m3o/id');
-
 // List the types of IDs available. No query params needed.
+
+const idService = new IdService(process.env.M3O_API_TOKEN)
+
 async function listTheTypesOfIdsAvailable() {
-	let idService = new IdService(process.env.M3O_API_TOKEN)
-	let rsp = await idService.types({})
+	const rsp = await idService.types({})
 	console.log(rsp)
 	
 }

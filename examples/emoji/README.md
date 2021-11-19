@@ -13,11 +13,12 @@ Find an emoji by its alias e.g :beer:
 
 ```js
 const { EmojiService } = require('m3o/emoji');
-
 // Find an emoji by its alias e.g :beer:
+
+const emojiService = new EmojiService(process.env.M3O_API_TOKEN)
+
 async function findEmoji() {
-	let emojiService = new EmojiService(process.env.M3O_API_TOKEN)
-	let rsp = await emojiService.find({
+	const rsp = await emojiService.find({
   "alias": ":beer:"
 })
 	console.log(rsp)
@@ -35,11 +36,12 @@ Get the flag for a country. Requires country code e.g GB for great britain
 
 ```js
 const { EmojiService } = require('m3o/emoji');
-
 // Get the flag for a country. Requires country code e.g GB for great britain
+
+const emojiService = new EmojiService(process.env.M3O_API_TOKEN)
+
 async function getFlagByCountryCode() {
-	let emojiService = new EmojiService(process.env.M3O_API_TOKEN)
-	let rsp = await emojiService.flag({
+	const rsp = await emojiService.flag({
   "alias": "GB"
 })
 	console.log(rsp)
@@ -58,12 +60,13 @@ let's grab a :beer: becomes let's grab a 🍺
 
 ```js
 const { EmojiService } = require('m3o/emoji');
-
 // Print text and renders the emojis with aliases e.g
 // let's grab a :beer: becomes let's grab a 🍺
+
+const emojiService = new EmojiService(process.env.M3O_API_TOKEN)
+
 async function printTextIncludingEmoji() {
-	let emojiService = new EmojiService(process.env.M3O_API_TOKEN)
-	let rsp = await emojiService.print({
+	const rsp = await emojiService.print({
   "text": "let's grab a :beer:"
 })
 	console.log(rsp)
@@ -81,11 +84,12 @@ Send an emoji to anyone via SMS. Messages are sent in the form '<message> Sent f
 
 ```js
 const { EmojiService } = require('m3o/emoji');
-
 // Send an emoji to anyone via SMS. Messages are sent in the form '<message> Sent from <from>'
+
+const emojiService = new EmojiService(process.env.M3O_API_TOKEN)
+
 async function sendAtextContainingAnEmojiToAnyoneViaSms() {
-	let emojiService = new EmojiService(process.env.M3O_API_TOKEN)
-	let rsp = await emojiService.send({
+	const rsp = await emojiService.send({
   "from": "Alice",
   "message": "let's grab a :beer:",
   "to": "+44782669123"

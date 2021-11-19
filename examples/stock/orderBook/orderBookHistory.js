@@ -1,9 +1,10 @@
 const { StockService } = require("m3o/stock");
-
 // Get the historic order book and each trade by timestamp
+
+const stockService = new StockService(process.env.M3O_API_TOKEN);
+
 async function orderBookHistory() {
-  let stockService = new StockService(process.env.M3O_API_TOKEN);
-  let rsp = await stockService.orderBook({
+  const rsp = await stockService.orderBook({
     date: "2020-10-01",
     end: "2020-10-01T11:00:00Z",
     limit: 3,

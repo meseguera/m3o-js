@@ -13,11 +13,12 @@ Read stored events
 
 ```js
 const { EventService } = require('m3o/event');
-
 // Read stored events
+
+const eventService = new EventService(process.env.M3O_API_TOKEN)
+
 async function readEventsOnAtopic() {
-	let eventService = new EventService(process.env.M3O_API_TOKEN)
-	let rsp = await eventService.read({
+	const rsp = await eventService.read({
   "topic": "user"
 })
 	console.log(rsp)
@@ -35,11 +36,12 @@ Publish a event to the event stream.
 
 ```js
 const { EventService } = require('m3o/event');
-
 // Publish a event to the event stream.
+
+const eventService = new EventService(process.env.M3O_API_TOKEN)
+
 async function publishAnEvent() {
-	let eventService = new EventService(process.env.M3O_API_TOKEN)
-	let rsp = await eventService.publish({
+	const rsp = await eventService.publish({
   "message": {
     "id": "1",
     "type": "signup",
@@ -62,11 +64,12 @@ Consume events from a given topic.
 
 ```js
 const { EventService } = require('m3o/event');
-
 // Consume events from a given topic.
+
+const eventService = new EventService(process.env.M3O_API_TOKEN)
+
 async function consumeFromAtopic() {
-	let eventService = new EventService(process.env.M3O_API_TOKEN)
-	let rsp = await eventService.consume({
+	const rsp = await eventService.consume({
   "topic": "user"
 })
 	rsp.onMessage(msg => {

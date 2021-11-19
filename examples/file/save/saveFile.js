@@ -1,9 +1,10 @@
 const { FileService } = require("m3o/file");
-
 // Save a file
+
+const fileService = new FileService(process.env.M3O_API_TOKEN);
+
 async function saveFile() {
-  let fileService = new FileService(process.env.M3O_API_TOKEN);
-  let rsp = await fileService.save({
+  const rsp = await fileService.save({
     file: {
       content: "file content example",
       path: "/document/text-files/file.txt",

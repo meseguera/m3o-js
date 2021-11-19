@@ -1,9 +1,10 @@
 const { CurrencyService } = require("m3o/currency");
-
 // Returns the historic rates for a currency on a given date
+
+const currencyService = new CurrencyService(process.env.M3O_API_TOKEN);
+
 async function historicRatesForAcurrency() {
-  let currencyService = new CurrencyService(process.env.M3O_API_TOKEN);
-  let rsp = await currencyService.history({
+  const rsp = await currencyService.history({
     code: "USD",
     date: "2021-05-30",
   });

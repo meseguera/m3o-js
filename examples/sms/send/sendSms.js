@@ -1,9 +1,10 @@
 const { SmsService } = require("m3o/sms");
-
 // Send an SMS.
+
+const smsService = new SmsService(process.env.M3O_API_TOKEN);
+
 async function sendSms() {
-  let smsService = new SmsService(process.env.M3O_API_TOKEN);
-  let rsp = await smsService.send({
+  const rsp = await smsService.send({
     from: "Alice",
     message: "Hi there!",
     to: "+447681129",

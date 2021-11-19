@@ -4,52 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Notes/api](htt
 
 Endpoints:
 
-## Events
-
-Subscribe to notes events
-
-
-[https://m3o.com/notes/api#Events](https://m3o.com/notes/api#Events)
-
-```js
-const { NotesService } = require('m3o/notes');
-
-// Subscribe to notes events
-async function subscribeToEvents() {
-	let notesService = new NotesService(process.env.M3O_API_TOKEN)
-	let rsp = await notesService.events({
-  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
-})
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
-}
-
-subscribeToEvents()
-```
-## Create
-
-Create a new note
-
-
-[https://m3o.com/notes/api#Create](https://m3o.com/notes/api#Create)
-
-```js
-const { NotesService } = require('m3o/notes');
-
-// Create a new note
-async function createAnote() {
-	let notesService = new NotesService(process.env.M3O_API_TOKEN)
-	let rsp = await notesService.create({
-  "text": "This is my note",
-  "title": "New Note"
-})
-	console.log(rsp)
-	
-}
-
-createAnote()
-```
 ## Read
 
 Read a note
@@ -59,11 +13,12 @@ Read a note
 
 ```js
 const { NotesService } = require('m3o/notes');
-
 // Read a note
+
+const notesService = new NotesService(process.env.M3O_API_TOKEN)
+
 async function readAnote() {
-	let notesService = new NotesService(process.env.M3O_API_TOKEN)
-	let rsp = await notesService.read({
+	const rsp = await notesService.read({
   "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
 })
 	console.log(rsp)
@@ -81,11 +36,12 @@ List all the notes
 
 ```js
 const { NotesService } = require('m3o/notes');
-
 // List all the notes
+
+const notesService = new NotesService(process.env.M3O_API_TOKEN)
+
 async function listAllNotes() {
-	let notesService = new NotesService(process.env.M3O_API_TOKEN)
-	let rsp = await notesService.list({})
+	const rsp = await notesService.list({})
 	console.log(rsp)
 	
 }
@@ -101,11 +57,12 @@ Update a note
 
 ```js
 const { NotesService } = require('m3o/notes');
-
 // Update a note
+
+const notesService = new NotesService(process.env.M3O_API_TOKEN)
+
 async function updateAnote() {
-	let notesService = new NotesService(process.env.M3O_API_TOKEN)
-	let rsp = await notesService.update({
+	const rsp = await notesService.update({
   "note": {
     "id": "63c0cdf8-2121-11ec-a881-0242e36f037a",
     "text": "Updated note text",
@@ -127,11 +84,12 @@ Delete a note
 
 ```js
 const { NotesService } = require('m3o/notes');
-
 // Delete a note
+
+const notesService = new NotesService(process.env.M3O_API_TOKEN)
+
 async function deleteAnote() {
-	let notesService = new NotesService(process.env.M3O_API_TOKEN)
-	let rsp = await notesService.delete({
+	const rsp = await notesService.delete({
   "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
 })
 	console.log(rsp)
@@ -139,4 +97,52 @@ async function deleteAnote() {
 }
 
 deleteAnote()
+```
+## Events
+
+Subscribe to notes events
+
+
+[https://m3o.com/notes/api#Events](https://m3o.com/notes/api#Events)
+
+```js
+const { NotesService } = require('m3o/notes');
+// Subscribe to notes events
+
+const notesService = new NotesService(process.env.M3O_API_TOKEN)
+
+async function subscribeToEvents() {
+	const rsp = await notesService.events({
+  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
+})
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
+}
+
+subscribeToEvents()
+```
+## Create
+
+Create a new note
+
+
+[https://m3o.com/notes/api#Create](https://m3o.com/notes/api#Create)
+
+```js
+const { NotesService } = require('m3o/notes');
+// Create a new note
+
+const notesService = new NotesService(process.env.M3O_API_TOKEN)
+
+async function createAnote() {
+	const rsp = await notesService.create({
+  "text": "This is my note",
+  "title": "New Note"
+})
+	console.log(rsp)
+	
+}
+
+createAnote()
 ```

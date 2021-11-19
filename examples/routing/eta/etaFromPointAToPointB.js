@@ -1,9 +1,10 @@
 const { RoutingService } = require("m3o/routing");
-
 // Get the eta for a route from origin to destination. The eta is an estimated time based on car routes
+
+const routingService = new RoutingService(process.env.M3O_API_TOKEN);
+
 async function etaFromPointAtoPointB() {
-  let routingService = new RoutingService(process.env.M3O_API_TOKEN);
-  let rsp = await routingService.eta({
+  const rsp = await routingService.eta({
     destination: {
       latitude: 52.529407,
       longitude: 13.397634,

@@ -1,9 +1,10 @@
 const { FileService } = require("m3o/file");
-
 // List files by their project and optionally a path.
+
+const fileService = new FileService(process.env.M3O_API_TOKEN);
+
 async function listFiles() {
-  let fileService = new FileService(process.env.M3O_API_TOKEN);
-  let rsp = await fileService.list({
+  const rsp = await fileService.list({
     project: "examples",
   });
   console.log(rsp);

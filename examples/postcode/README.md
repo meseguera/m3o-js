@@ -4,6 +4,29 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Postcode/api](
 
 Endpoints:
 
+## Lookup
+
+Lookup a postcode to retrieve the related region, county, etc
+
+
+[https://m3o.com/postcode/api#Lookup](https://m3o.com/postcode/api#Lookup)
+
+```js
+const { PostcodeService } = require('m3o/postcode');
+// Lookup a postcode to retrieve the related region, county, etc
+
+const postcodeService = new PostcodeService(process.env.M3O_API_TOKEN)
+
+async function lookupPostcode() {
+	const rsp = await postcodeService.lookup({
+  "postcode": "SW1A 2AA"
+})
+	console.log(rsp)
+	
+}
+
+lookupPostcode()
+```
 ## Random
 
 Return a random postcode and its related info
@@ -13,11 +36,12 @@ Return a random postcode and its related info
 
 ```js
 const { PostcodeService } = require('m3o/postcode');
-
 // Return a random postcode and its related info
+
+const postcodeService = new PostcodeService(process.env.M3O_API_TOKEN)
+
 async function returnArandomPostcodeAndItsInformation() {
-	let postcodeService = new PostcodeService(process.env.M3O_API_TOKEN)
-	let rsp = await postcodeService.random({})
+	const rsp = await postcodeService.random({})
 	console.log(rsp)
 	
 }
@@ -33,11 +57,12 @@ Validate a postcode.
 
 ```js
 const { PostcodeService } = require('m3o/postcode');
-
 // Validate a postcode.
+
+const postcodeService = new PostcodeService(process.env.M3O_API_TOKEN)
+
 async function returnArandomPostcodeAndItsInformation() {
-	let postcodeService = new PostcodeService(process.env.M3O_API_TOKEN)
-	let rsp = await postcodeService.validate({
+	const rsp = await postcodeService.validate({
   "postcode": "SW1A 2AA"
 })
 	console.log(rsp)
@@ -45,26 +70,4 @@ async function returnArandomPostcodeAndItsInformation() {
 }
 
 returnArandomPostcodeAndItsInformation()
-```
-## Lookup
-
-Lookup a postcode to retrieve the related region, county, etc
-
-
-[https://m3o.com/postcode/api#Lookup](https://m3o.com/postcode/api#Lookup)
-
-```js
-const { PostcodeService } = require('m3o/postcode');
-
-// Lookup a postcode to retrieve the related region, county, etc
-async function lookupPostcode() {
-	let postcodeService = new PostcodeService(process.env.M3O_API_TOKEN)
-	let rsp = await postcodeService.lookup({
-  "postcode": "SW1A 2AA"
-})
-	console.log(rsp)
-	
-}
-
-lookupPostcode()
 ```

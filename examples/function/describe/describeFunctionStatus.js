@@ -1,9 +1,10 @@
 const { FunctionService } = require("m3o/function");
-
 // Get the info for a deployed function
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN);
+
 async function describeFunctionStatus() {
-  let functionService = new FunctionService(process.env.M3O_API_TOKEN);
-  let rsp = await functionService.describe({
+  const rsp = await functionService.describe({
     name: "my-first-func",
     project: "tests",
   });

@@ -13,11 +13,12 @@ Lookup the geolocation information for an IP address
 
 ```js
 const { IpService } = require('m3o/ip');
-
 // Lookup the geolocation information for an IP address
+
+const ipService = new IpService(process.env.M3O_API_TOKEN)
+
 async function lookupIpInfo() {
-	let ipService = new IpService(process.env.M3O_API_TOKEN)
-	let rsp = await ipService.lookup({
+	const rsp = await ipService.lookup({
   "ip": "93.148.214.31"
 })
 	console.log(rsp)

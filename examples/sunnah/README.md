@@ -4,6 +4,54 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Sunnah/api](ht
 
 Endpoints:
 
+## Collections
+
+Get a list of available collections. A collection is
+a compilation of hadiths collected and written by an author.
+
+
+[https://m3o.com/sunnah/api#Collections](https://m3o.com/sunnah/api#Collections)
+
+```js
+const { SunnahService } = require('m3o/sunnah');
+// Get a list of available collections. A collection is
+// a compilation of hadiths collected and written by an author.
+
+const sunnahService = new SunnahService(process.env.M3O_API_TOKEN)
+
+async function listAvailableCollections() {
+	const rsp = await sunnahService.collections({})
+	console.log(rsp)
+	
+}
+
+listAvailableCollections()
+```
+## Books
+
+Get a list of books from within a collection. A book can contain many chapters
+each with its own hadiths.
+
+
+[https://m3o.com/sunnah/api#Books](https://m3o.com/sunnah/api#Books)
+
+```js
+const { SunnahService } = require('m3o/sunnah');
+// Get a list of books from within a collection. A book can contain many chapters
+// each with its own hadiths.
+
+const sunnahService = new SunnahService(process.env.M3O_API_TOKEN)
+
+async function getTheBooksWithinAcollection() {
+	const rsp = await sunnahService.books({
+  "collection": "bukhari"
+})
+	console.log(rsp)
+	
+}
+
+getTheBooksWithinAcollection()
+```
 ## Chapters
 
 Get all the chapters of a given book within a collection.
@@ -13,11 +61,12 @@ Get all the chapters of a given book within a collection.
 
 ```js
 const { SunnahService } = require('m3o/sunnah');
-
 // Get all the chapters of a given book within a collection.
+
+const sunnahService = new SunnahService(process.env.M3O_API_TOKEN)
+
 async function listTheChaptersInAbook() {
-	let sunnahService = new SunnahService(process.env.M3O_API_TOKEN)
-	let rsp = await sunnahService.chapters({
+	const rsp = await sunnahService.chapters({
   "book": 1,
   "collection": "bukhari"
 })
@@ -37,12 +86,13 @@ given book within a collection.
 
 ```js
 const { SunnahService } = require('m3o/sunnah');
-
 // Hadiths returns a list of hadiths and their corresponding text for a
 // given book within a collection.
+
+const sunnahService = new SunnahService(process.env.M3O_API_TOKEN)
+
 async function listTheHadithsInAbook() {
-	let sunnahService = new SunnahService(process.env.M3O_API_TOKEN)
-	let rsp = await sunnahService.hadiths({
+	const rsp = await sunnahService.hadiths({
   "book": 1,
   "collection": "bukhari"
 })
@@ -51,50 +101,4 @@ async function listTheHadithsInAbook() {
 }
 
 listTheHadithsInAbook()
-```
-## Collections
-
-Get a list of available collections. A collection is
-a compilation of hadiths collected and written by an author.
-
-
-[https://m3o.com/sunnah/api#Collections](https://m3o.com/sunnah/api#Collections)
-
-```js
-const { SunnahService } = require('m3o/sunnah');
-
-// Get a list of available collections. A collection is
-// a compilation of hadiths collected and written by an author.
-async function listAvailableCollections() {
-	let sunnahService = new SunnahService(process.env.M3O_API_TOKEN)
-	let rsp = await sunnahService.collections({})
-	console.log(rsp)
-	
-}
-
-listAvailableCollections()
-```
-## Books
-
-Get a list of books from within a collection. A book can contain many chapters
-each with its own hadiths.
-
-
-[https://m3o.com/sunnah/api#Books](https://m3o.com/sunnah/api#Books)
-
-```js
-const { SunnahService } = require('m3o/sunnah');
-
-// Get a list of books from within a collection. A book can contain many chapters
-// each with its own hadiths.
-async function getTheBooksWithinAcollection() {
-	let sunnahService = new SunnahService(process.env.M3O_API_TOKEN)
-	let rsp = await sunnahService.books({
-  "collection": "bukhari"
-})
-	console.log(rsp)
-	
-}
-
-getTheBooksWithinAcollection()
 ```

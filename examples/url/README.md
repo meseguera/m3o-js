@@ -13,11 +13,12 @@ List information on all the shortened URLs that you have created
 
 ```js
 const { UrlService } = require('m3o/url');
-
 // List information on all the shortened URLs that you have created
+
+const urlService = new UrlService(process.env.M3O_API_TOKEN)
+
 async function listYourShortenedUrls() {
-	let urlService = new UrlService(process.env.M3O_API_TOKEN)
-	let rsp = await urlService.list({})
+	const rsp = await urlService.list({})
 	console.log(rsp)
 	
 }
@@ -33,11 +34,12 @@ Shortens a destination URL and returns a full short URL.
 
 ```js
 const { UrlService } = require('m3o/url');
-
 // Shortens a destination URL and returns a full short URL.
+
+const urlService = new UrlService(process.env.M3O_API_TOKEN)
+
 async function shortenAlongUrl() {
-	let urlService = new UrlService(process.env.M3O_API_TOKEN)
-	let rsp = await urlService.shorten({
+	const rsp = await urlService.shorten({
   "destinationURL": "https://mysite.com/this-is-a-rather-long-web-address"
 })
 	console.log(rsp)
@@ -55,11 +57,12 @@ Proxy returns the destination URL of a short URL.
 
 ```js
 const { UrlService } = require('m3o/url');
-
 // Proxy returns the destination URL of a short URL.
+
+const urlService = new UrlService(process.env.M3O_API_TOKEN)
+
 async function resolveAshortUrlToAlongDestinationUrl() {
-	let urlService = new UrlService(process.env.M3O_API_TOKEN)
-	let rsp = await urlService.proxy({
+	const rsp = await urlService.proxy({
   "shortURL": "https://m3o.one/u/ck6SGVkYp"
 })
 	console.log(rsp)

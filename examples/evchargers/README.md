@@ -13,11 +13,12 @@ Search by giving a coordinate and a max distance, or bounding box and optional f
 
 ```js
 const { EvchargersService } = require('m3o/evchargers');
-
 // Search by giving a coordinate and a max distance, or bounding box and optional filters
+
+const evchargersService = new EvchargersService(process.env.M3O_API_TOKEN)
+
 async function searchByLocation() {
-	let evchargersService = new EvchargersService(process.env.M3O_API_TOKEN)
-	let rsp = await evchargersService.search({
+	const rsp = await evchargersService.search({
   "distance": 2000,
   "location": {
     "latitude": 51.53336351319885,
@@ -40,11 +41,12 @@ Search by giving a coordinate and a max distance, or bounding box and optional f
 
 ```js
 const { EvchargersService } = require('m3o/evchargers');
-
 // Search by giving a coordinate and a max distance, or bounding box and optional filters
+
+const evchargersService = new EvchargersService(process.env.M3O_API_TOKEN)
+
 async function searchByBoundingBox() {
-	let evchargersService = new EvchargersService(process.env.M3O_API_TOKEN)
-	let rsp = await evchargersService.search({
+	const rsp = await evchargersService.search({
   "box": {
     "bottom_left": {
       "latitude": 51.52627543859447,
@@ -72,11 +74,12 @@ Search by giving a coordinate and a max distance, or bounding box and optional f
 
 ```js
 const { EvchargersService } = require('m3o/evchargers');
-
 // Search by giving a coordinate and a max distance, or bounding box and optional filters
+
+const evchargersService = new EvchargersService(process.env.M3O_API_TOKEN)
+
 async function searchWithFiltersFastChargersOnly() {
-	let evchargersService = new EvchargersService(process.env.M3O_API_TOKEN)
-	let rsp = await evchargersService.search({
+	const rsp = await evchargersService.search({
   "distance": 2000,
   "levels": [
     "3"
@@ -102,11 +105,12 @@ Retrieve reference data as used by this API and in conjunction with the Search e
 
 ```js
 const { EvchargersService } = require('m3o/evchargers');
-
 // Retrieve reference data as used by this API and in conjunction with the Search endpoint
+
+const evchargersService = new EvchargersService(process.env.M3O_API_TOKEN)
+
 async function getReferenceData() {
-	let evchargersService = new EvchargersService(process.env.M3O_API_TOKEN)
-	let rsp = await evchargersService.referenceData({})
+	const rsp = await evchargersService.referenceData({})
 	console.log(rsp)
 	
 }

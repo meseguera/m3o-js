@@ -1,9 +1,10 @@
 const { FunctionService } = require("m3o/function");
-
 // Call a function by name
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN);
+
 async function callAfunction() {
-  let functionService = new FunctionService(process.env.M3O_API_TOKEN);
-  let rsp = await functionService.call({
+  const rsp = await functionService.call({
     name: "my-first-func",
     request: {},
   });

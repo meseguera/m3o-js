@@ -1,9 +1,10 @@
 const { QuranService } = require("m3o/quran");
-
 // Search the Quran for any form of query or questions
+
+const quranService = new QuranService(process.env.M3O_API_TOKEN);
+
 async function searchTheQuran() {
-  let quranService = new QuranService(process.env.M3O_API_TOKEN);
-  let rsp = await quranService.search({
+  const rsp = await quranService.search({
     query: "messenger",
   });
   console.log(rsp);

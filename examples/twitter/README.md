@@ -4,48 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Twitter/api](h
 
 Endpoints:
 
-## Trends
-
-Get the current global trending topics
-
-
-[https://m3o.com/twitter/api#Trends](https://m3o.com/twitter/api#Trends)
-
-```js
-const { TwitterService } = require('m3o/twitter');
-
-// Get the current global trending topics
-async function getTheCurrentGlobalTrendingTopics() {
-	let twitterService = new TwitterService(process.env.M3O_API_TOKEN)
-	let rsp = await twitterService.trends({})
-	console.log(rsp)
-	
-}
-
-getTheCurrentGlobalTrendingTopics()
-```
-## User
-
-Get a user's twitter profile
-
-
-[https://m3o.com/twitter/api#User](https://m3o.com/twitter/api#User)
-
-```js
-const { TwitterService } = require('m3o/twitter');
-
-// Get a user's twitter profile
-async function getAusersTwitterProfile() {
-	let twitterService = new TwitterService(process.env.M3O_API_TOKEN)
-	let rsp = await twitterService.user({
-  "username": "crufter"
-})
-	console.log(rsp)
-	
-}
-
-getAusersTwitterProfile()
-```
 ## Timeline
 
 Get the timeline for a given user
@@ -55,11 +13,12 @@ Get the timeline for a given user
 
 ```js
 const { TwitterService } = require('m3o/twitter');
-
 // Get the timeline for a given user
+
+const twitterService = new TwitterService(process.env.M3O_API_TOKEN)
+
 async function getAtwitterTimeline() {
-	let twitterService = new TwitterService(process.env.M3O_API_TOKEN)
-	let rsp = await twitterService.timeline({
+	const rsp = await twitterService.timeline({
   "limit": 1,
   "username": "m3oservices"
 })
@@ -78,11 +37,12 @@ Search for tweets with a simple query
 
 ```js
 const { TwitterService } = require('m3o/twitter');
-
 // Search for tweets with a simple query
+
+const twitterService = new TwitterService(process.env.M3O_API_TOKEN)
+
 async function searchForTweets() {
-	let twitterService = new TwitterService(process.env.M3O_API_TOKEN)
-	let rsp = await twitterService.search({
+	const rsp = await twitterService.search({
   "query": "cats"
 })
 	console.log(rsp)
@@ -90,4 +50,48 @@ async function searchForTweets() {
 }
 
 searchForTweets()
+```
+## Trends
+
+Get the current global trending topics
+
+
+[https://m3o.com/twitter/api#Trends](https://m3o.com/twitter/api#Trends)
+
+```js
+const { TwitterService } = require('m3o/twitter');
+// Get the current global trending topics
+
+const twitterService = new TwitterService(process.env.M3O_API_TOKEN)
+
+async function getTheCurrentGlobalTrendingTopics() {
+	const rsp = await twitterService.trends({})
+	console.log(rsp)
+	
+}
+
+getTheCurrentGlobalTrendingTopics()
+```
+## User
+
+Get a user's twitter profile
+
+
+[https://m3o.com/twitter/api#User](https://m3o.com/twitter/api#User)
+
+```js
+const { TwitterService } = require('m3o/twitter');
+// Get a user's twitter profile
+
+const twitterService = new TwitterService(process.env.M3O_API_TOKEN)
+
+async function getAusersTwitterProfile() {
+	const rsp = await twitterService.user({
+  "username": "crufter"
+})
+	console.log(rsp)
+	
+}
+
+getAusersTwitterProfile()
 ```

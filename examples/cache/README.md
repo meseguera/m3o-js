@@ -13,11 +13,12 @@ Set an item in the cache. Overwrites any existing value already set.
 
 ```js
 const { CacheService } = require('m3o/cache');
-
 // Set an item in the cache. Overwrites any existing value already set.
+
+const cacheService = new CacheService(process.env.M3O_API_TOKEN)
+
 async function setAvalue() {
-	let cacheService = new CacheService(process.env.M3O_API_TOKEN)
-	let rsp = await cacheService.set({
+	const rsp = await cacheService.set({
   "key": "foo",
   "value": "bar"
 })
@@ -36,11 +37,12 @@ Get an item from the cache by key. If key is not found, an empty response is ret
 
 ```js
 const { CacheService } = require('m3o/cache');
-
 // Get an item from the cache by key. If key is not found, an empty response is returned.
+
+const cacheService = new CacheService(process.env.M3O_API_TOKEN)
+
 async function getAvalue() {
-	let cacheService = new CacheService(process.env.M3O_API_TOKEN)
-	let rsp = await cacheService.get({
+	const rsp = await cacheService.get({
   "key": "foo"
 })
 	console.log(rsp)
@@ -58,11 +60,12 @@ Delete a value from the cache. If key not found a success response is returned.
 
 ```js
 const { CacheService } = require('m3o/cache');
-
 // Delete a value from the cache. If key not found a success response is returned.
+
+const cacheService = new CacheService(process.env.M3O_API_TOKEN)
+
 async function deleteAvalue() {
-	let cacheService = new CacheService(process.env.M3O_API_TOKEN)
-	let rsp = await cacheService.delete({
+	const rsp = await cacheService.delete({
   "key": "foo"
 })
 	console.log(rsp)
@@ -80,11 +83,12 @@ Increment a value (if it's a number). If key not found it is equivalent to set.
 
 ```js
 const { CacheService } = require('m3o/cache');
-
 // Increment a value (if it's a number). If key not found it is equivalent to set.
+
+const cacheService = new CacheService(process.env.M3O_API_TOKEN)
+
 async function incrementAvalue() {
-	let cacheService = new CacheService(process.env.M3O_API_TOKEN)
-	let rsp = await cacheService.increment({
+	const rsp = await cacheService.increment({
   "key": "counter",
   "value": 2
 })
@@ -103,11 +107,12 @@ Decrement a value (if it's a number). If key not found it is equivalent to set.
 
 ```js
 const { CacheService } = require('m3o/cache');
-
 // Decrement a value (if it's a number). If key not found it is equivalent to set.
+
+const cacheService = new CacheService(process.env.M3O_API_TOKEN)
+
 async function decrementAvalue() {
-	let cacheService = new CacheService(process.env.M3O_API_TOKEN)
-	let rsp = await cacheService.decrement({
+	const rsp = await cacheService.decrement({
   "key": "counter",
   "value": 2
 })

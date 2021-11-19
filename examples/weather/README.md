@@ -13,11 +13,12 @@ Get the current weather report for a location by postcode, city, zip code, ip ad
 
 ```js
 const { WeatherService } = require('m3o/weather');
-
 // Get the current weather report for a location by postcode, city, zip code, ip address
+
+const weatherService = new WeatherService(process.env.M3O_API_TOKEN)
+
 async function getCurrentWeather() {
-	let weatherService = new WeatherService(process.env.M3O_API_TOKEN)
-	let rsp = await weatherService.now({
+	const rsp = await weatherService.now({
   "location": "london"
 })
 	console.log(rsp)
@@ -35,11 +36,12 @@ Get the weather forecast for the next 1-10 days
 
 ```js
 const { WeatherService } = require('m3o/weather');
-
 // Get the weather forecast for the next 1-10 days
+
+const weatherService = new WeatherService(process.env.M3O_API_TOKEN)
+
 async function forecastWeather() {
-	let weatherService = new WeatherService(process.env.M3O_API_TOKEN)
-	let rsp = await weatherService.forecast({
+	const rsp = await weatherService.forecast({
   "days": 2,
   "location": "London"
 })

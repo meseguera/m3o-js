@@ -1,9 +1,10 @@
 const { EventService } = require("m3o/event");
-
 // Consume events from a given topic.
+
+const eventService = new EventService(process.env.M3O_API_TOKEN);
+
 async function consumeFromAtopic() {
-  let eventService = new EventService(process.env.M3O_API_TOKEN);
-  let rsp = await eventService.consume({
+  const rsp = await eventService.consume({
     topic: "user",
   });
   rsp.onMessage((msg) => {

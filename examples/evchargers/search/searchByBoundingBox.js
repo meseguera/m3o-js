@@ -1,9 +1,10 @@
 const { EvchargersService } = require("m3o/evchargers");
-
 // Search by giving a coordinate and a max distance, or bounding box and optional filters
+
+const evchargersService = new EvchargersService(process.env.M3O_API_TOKEN);
+
 async function searchByBoundingBox() {
-  let evchargersService = new EvchargersService(process.env.M3O_API_TOKEN);
-  let rsp = await evchargersService.search({
+  const rsp = await evchargersService.search({
     box: {
       bottom_left: {
         latitude: 51.52627543859447,

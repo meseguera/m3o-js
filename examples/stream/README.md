@@ -14,12 +14,13 @@ this allows you to specify a description that's persisted for the lifetime of th
 
 ```js
 const { StreamService } = require('m3o/stream');
-
 // Create a channel with a given name and description. Channels are created automatically but
 // this allows you to specify a description that's persisted for the lifetime of the channel.
+
+const streamService = new StreamService(process.env.M3O_API_TOKEN)
+
 async function createChannel() {
-	let streamService = new StreamService(process.env.M3O_API_TOKEN)
-	let rsp = await streamService.createChannel({
+	const rsp = await streamService.createChannel({
   "description": "The channel for all things",
   "name": "general"
 })
@@ -38,11 +39,12 @@ Send a message to the stream.
 
 ```js
 const { StreamService } = require('m3o/stream');
-
 // Send a message to the stream.
+
+const streamService = new StreamService(process.env.M3O_API_TOKEN)
+
 async function sendMessage() {
-	let streamService = new StreamService(process.env.M3O_API_TOKEN)
-	let rsp = await streamService.sendMessage({
+	const rsp = await streamService.sendMessage({
   "channel": "general",
   "text": "Hey checkout this tweet https://twitter.com/m3oservices/status/1455291054295498752"
 })
@@ -61,11 +63,12 @@ List messages for a given channel
 
 ```js
 const { StreamService } = require('m3o/stream');
-
 // List messages for a given channel
+
+const streamService = new StreamService(process.env.M3O_API_TOKEN)
+
 async function listMessages() {
-	let streamService = new StreamService(process.env.M3O_API_TOKEN)
-	let rsp = await streamService.listMessages({
+	const rsp = await streamService.listMessages({
   "channel": "general"
 })
 	console.log(rsp)
@@ -83,11 +86,12 @@ List all the active channels
 
 ```js
 const { StreamService } = require('m3o/stream');
-
 // List all the active channels
+
+const streamService = new StreamService(process.env.M3O_API_TOKEN)
+
 async function listChannels() {
-	let streamService = new StreamService(process.env.M3O_API_TOKEN)
-	let rsp = await streamService.listChannels({})
+	const rsp = await streamService.listChannels({})
 	console.log(rsp)
 	
 }
