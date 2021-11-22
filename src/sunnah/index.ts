@@ -45,7 +45,7 @@ export class SunnahService {
 
 export interface Book {
   // arabic name of the book
-  arabicName?: string;
+  arabic_name?: string;
   // number of hadiths in the book
   hadiths?: number;
   // number of the book e.g 1
@@ -78,7 +78,7 @@ export interface BooksResponse {
 
 export interface Chapter {
   // arabic title
-  arabicTitle?: string;
+  arabic_title?: string;
   // the book number
   book?: number;
   // the chapter id e.g 1
@@ -117,7 +117,7 @@ export interface ChaptersResponse {
 
 export interface Collection {
   // Arabic title if available
-  arabicTitle?: string;
+  arabic_title?: string;
   // Total hadiths in the collection
   hadiths?: number;
   // Name of the collection e.g bukhari
@@ -141,15 +141,15 @@ export interface CollectionsResponse {
 
 export interface Hadith {
   // the arabic chapter title
-  arabicChapterTitle?: string;
+  arabic_chapter_title?: string;
   // the arabic text
-  arabicText?: string;
+  arabic_text?: string;
   // the chapter id
   chapter?: number;
   // the chapter key
-  chapterKey?: string;
+  chapter_key?: string;
   // the chapter title
-  chapterTitle?: string;
+  chapter_title?: string;
   // hadith id
   id?: number;
   // hadith text

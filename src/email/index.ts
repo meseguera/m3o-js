@@ -16,13 +16,13 @@ export interface SendRequest {
   // the display name of the sender
   from?: string;
   // the html body
-  htmlBody?: string;
+  html_body?: string;
   // an optional reply to email address
-  replyTo?: string;
+  reply_to?: string;
   // the email subject
   subject?: string;
   // the text body
-  textBody?: string;
+  text_body?: string;
   // the email address of the recipient
   to?: string;
 }

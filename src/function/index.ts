@@ -74,7 +74,7 @@ export interface DeployRequest {
   // if not provided, defaults to the name parameter
   entrypoint?: string;
   // environment variables to pass in at runtime
-  envVars?: { [key: string]: string };
+  env_vars?: { [key: string]: string };
   // function name
   name?: string;
   // project is used for namespacing your functions
@@ -110,7 +110,7 @@ export interface DescribeResponse {
   // The timeout for requests to the function
   timeout?: string;
   // The time at which the function was updated
-  updatedAt?: string;
+  updated_at?: string;
 }
 
 export interface Func {

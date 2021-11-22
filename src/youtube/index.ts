@@ -31,9 +31,9 @@ export interface SearchResult {
   // none, upcoming, live, completed
   broadcasting?: string;
   // the channel id
-  channelId?: string;
+  channel_id?: string;
   // the channel title
-  channelTitle?: string;
+  channel_title?: string;
   // the result description
   description?: string;
   // id of the result
@@ -41,7 +41,7 @@ export interface SearchResult {
   // kind of result; "video", "channel", "playlist"
   kind?: string;
   // published at time
-  publishedAt?: string;
+  published_at?: string;
   // title of the result
   title?: string;
   // the associated url

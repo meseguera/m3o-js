@@ -28,7 +28,7 @@ export interface SearchResponse {
 
 export interface SearchResult {
   // abridged version of this search result’s URL, e.g. www.exampe.com
-  displayUrl?: string;
+  display_url?: string;
   // id of the result
   id?: string;
   // kind of result; "search"

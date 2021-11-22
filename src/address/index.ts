@@ -29,13 +29,13 @@ export interface LookupPostcodeResponse {
 
 export interface Record {
   // building name
-  buildingName?: string;
+  building_name?: string;
   // the county
   county?: string;
   // line one of address
-  lineOne?: string;
+  line_one?: string;
   // line two of address
-  lineTwo?: string;
+  line_two?: string;
   // dependent locality
   locality?: string;
   // organisation if present

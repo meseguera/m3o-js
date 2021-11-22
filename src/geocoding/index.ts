@@ -27,8 +27,8 @@ export class GeocodingService {
 export interface Address {
   city?: string;
   country?: string;
-  lineOne?: string;
-  lineTwo?: string;
+  line_one?: string;
+  line_two?: string;
   postcode?: string;
 }
 

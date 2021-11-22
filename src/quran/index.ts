@@ -44,9 +44,9 @@ export class QuranService {
 
 export interface Chapter {
   // The arabic name of the chapter
-  arabicName?: string;
+  arabic_name?: string;
   // The complex name of the chapter
-  complexName?: string;
+  complex_name?: string;
   // The id of the chapter as a number e.g 1
   id?: number;
   // The simple name of the chapter
@@ -54,13 +54,13 @@ export interface Chapter {
   // The pages from and to e.g 1, 1
   pages?: number[];
   // Should the chapter start with bismillah
-  prefixBismillah?: boolean;
+  prefix_bismillah?: boolean;
   // The order in which it was revealed
-  revelationOrder?: number;
+  revelation_order?: number;
   // The place of revelation
-  revelationPlace?: string;
+  revelation_place?: string;
   // The translated name
-  translatedName?: string;
+  translated_name?: string;
   // The number of verses in the chapter
   verses?: number;
 }
@@ -89,9 +89,9 @@ export interface Result {
   // The related translations to the text
   translations?: Translation[];
   // The unique verse id across the Quran
-  verseId?: number;
+  verse_id?: number;
   // The verse key e.g 1:1
-  verseKey?: string;
+  verse_key?: string;
 }
 
 export interface SearchRequest {
@@ -113,9 +113,9 @@ export interface SearchResponse {
   // The results for the query
   results?: Result[];
   // The total pages
-  totalPages?: number;
+  total_pages?: number;
   // The total results returned
-  totalResults?: number;
+  total_results?: number;
 }
 
 export interface SummaryRequest {
@@ -159,7 +159,7 @@ export interface Verse {
   // The arabic text for this verse
   text?: string;
   // The basic translation of the verse
-  translatedText?: string;
+  translated_text?: string;
   // The alternative translations for the verse
   translations?: Translation[];
   // The phonetic transliteration from arabic
@@ -191,14 +191,14 @@ export interface VersesResponse {
   // The page requested
   page?: number;
   // The total pages
-  totalPages?: number;
+  total_pages?: number;
   // The verses on the page
   verses?: Verse[];
 }
 
 export interface Word {
   // The character type e.g word, end
-  charType?: string;
+  char_type?: string;
   // The QCF v2 font code
   code?: string;
   // The id of the word within the verse

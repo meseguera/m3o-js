@@ -22,31 +22,31 @@ export class WeatherService {
 
 export interface Forecast {
   // the average temp in celsius
-  avgTempC?: number;
+  avg_temp_c?: number;
   // the average temp in fahrenheit
-  avgTempF?: number;
+  avg_temp_f?: number;
   // chance of rain (percentage)
-  chanceOfRain?: number;
+  chance_of_rain?: number;
   // forecast condition
   condition?: string;
   // date of the forecast
   date?: string;
   // the URL of forecast condition icon. Simply prefix with either http or https to use it
-  iconUrl?: string;
+  icon_url?: string;
   // max temp in celsius
-  maxTempC?: number;
+  max_temp_c?: number;
   // max temp in fahrenheit
-  maxTempF?: number;
+  max_temp_f?: number;
   // minimum temp in celsius
-  minTempC?: number;
+  min_temp_c?: number;
   // minimum temp in fahrenheit
-  minTempF?: number;
+  min_temp_f?: number;
   // time of sunrise
   sunrise?: string;
   // time of sunset
   sunset?: string;
   // will it rain
-  willItRain?: boolean;
+  will_it_rain?: boolean;
 }
 
 export interface ForecastRequest {
@@ -64,7 +64,7 @@ export interface ForecastResponse {
   // e.g 37.55
   latitude?: number;
   // the local time
-  localTime?: string;
+  local_time?: string;
   // location of the request
   location?: string;
   // e.g -77.46
@@ -90,17 +90,17 @@ export interface NowResponse {
   // whether its daytime
   daytime?: boolean;
   // feels like in celsius
-  feelsLikeC?: number;
+  feels_like_c?: number;
   // feels like in fahrenheit
-  feelsLikeF?: number;
+  feels_like_f?: number;
   // the humidity percentage
   humidity?: number;
   // the URL of the related icon. Simply prefix with either http or https to use it
-  iconUrl?: string;
+  icon_url?: string;
   // e.g 37.55
   latitude?: number;
   // the local time
-  localTime?: string;
+  local_time?: string;
   // location of the request
   location?: string;
   // e.g -77.46
@@ -108,17 +108,17 @@ export interface NowResponse {
   // region related to the location
   region?: string;
   // temperature in celsius
-  tempC?: number;
+  temp_c?: number;
   // temperature in fahrenheit
-  tempF?: number;
+  temp_f?: number;
   // timezone of the location
   timezone?: string;
   // wind degree
-  windDegree?: number;
+  wind_degree?: number;
   // wind direction
-  windDirection?: string;
+  wind_direction?: string;
   // wind in kph
-  windKph?: number;
+  wind_kph?: number;
   // wind in mph
-  windMph?: number;
+  wind_mph?: number;
 }

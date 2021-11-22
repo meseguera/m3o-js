@@ -86,8 +86,8 @@ export interface Intersection {
 
 export interface Maneuver {
   action?: string;
-  bearingAfter?: number;
-  bearingBefore?: number;
+  bearing_after?: number;
+  bearing_before?: number;
   direction?: string;
   location?: Point;
 }

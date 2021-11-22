@@ -18,7 +18,7 @@ export class GifsService {
 
 export interface Gif {
   // URL used for embedding the GIF
-  embedUrl?: string;
+  embed_url?: string;
   // The ID of the GIF
   id?: string;
   // The different formats available for this GIF
@@ -26,7 +26,7 @@ export interface Gif {
   // The content rating for the GIF
   rating?: string;
   // A short URL for this GIF
-  shortUrl?: string;
+  short_url?: string;
   // The slug used in the GIF's URL
   slug?: string;
   // The page on which this GIF was found
@@ -41,17 +41,17 @@ export interface ImageFormat {
   // height
   height?: number;
   // size of the MP4 version
-  mp4Size?: number;
+  mp4_size?: number;
   // URL to an MP4 version of the gif
-  mp4Url?: string;
+  mp4_url?: string;
   // size in bytes
   size?: number;
   // URL of the gif
   url?: string;
   // size of the webp version
-  webpSize?: number;
+  webp_size?: number;
   // URL to a webp version of the gif
-  webpUrl?: string;
+  webp_url?: string;
   // width
   width?: number;
 }
@@ -60,43 +60,43 @@ export interface ImageFormats {
   // A downsized version of the GIF < 2MB
   downsized?: ImageFormat;
   // A downsized version of the GIF < 8MB
-  downsizedLarge?: ImageFormat;
+  downsized_large?: ImageFormat;
   // A downsized version of the GIF < 5MB
-  downsizedMedium?: ImageFormat;
+  downsized_medium?: ImageFormat;
   // A downsized version of the GIF < 200kb
-  downsizedSmall?: ImageFormat;
+  downsized_small?: ImageFormat;
   // Static image of the downsized version of the GIF
-  downsizedStill?: ImageFormat;
+  downsized_still?: ImageFormat;
   // Version of the GIF with fixed height of 200 pixels. Good for mobile use
-  fixedHeight?: ImageFormat;
+  fixed_height?: ImageFormat;
   // Version of the GIF with fixed height of 200 pixels and number of frames reduced to 6
-  fixedHeightDownsampled?: ImageFormat;
+  fixed_height_downsampled?: ImageFormat;
   // Version of the GIF with fixed height of 100 pixels. Good for mobile keyboards
-  fixedHeightSmall?: ImageFormat;
+  fixed_height_small?: ImageFormat;
   // Static image of the GIF with fixed height of 100 pixels
-  fixedHeightSmallStill?: ImageFormat;
+  fixed_height_small_still?: ImageFormat;
   // Static image of the GIF with fixed height of 200 pixels
-  fixedHeightStill?: ImageFormat;
+  fixed_height_still?: ImageFormat;
   // Version of the GIF with fixed width of 200 pixels. Good for mobile use
-  fixedWidth?: ImageFormat;
+  fixed_width?: ImageFormat;
   // Version of the GIF with fixed width of 200 pixels and number of frames reduced to 6
-  fixedWidthDownsampled?: ImageFormat;
+  fixed_width_downsampled?: ImageFormat;
   // Version of the GIF with fixed width of 100 pixels. Good for mobile keyboards
-  fixedWidthSmall?: ImageFormat;
+  fixed_width_small?: ImageFormat;
   // Static image of the GIF with fixed width of 100 pixels
-  fixedWidthSmallStill?: ImageFormat;
+  fixed_width_small_still?: ImageFormat;
   // Static image of the GIF with fixed width of 200 pixels
-  fixedWidthStill?: ImageFormat;
+  fixed_width_still?: ImageFormat;
   // 15 second version of the GIF looping
   looping?: ImageFormat;
   // The original GIF. Good for desktop use
   original?: ImageFormat;
   // Static image of the original version of the GIF
-  originalStill?: ImageFormat;
+  original_still?: ImageFormat;
   // mp4 version of the GIF <50kb displaying first 1-2 secs
   preview?: ImageFormat;
   // Version of the GIF <50kb displaying first 1-2 secs
-  previewGif?: ImageFormat;
+  preview_gif?: ImageFormat;
 }
 
 export interface Pagination {
@@ -105,7 +105,7 @@ export interface Pagination {
   // position in pagination
   offset?: number;
   // total number of results available
-  totalCount?: number;
+  total_count?: number;
 }
 
 export interface SearchRequest {

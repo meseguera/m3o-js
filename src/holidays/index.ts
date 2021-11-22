@@ -39,11 +39,11 @@ export interface Country {
 
 export interface Holiday {
   // the country this holiday occurs in
-  countryCode?: string;
+  country_code?: string;
   // date of the holiday in yyyy-mm-dd format
   date?: string;
   // the local name of the holiday
-  localName?: string;
+  local_name?: string;
   // the name of the holiday in English
   name?: string;
   // the regions within the country that observe this holiday (if not all of them)
@@ -54,7 +54,7 @@ export interface Holiday {
 
 export interface ListRequest {
   // The 2 letter country code (as defined in ISO 3166-1 alpha-2)
-  countryCode?: string;
+  country_code?: string;
   // The year to list holidays for
   year?: number;
 }

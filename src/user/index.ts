@@ -268,7 +268,7 @@ export interface Session {
 
 export interface UpdatePasswordRequest {
   // confirm new password
-  confirmPassword?: string;
+  confirm_password?: string;
   // the new password
   newPassword?: string;
   // the old password

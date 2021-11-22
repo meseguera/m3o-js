@@ -45,7 +45,7 @@ export interface Channel {
   // description for the channel
   description?: string;
   // last activity time
-  lastActive?: string;
+  last_active?: string;
   // name of the channel
   name?: string;
 }

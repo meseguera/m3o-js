@@ -66,13 +66,13 @@ export interface HistoryResponse {
 
 export interface Order {
   // the asking price
-  askPrice?: number;
+  ask_price?: number;
   // the ask size
-  askSize?: number;
+  ask_size?: number;
   // the bidding price
-  bidPrice?: number;
+  bid_price?: number;
   // the bid size
-  bidSize?: number;
+  bid_size?: number;
   // the UTC timestamp of the quote
   timestamp?: string;
 }
@@ -118,13 +118,13 @@ export interface QuoteRequest {
 
 export interface QuoteResponse {
   // the asking price
-  askPrice?: number;
+  ask_price?: number;
   // the ask size
-  askSize?: number;
+  ask_size?: number;
   // the bidding price
-  bidPrice?: number;
+  bid_price?: number;
   // the bid size
-  bidSize?: number;
+  bid_size?: number;
   // the stock symbol
   symbol?: string;
   // the UTC timestamp of the quote

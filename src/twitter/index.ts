@@ -42,7 +42,7 @@ export class TwitterService {
 
 export interface Profile {
   // the account creation date
-  createdAt?: string;
+  created_at?: string;
   // the user description
   description?: string;
   // the follower count
@@ -50,7 +50,7 @@ export interface Profile {
   // the user id
   id?: number;
   // The user's profile picture
-  imageUrl?: string;
+  image_url?: string;
   // the user's location
   location?: string;
   // display name of the user
@@ -91,7 +91,7 @@ export interface Trend {
   // name of the trend
   name?: string;
   // the volume of tweets in last 24 hours
-  tweetVolume?: number;
+  tweet_volume?: number;
   // the twitter url
   url?: string;
 }
@@ -105,13 +105,13 @@ export interface TrendsResponse {
 
 export interface Tweet {
   // time of tweet
-  createdAt?: string;
+  created_at?: string;
   // number of times favourited
-  favouritedCount?: number;
+  favourited_count?: number;
   // id of the tweet
   id?: number;
   // number of times retweeted
-  retweetedCount?: number;
+  retweeted_count?: number;
   // text of the tweet
   text?: string;
   // username of the person who tweeted
