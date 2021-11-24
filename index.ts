@@ -21,6 +21,7 @@ import * as image from "./image";
 import * as ip from "./ip";
 import * as location from "./location";
 import * as mq from "./mq";
+import * as news from "./news";
 import * as notes from "./notes";
 import * as otp from "./otp";
 import * as postcode from "./postcode";
@@ -69,6 +70,7 @@ export class Client {
     this.ipService = new ip.IpService(token);
     this.locationService = new location.LocationService(token);
     this.mqService = new mq.MqService(token);
+    this.newsService = new news.NewsService(token);
     this.notesService = new notes.NotesService(token);
     this.otpService = new otp.OtpService(token);
     this.postcodeService = new postcode.PostcodeService(token);
@@ -116,6 +118,7 @@ export class Client {
   ipService: ip.IpService;
   locationService: location.LocationService;
   mqService: mq.MqService;
+  newsService: news.NewsService;
   notesService: notes.NotesService;
   otpService: otp.OtpService;
   postcodeService: postcode.PostcodeService;

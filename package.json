@@ -39,6 +39,7 @@
   "ip",
   "location",
   "mq",
+  "news",
   "notes",
   "otp",
   "postcode",
@@ -76,5 +77,5 @@
   "prepare": "npm run build"
  },
  "types": "index.d.ts",
- "version": "1.0.797"
+ "version": "1.0.798"
 }
