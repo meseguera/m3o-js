@@ -6,7 +6,7 @@ export class NewsService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  //
+  // Get the latest news headlines
   headlines(request: HeadlinesRequest): Promise<HeadlinesResponse> {
     return this.client.call(
       "news",
